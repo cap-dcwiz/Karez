@@ -3,4 +3,4 @@ Data Collection Module of DCWiz
 
 ## Architecture
 
-![Architecture](doc/arch.svg)
+<img src="doc/arch.svg" alt="Architecture" width="600"/>
