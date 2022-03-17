@@ -1,3 +1,4 @@
+import asyncio
 import json
 import logging
 from abc import abstractmethod
@@ -10,12 +11,28 @@ class ConverterBase(KarezRoleBase):
     def __init__(self, *args, **kwargs):
         super(ConverterBase, self).__init__(*args, **kwargs)
         self.next = self.config.get("next", None)
+        self.sub = None
+
+    async def disconnected_cb(self):
+        await super(ConverterBase, self).disconnected_cb()
 
     async def subscribe(self):
-        await self.async_init()
-        await self.nc.subscribe(f"karez.converter.{self.name}",
-                                queue=f"converter.{self.name}",
-                                cb=self._handler)
+        try:
+            await self.async_ensure_init()
+        except Exception as e:
+            logging.error(str(e))
+        if self.nc.is_connected:
+            if self.sub is not None:
+                await self.sub.unsubscribe()
+            self.sub = await self.nc.subscribe(f"karez.converter.{self.name}",
+                                               queue=f"converter.{self.name}",
+                                               cb=self._handler)
+
+    async def run(self):
+        while True:
+            if not self.nc or not self.nc.is_connected:
+                await self.subscribe()
+            await asyncio.sleep(10)
 
     async def _handler(self, msg):
         reply = msg.reply

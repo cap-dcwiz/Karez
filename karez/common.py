@@ -10,9 +10,28 @@ class KarezRoleBase:
         self.nc_addr = nats_addr
         self.nc = None
 
-    async def async_init(self):
+    @staticmethod
+    async def error_cb(e):
+        pass
+
+    async def disconnected_cb(self):
+        print(f'{self.name}: Got disconnected!')
+
+    async def reconnected_cb(self):
+        print(f'{self.name}: Got reconnected to {self.nc.connected_url.netloc}')
+
+    async def async_ensure_init(self):
+        conn_options = dict(
+            servers=self.nc_addr,
+            name=self.name,
+            error_cb=self.error_cb,
+            disconnected_cb=self.disconnected_cb,
+            reconnected_cb=self.reconnected_cb
+        )
         if not self.nc:
-            self.nc = await nats.connect(self.nc_addr, name=self.name)
+            self.nc = await nats.connect(**conn_options)
+        elif not self.nc.is_connected:
+            await self.nc.connect(**conn_options)
 
 
 def search_plugins(file_path, name):

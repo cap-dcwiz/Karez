@@ -2,6 +2,7 @@ import asyncio
 import logging
 from pathlib import Path
 
+import sys
 import typer
 from dynaconf import Dynaconf
 
@@ -27,7 +28,8 @@ def main(config_files: list[Path],
     conv_lib = search_plugins([Path(plugin_path, "converter")], "Converter")
     for conv_config in config.get("converters", []):
         converter = conv_lib.get(conv_config.type)(conv_config, nats_addr=nats_addr)
-        event_loop.run_until_complete(converter.subscribe())
+        # event_loop.run_until_complete(converter.subscribe())
+        event_loop.create_task(converter.run())
 
     event_loop.run_forever()
 

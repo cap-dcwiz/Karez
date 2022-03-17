@@ -20,23 +20,28 @@ class PullConnectorBase(ConnectorBase):
         self.interval = self.config.interval
 
     async def run(self):
-        await self.async_init()
         while True:
-            count = 0
-            for item in await self.pull():
-                if self.converter:
-                    topic = f"karez.converter.{self.converter}"
-                    reply = f"karez.telemetry.{self.name}"
-                else:
-                    topic = f"karez.telemetry.{self.name}"
-                    reply = ""
-                await self.nc.publish(topic, json.dumps(item).encode("utf-8"), reply=reply)
-                count += 1
-            logging.info(f"Connector[{self.name}]: publishing {count} items")
+            try:
+                await self.async_ensure_init()
+            except Exception as e:
+                logging.error(str(e))
+            if self.nc.is_connected:
+                count = 0
+                for item in await self.pull():
+                    if self.converter:
+                        topic = f"karez.converter.{self.converter}"
+                        reply = f"karez.telemetry.{self.name}"
+                    else:
+                        topic = f"karez.telemetry.{self.name}"
+                        reply = ""
+                    await self.nc.publish(topic, json.dumps(item).encode("utf-8"), reply=reply)
+                    count += 1
+                if count > 0:
+                    logging.info(f"Connector[{self.name}]: publishing {count} items")
             await asyncio.sleep(self.interval)
 
     @abstractmethod
-    def pull(self):
+    async def pull(self):
         pass
 
 
@@ -47,6 +52,13 @@ class RestfulConnectorForTelemetries(PullConnectorBase):
 
     def partition_devices(self, devices):
         return [devices]
+    
+    async def _try_fetch_data(self, client, device):
+        try:
+            return await self.fetch_data(client, device)
+        except Exception as e:
+            logging.error(str(e))
+            return []
 
     @abstractmethod
     async def fetch_data(self, client, devices):
@@ -71,8 +83,8 @@ class RestfulConnectorForTelemetries(PullConnectorBase):
     async def pull(self):
         data = []
         async with self._create_client() as client:
-            tasks = [self.fetch_data(client, group)
+            tasks = [self._try_fetch_data(client, group)
                      for group in self.partition_devices(self.config.devices)]
             for res in await asyncio.gather(*tasks):
-                data.extend(res)
+                data.extend([r for r in res if r is not None])
         return data
