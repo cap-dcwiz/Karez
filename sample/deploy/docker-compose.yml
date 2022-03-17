@@ -1,0 +1,65 @@
+version: '3.9'
+
+services:
+  storage-influxdb:
+    image: influxdb:latest
+    restart: always
+    ports:
+      - "8086:8086"
+    volumes:
+      - ./data/influxdb:/var/lib/influxdb2
+    environment:
+      DOCKER_INFLUXDB_INIT_MODE: setup
+      DOCKER_INFLUXDB_INIT_USERNAME: ${INFLUXDB_USERNAME}
+      DOCKER_INFLUXDB_INIT_PASSWORD: ${INFLUXDB_PASSWORD}
+      DOCKER_INFLUXDB_INIT_ORG: ${INFLUXDB_ORG}
+      DOCKER_INFLUXDB_INIT_BUCKET: ${INFLUXDB_PLATFORM_BUCKET}
+      DOCKER_INFLUXDB_INIT_ADMIN_TOKEN: ${INFLUXDB_TOKEN}
+
+  telegraf:
+    image: telegraf
+    restart: always
+    volumes:
+      - ./telegraf.conf:/etc/telegraf/telegraf.conf
+
+  nats-server:
+    image: nats
+    restart: always
+    ports:
+      - "4222:4222"
+
+  karze-dispatchers:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+      target: karez
+    image: karez
+    restart: always
+    volumes:
+      - ../config:/karez/config
+      - ../../plugins:/karez/plugins
+    command: -c config/${KAREZ_CONFIG} -a nats://nats-server:4222 -d
+
+  karze-connectors:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+      target: karez
+    image: karez
+    restart: always
+    volumes:
+      - ../config:/karez/config
+      - ../../plugins:/karez/plugins
+    command: -c config/${KAREZ_CONFIG} -a nats://nats-server:4222 -n
+
+  karze-converters:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+      target: karez
+    image: karez
+    restart: always
+    volumes:
+      - ../config:/karez/config
+      - ../../plugins:/karez/plugins
+    command: -c config/${KAREZ_CONFIG} -a nats://nats-server:4222 -v

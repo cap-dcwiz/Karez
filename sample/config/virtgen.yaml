@@ -2,7 +2,7 @@ dispatchers:
   - type: default
     connector: virtgen_conn
     batch_size: 100
-    interval: 10
+    interval: 120
     entity_file: config/virtgen_devices.json
 
 connectors:

@@ -7,7 +7,8 @@ ENV PYTHONPATH="${PYTHONPATH}:/opt/" \
     PIP_DISABLE_PIP_VERSION_CHECK=on
 
 COPY pyproject.toml /karez/
-COPY karez/ /karez/karez
+COPY karez /karez/karez
+COPY plugins /karez/plugins
 RUN pip install poetry
 RUN poetry config virtualenvs.create false
 RUN poetry install --no-dev
