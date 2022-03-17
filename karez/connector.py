@@ -2,6 +2,7 @@ import asyncio
 import json
 import logging
 from abc import abstractmethod
+from copy import copy
 
 from httpx import AsyncClient, Limits
 
@@ -28,8 +29,11 @@ class PullConnectorBase(ConnectorBase):
             if self.nc.is_connected:
                 count = 0
                 for item in await self.pull():
+                    converter = copy(self.converter)
                     if self.converter:
-                        topic = f"karez.converter.{self.converter}"
+                        next_step = converter.pop(0)
+                        item["_next"] = converter
+                        topic = f"karez.converter.{next_step}"
                         reply = f"karez.telemetry.{self.name}"
                     else:
                         topic = f"karez.telemetry.{self.name}"

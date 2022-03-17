@@ -1,11 +1,9 @@
 [[converters]]
 type="eaton_telemetry"
-next="fix_timestamp"
 
 [[converters]]
 type="fix_timestamp"
 tz_infos = {"SGT"="Aisa/Singapore"}
-next="set_measurement"
 
 [[converters]]
 type="set_measurement"

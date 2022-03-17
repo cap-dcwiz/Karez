@@ -10,7 +10,6 @@ from .common import KarezRoleBase
 class ConverterBase(KarezRoleBase):
     def __init__(self, *args, **kwargs):
         super(ConverterBase, self).__init__(*args, **kwargs)
-        self.next = self.config.get("next", None)
         self.sub = None
 
     async def disconnected_cb(self):
@@ -36,12 +35,13 @@ class ConverterBase(KarezRoleBase):
 
     async def _handler(self, msg):
         reply = msg.reply
-        data = msg.data.decode("utf-8")
-        result = self.convert(json.loads(data))
+        data = json.loads(msg.data.decode("utf-8"))
+        result = self.convert(data)
         if result is None:
             return
-        if self.next:
-            topic = f"karez.converter.{self.next}"
+        next_converters = data.get("_next", [])
+        if next_converters:
+            topic = f"karez.converter.{next_converters.pop(0)}"
             reply = reply
         else:
             topic = reply
