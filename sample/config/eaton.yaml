@@ -1,18 +1,25 @@
+dispatchers:
+  - type: default
+    connector: eaton_conn_test
+    batch_size: 10
+    interval: 10
+    entity_file: config/eaton_devices.json
+
 connectors:
   - name: eaton_conn_test
     type: eaton_telemetry
-    base_url: 'http://eatondcimdemo.com/rest'
-    batch_size: 10
-    converter:
-      - eaton_telemetry
-      - fix_timestamp
-      - set_measurement
+    base_url: http://eatondcimdemo.com/rest
     connection_args:
       timeout: 600
     security:
       type: basic
       username:
       password:
+    converter:
+      - eaton_telemetry
+      - fix_timestamp
+      - set_measurement
+      - update_info
 
 converters:
   - type: eaton_telemetry
@@ -21,3 +28,6 @@ converters:
       SGT: Aisa/Singapore
   - type: set_measurement
     measurement: eaton_ma
+  - type: update_info
+    info_file: config/eaton_device_info.json
+    key: dev_id

@@ -17,8 +17,8 @@ class ConnectorBase(KarezRoleBase):
 
 class PullConnectorBase(ConnectorBase):
     async def _subscribe_handler(self, msg):
-        devices = json.loads(msg.data.decode("utf-8"))
-        for item in await self.pull(devices):
+        entities = json.loads(msg.data.decode("utf-8"))
+        for item in await self.pull(entities):
             converter = copy(self.converter)
             if self.converter:
                 next_step = converter.pop(0)
@@ -38,7 +38,7 @@ class PullConnectorBase(ConnectorBase):
             await asyncio.sleep(CHECKING_STATUS_INTERVAL)
 
     @abstractmethod
-    async def pull(self, devices):
+    async def pull(self, entities):
         pass
 
 
@@ -47,18 +47,16 @@ class RestfulConnectorForTelemetries(PullConnectorBase):
         super(RestfulConnectorForTelemetries, self).__init__(*args, **kwargs)
         self.base_url = self.config.base_url
 
-    def divide_requests(self, devices):
-        return [devices]
-
-    async def _try_fetch_data(self, client, device):
+    async def _try_fetch_data(self, client, entities):
         try:
-            return await self.fetch_data(client, device)
+            res = await self.fetch_data(client, entities)
+            return [r for r in res if r is not None]
         except Exception as e:
             logging.error(str(e))
             return []
 
     @abstractmethod
-    async def fetch_data(self, client, devices):
+    async def fetch_data(self, client, entities):
         pass
 
     def _create_client(self):
@@ -77,11 +75,8 @@ class RestfulConnectorForTelemetries(PullConnectorBase):
                              )
         return client
 
-    async def pull(self, devices):
+    async def pull(self, entities):
         data = []
         async with self._create_client() as client:
-            tasks = [self._try_fetch_data(client, group)
-                     for group in self.divide_requests(devices)]
-            for res in await asyncio.gather(*tasks):
-                data.extend([r for r in res if r is not None])
+            data.extend(await self._try_fetch_data(client, entities))
         return data

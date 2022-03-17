@@ -13,7 +13,10 @@ def launch_role(role, plugin_path, config, event_loop, nats_addr):
     role_lib = search_plugins([Path(plugin_path, role.lower())], role)
     count = 0
     for role_config in config.get(f"{role.lower()}s", []):
-        ins = role_lib.get(role_config.type)(role_config, nats_addr=nats_addr)
+        cls = role_lib.get(role_config.type)
+        if not cls:
+            raise RuntimeError(f"Cannot find {role} plugin: {role_config.type}")
+        ins = cls(role_config, nats_addr=nats_addr)
         event_loop.create_task(ins.run())
         count += 1
     logging.info(f"Launched {count} {role}s.")
