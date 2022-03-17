@@ -6,7 +6,7 @@ from copy import copy
 
 from httpx import AsyncClient, Limits
 
-from .common import KarezRoleBase
+from .base import KarezRoleBase, CHECKING_STATUS_INTERVAL
 
 
 class ConnectorBase(KarezRoleBase):
@@ -16,36 +16,29 @@ class ConnectorBase(KarezRoleBase):
 
 
 class PullConnectorBase(ConnectorBase):
-    def __init__(self, *args, **kwargs):
-        super(PullConnectorBase, self).__init__(*args, **kwargs)
-        self.interval = self.config.interval
+    async def _subscribe_handler(self, msg):
+        devices = json.loads(msg.data.decode("utf-8"))
+        for item in await self.pull(devices):
+            converter = copy(self.converter)
+            if self.converter:
+                next_step = converter.pop(0)
+                item["_next"] = converter
+                topic = f"karez.converter.{next_step}"
+                reply = f"karez.telemetry.{self.name}"
+            else:
+                topic = f"karez.telemetry.{self.name}"
+                reply = ""
+            await self.nc.publish(topic, json.dumps(item).encode("utf-8"), reply=reply)
+        await self.nc.flush()
 
     async def run(self):
         while True:
-            try:
-                await self.async_ensure_init()
-            except Exception as e:
-                logging.error(str(e))
-            if self.nc.is_connected:
-                count = 0
-                for item in await self.pull():
-                    converter = copy(self.converter)
-                    if self.converter:
-                        next_step = converter.pop(0)
-                        item["_next"] = converter
-                        topic = f"karez.converter.{next_step}"
-                        reply = f"karez.telemetry.{self.name}"
-                    else:
-                        topic = f"karez.telemetry.{self.name}"
-                        reply = ""
-                    await self.nc.publish(topic, json.dumps(item).encode("utf-8"), reply=reply)
-                    count += 1
-                if count > 0:
-                    logging.info(f"Connector[{self.name}]: publishing {count} items")
-            await asyncio.sleep(self.interval)
+            if not (self.nc and self.nc.is_connected and self.sub):
+                await self.subscribe(f"connector.{self.name}")
+            await asyncio.sleep(CHECKING_STATUS_INTERVAL)
 
     @abstractmethod
-    async def pull(self):
+    async def pull(self, devices):
         pass
 
 
@@ -54,9 +47,9 @@ class RestfulConnectorForTelemetries(PullConnectorBase):
         super(RestfulConnectorForTelemetries, self).__init__(*args, **kwargs)
         self.base_url = self.config.base_url
 
-    def partition_devices(self, devices):
+    def divide_requests(self, devices):
         return [devices]
-    
+
     async def _try_fetch_data(self, client, device):
         try:
             return await self.fetch_data(client, device)
@@ -84,11 +77,11 @@ class RestfulConnectorForTelemetries(PullConnectorBase):
                              )
         return client
 
-    async def pull(self):
+    async def pull(self, devices):
         data = []
         async with self._create_client() as client:
             tasks = [self._try_fetch_data(client, group)
-                     for group in self.partition_devices(self.config.devices)]
+                     for group in self.divide_requests(devices)]
             for res in await asyncio.gather(*tasks):
                 data.extend([r for r in res if r is not None])
         return data

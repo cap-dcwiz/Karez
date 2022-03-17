@@ -1,0 +1,23 @@
+connectors:
+  - name: eaton_conn_test
+    type: eaton_telemetry
+    base_url: 'http://eatondcimdemo.com/rest'
+    batch_size: 10
+    converter:
+      - eaton_telemetry
+      - fix_timestamp
+      - set_measurement
+    connection_args:
+      timeout: 600
+    security:
+      type: basic
+      username:
+      password:
+
+converters:
+  - type: eaton_telemetry
+  - type: fix_timestamp
+    tz_infos:
+      SGT: Aisa/Singapore
+  - type: set_measurement
+    measurement: eaton_ma

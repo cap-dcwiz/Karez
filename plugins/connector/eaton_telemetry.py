@@ -1,9 +1,9 @@
-from karez.common import sub_dict
+from karez.utils import sub_dict
 from karez.connector import RestfulConnectorForTelemetries
 
 
 class Connector(RestfulConnectorForTelemetries):
-    def partition_devices(self, devices):
+    def divide_requests(self, devices):
         devs = []
         for dev_type, ds in devices.items():
             for dev in ds:
@@ -24,11 +24,12 @@ class Connector(RestfulConnectorForTelemetries):
             dev_info = sub_dict(item, id="dev_id", name="dev_name")
             dev_info["dev_type"] = devices[dev_info["dev_id"]]
             for child in item["children"]:
-                data.append(
-                    sub_dict(child,
-                             "ma_id", "ma_name",
-                             "unit", "value", "value_type",
-                             last_time="timestamp")
-                    | dev_info
-                )
+                if child["value"] is not None:
+                    data.append(
+                        sub_dict(child,
+                                 "ma_id", "ma_name",
+                                 "unit", "value", "value_type",
+                                 last_time="timestamp")
+                        | dev_info
+                    )
         return data

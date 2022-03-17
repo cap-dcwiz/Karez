@@ -1,0 +1,20 @@
+[[dispatchers]]
+type="default"
+connector = "eaton_conn_test"
+interval = 10
+
+[dispatchers.devices]
+"Server - Rackmount" = [
+    "76f0ee03-bbd4-4beb-ad7f-06d9d644c91a",
+    "66b5d196-018f-36b6-93a1-4f0601bade39",
+    "157acef4-acd5-4f57-af33-7f0dfc0d3ae6",
+    "9b18e292-e0e5-481b-9f63-db93a0434abc",
+    "206328a6-6998-3464-90e1-a599dfbf4037",
+    "091ad493-ae1d-3173-b0f7-6f7aa24025f5",
+    "ce91380b-f283-3459-817f-f40b71f4f3bf",
+    "f992f98d-bfb2-311c-87fd-f3e7c6bfe8c0",
+    "099dcc03-f62a-3412-88c9-ce3570449e03",
+    "d2efd1f6-78f2-402e-890a-2b9b3d13b738",
+    "8f7e59f3-09ae-42de-bd88-658a00502842",
+    "25d4352e-9bdc-42fa-b281-fd0ff6b6995b"
+]
