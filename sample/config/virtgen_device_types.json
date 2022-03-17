@@ -1,0 +1,2390 @@
+{
+  "e81c74e6-b91f-4320-9b61-aaa1e2b7b4ec": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "d0b30aec-c406-411a-b3bf-6313c811dad0": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "1a68e12b-edb8-4bb0-b60b-da4a7184260c": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "a14a2dad-d52b-4162-90e3-f56cc4409c08": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "f7639657-6fd2-4e3e-8269-6f601599f1b3": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "1cfdeb74-10b7-4bba-862d-f44112f80528": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "aab0d362-98af-46f8-96f8-a8b394441bb3": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "47e8b805-b6a6-47b8-b4f1-cca9b3256a05": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "f12dc77d-97e5-4079-9683-0f950d97ed7e": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "00cf2022-0ece-4c22-a23a-02c5d5a77cfa": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "d74272b4-be29-43ba-b367-37b731646446": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "fd38ffd1-4939-416d-af19-671976a3dcbf": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "57264256-ef97-49b4-8dc1-5a6f7c356f4e": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "5e66f1f3-c439-4850-8ed0-bbf9473afce5": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "8f6046e7-611d-45c2-a5de-9710efde1582": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "297e975a-d299-474f-8c3e-b79ea71fce42": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "c2ceda36-c5e1-4c21-be9a-4e3f9188fb6b": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "47f14663-0d11-47fc-bbcc-58fea684c349": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "0626e2b5-3306-4bed-8ca4-dd1dd965d7fc": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "93ef94d7-bd89-4a41-b100-1326033bc37d": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "02d68c0e-a2e5-473d-ac8d-cef32c1b83ab": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "0d49a2b2-cab6-410c-8d50-d0a156165e52": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "f7cf7096-abf5-4416-8918-62dcad4585ba": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "82eb3802-b719-4b12-80e6-e44b670e4afd": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "5ce21e20-2ca7-4179-a7ca-b7ab0cd08f09": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "a225518f-4f76-4c8e-908c-43b9ceef178a": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "9f08ae2a-ba80-4e80-8903-28c293d07f34": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "8b748365-a18a-4592-a3a0-36ffe8cd66ba": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "7ba82002-ffb7-4b53-a7bd-55bd9818a318": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "bcdbae41-ba7c-4d40-bfc5-1dc16b95b908": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "125506b2-48e1-4121-963d-c68283e2428f": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "cd0eee99-0c57-40fc-91be-0da4d1e4e9a6": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "7fce80b9-6eab-4c23-b405-11c6995aadb8": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "ae4545fe-89dd-4159-9498-3893f3633111": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "0167bbd9-8829-4edf-b677-9e7eca22df14": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "bab06a0a-094e-4ad4-9f1b-9aa90e2e4ae0": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "6a620f92-7ccb-4685-b03e-d4da0a34d788": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "91f218bc-ada6-4439-a5ba-e26f99d5988c": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "dec258ef-137d-41a9-9a66-771c9b19631d": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "f48cd2f0-cbe3-4656-a7a1-82f3d91437ac": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "59ed269c-7ce2-4018-9134-e83caa83d50c": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "4333880b-ea96-45af-ae80-6b175b5ae63f": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "bdfd40f9-7b80-4e45-8359-38838d875088": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "9d51cf60-c1e9-47ce-aa4f-d7b3a7f7f5c0": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "02dbb1b5-3fb7-4a75-9f0e-bac582dbe6fc": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "a9f81d36-7707-4577-be38-d44d3592080a": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "5f683f52-5342-47dd-aede-4bfb128fa010": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "039397fd-51f3-40c3-8064-a3f4117b080c": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "af029dc6-df66-463f-a454-a9fde46ac012": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "785451cd-c3a1-40c2-9e84-1302a7ef8420": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "c05cf091-47a0-46a5-8735-276d10d32e5d": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "ede95559-7b39-4bfb-89c7-abf42b2e55af": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "7f99dc39-5cf1-45d1-bd04-077272b6fb31": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "aa8df51d-3cff-4122-918c-7ab35ae72aa6": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "408f63c0-520c-406f-ac4c-3bfb75408e15": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "36b3fbb9-57d6-499e-a9b8-2ceeaa6bc6c1": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "d7d71d58-0e0c-499b-980e-d66a0ae929d2": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "de137a47-18bf-4698-94ad-1dca1dd1209f": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "fea2d23b-a631-4ad7-b1eb-89cd79e52bdb": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "13cbd2cd-4f5c-42c1-84ac-5be4cbaaaa85": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "2fa59170-fde2-49ad-9502-baec1d214928": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "5df7a025-8027-4704-863d-5366015d16c8": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "cf3beba7-9e97-4601-a025-62ca67e2d5db": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "4be86007-7ac0-418c-a422-c47de481c487": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "de11361e-d8fa-4792-a92c-b14109ca1684": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "bf5da82d-8ff4-44db-ace0-215655787614": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "afdf4a25-8b70-462a-8043-683c4b728350": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "5acbcaf8-f156-4055-b7a8-c0e5691300cd": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "2bb01f42-1d9f-4bfb-82a7-fd12a1fea252": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "734cd849-ef8b-4b3a-92e4-2368a4555e86": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "5f3ab43b-9380-40f6-824d-52732c9779e9": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "77095be3-ed73-41b4-b2e6-8101d8263e15": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "45856323-8176-4b84-9e3c-3c305dab3e0b": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "cccb8ff1-899e-4602-82db-544f292bbeb4": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "30cbecb9-87f3-4462-a999-8b72d04045cb": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "902dc261-f806-4194-b49a-06e56451d38a": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "f14f03dc-a778-4258-a278-4b289dd39185": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "4be7a78d-d854-4f9a-b391-53ffe2002205": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "e35a90a2-dd29-4710-b099-a0cc4c15133c": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "4501a4cb-0770-4efb-b839-5b7eb0ebd635": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "9b2644ff-a8d9-4571-8587-c98a852c629d": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "1da82b26-42f9-443a-b157-7c2fff246497": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "763131a2-1a77-451d-acf9-ce5841f7c651": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "af07e041-6c16-41ee-a20c-93d3288306b0": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "525e5628-6a19-4c7c-841e-12a4e1228a1e": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "fd16cdb8-f30f-4509-b0e9-d82c05c2b1a4": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "e43cbe0b-75e7-43c4-9748-e741bd42bc7c": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "b961ac82-ecbd-4194-9bf1-da338d8b3089": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "6758e48e-d76c-47c3-a6aa-9f88bd81d3dc": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "e1467b97-ce9e-45a9-a311-66e28146bc4e": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "78de7794-d762-48c2-b4b0-487ba781deba": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "43820f9d-3918-4431-b1ce-7f1836972a47": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "47ce4fb9-b76b-44c1-9dcd-195b2425aab0": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "e28c9c21-b7f8-403c-b04a-53fe300062e5": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "e9ecd20c-c68a-40b3-b54a-85ea104637a5": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "a132b11f-3208-40ea-aa45-b96e9582f23f": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "bfe73081-dd16-414f-9f09-8decc6051710": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "c65e6a18-743c-4d03-a64a-b8ce5107a2c3": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "db4e3cf0-dab2-4c8a-9c31-dc9f35bc49c3": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "aea657dd-424d-4428-9a98-3ba05df098c0": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "b63a834f-15d9-4408-8868-504282f61584": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "bc41be9f-12cd-4414-aed2-fed7c509fc5c": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "e0266e07-3622-4809-9f0a-6c3a916ad093": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "2a2c85d1-995d-47ef-9c0d-8a089ad69b1f": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "fce42d88-220f-484d-b189-00ba6245e65a": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "acc912e5-ff48-43a4-84e4-ddbc167794d7": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "5cbe664a-9ef8-46ec-8090-fd1bb1ff18b3": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "f48f4c48-448a-4ebd-92e8-1cae42d074ea": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "8cb0a1c4-c519-4a2e-bf77-d4ea66776e16": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "da809abd-4a4e-4fbd-8cb3-e284a4904772": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "e16ddffe-edb4-4728-8b04-9eab659aedb9": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "89214582-ed6c-4a20-ba94-608999c2ecff": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "4fbce718-060f-49d1-a51b-a85091cb426a": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "18798a85-ff13-451c-8d98-1c70fda40c0b": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "e4a1f2d4-52ce-4797-b3c4-80402b86a61a": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "99e19cde-5ac0-4c47-bddd-d3aaa607e6a4": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "2e375fde-36a0-46d9-9c42-604b59844924": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "bb584e63-cec3-4d27-95c9-8a936dad97dc": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "a249a619-2ba2-49bb-abdd-be4083ec44b9": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "23b023b5-fd70-4379-ad82-832153c7e4dc": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "1a08a572-c8bc-4965-9bab-50a34fa37419": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "0195bf1a-0971-4a4e-8a9d-fad5f1d5de70": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "2137f92e-9592-452a-a57b-bd50221e94df": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "4977240e-4dc4-49da-9e8a-e6c4d2356742": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "95fec0d8-d35f-4f49-8107-e4786901f658": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "9245c996-7749-4520-b781-9ed84fff4315": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "1c8a14ae-5741-4718-8707-c14c7226d6ba": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "a9ce6dfc-73ff-48aa-9df9-89824bfeb145": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "49869a21-7beb-404f-b908-ed252f38f69c": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "34018f67-c4bc-418d-9f5c-b0c21069e12a": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "b2fcbe90-67ee-41e2-b14f-cd5eda4bb738": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "3da7a6c8-6157-470e-a3aa-528923d5fc91": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "40c93b1e-4e84-4f84-81cb-497ceddddf5c": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "009344d4-cd53-4df7-8b42-bd969dec798f": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "83292ab0-4246-4a26-ac68-0b144e73a063": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "3685f445-a85e-44b0-ab5a-5f3fd7802250": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "ed1e8e9a-1167-4f1c-99e8-e1db3bba0b8e": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "445a74d2-c9b7-46d0-ad37-c0b3353b60d4": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "91209e4c-aa9d-48f9-aff5-3d5295ee1b4a": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "1a36eb9f-f7a0-4b06-b3ac-5a5fb84eedb5": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "e9489891-fdee-4464-b652-2a2884059965": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "b8c53291-8358-41fa-9915-c01e72f6b0f4": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "e73c22fa-9ee6-4947-874d-cdc93237c320": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "0516893b-2352-4883-b967-c2047ec380c1": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "b5f1353d-76a5-4e82-9b61-c134915cd4b1": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "33708ee8-cd24-4fc0-963d-0b95ca835414": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "0befdd83-cff7-4d6c-8f5a-dbe3ad3408be": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "225ad9c2-faf5-4664-b97c-0c8629fafea2": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "a232b2a6-bc81-4bea-bef5-893d084b0286": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "9721c052-a626-4d46-80f3-58483b64593a": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "8919932b-5bbe-4df9-8eb7-0d7c58a98ec1": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "561bb217-8589-4b79-9784-828e793868af": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "c82de999-4472-4e18-8e81-f2006e7077fb": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "7bac7f1e-04b8-4748-8122-a70e46703816": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "71cb2fa0-35c3-4f47-bd27-9b80d5239b9e": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "f38e1b67-a28b-46d2-beee-0d3e21279c01": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "09be6f93-5f50-4123-bd48-7c6ab8786394": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "37b51d64-2804-4a1e-8c8d-89bb36dc81c7": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "b9cf7b9f-f930-445b-bb9d-b0343d87300b": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "8c2f1435-cd90-4d34-8267-459d9a81948b": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "d1d88999-9de7-4be7-9e56-7f2237073cf8": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "f7b0292f-a3f3-4ca3-8dfe-8f4aa448d2d8": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "b7dd0c7f-34e9-46c6-a658-142846acfc69": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "c6fdb9a1-637c-4006-af58-b86d336fd9fe": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "2a40d4b8-f541-4fae-bf57-665fe369a143": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "08f4d956-4d6f-4fbf-8eeb-20d3a81c00fc": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "12728ce5-48f6-4c28-958c-6351bc2258f0": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "36179450-c5e9-45b8-aeed-ce96ca037487": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "8e4be3ec-5111-4116-9223-26eccd146583": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "a9a5cd07-6c26-4c7c-bc8f-1c743b430ff6": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "d1ea20ba-c426-46a5-bebf-6c079cfa0e9f": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "4ca686e7-a7df-4828-a215-c30d4a923c66": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "68d1d753-1bed-47f8-9c56-fcebe5df1cf5": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "20ca9ac3-8443-4f3b-9880-30824127c440": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "31d78d6c-227f-442d-a7f6-78c810bfb291": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "c8c66f1a-4d19-40a0-b7ff-eb8eea8e190b": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "52b71228-8d14-4e7f-8881-4ed77a657e09": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "6d94a09e-2790-49f2-9f8b-5b76e8ff1092": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "988bc9b5-da34-4816-aa08-09d66d6eddde": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "6fefaa6d-be2f-4afa-80bd-f8b73d293cac": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "79e0b0da-b8a3-4e07-8969-95f1ceef3cc2": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "78b8e436-ca81-438c-a31f-0027ba7de4af": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "88d19179-7512-4c45-a1d8-eb3ed78f2aac": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "4323a9bc-ef6e-4f05-a772-64f1dace1cd9": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "476007fd-5015-44e5-abea-eb17acc4ec09": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "1164ab14-4aee-48aa-8ec9-1df10a30e16a": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "2d6bc28e-4a93-4059-b351-8a456e7752c4": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "b0aa0d9e-2bfc-4b3c-a02b-c3f9a1dc1388": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "1fce0060-3080-421e-94b8-bd58f55689f7": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "7cab05a7-e56c-46df-8209-eb3fe1773686": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "109eb6fe-3594-45da-8fa4-4d8b52daa98a": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "367aecd1-3507-4219-ac54-980aaadafc07": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "664ff70d-2db7-4d91-818e-dad8eb9a9669": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "f81fe6d5-0bec-43ab-9b65-21d3074b1b5d": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "bc2e8c4c-cd49-4df8-9362-ea949347397f": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "578594c4-9a0c-43a7-a3cb-039fa3fa2fba": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "92e79c12-4a8e-4bca-a55a-0c2a2bddf108": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "1af7a97f-a61b-456f-a6cb-9db6557e85be": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "c7d1e37d-f6d7-4b0c-a727-2278dcfaf1f9": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "05ec41eb-0fe1-4c86-9705-74b860a1c5e4": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "b242ed5f-3aa2-4661-a215-277320d24916": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "b4f7aea2-b79c-4b40-9d56-43a7e9d70811": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "e9341249-150f-4067-b25c-51ff6ec68f4e": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "e0fecc19-40dd-4c31-bf12-932a689fb5eb": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "9b070f66-67dc-4308-8d20-e507e7936bca": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "e73d2e39-796b-4d46-9bb5-4a6a99daa99a": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "c465b569-e6b9-47fa-885c-2703dfc5e235": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "5639167f-0316-4aed-9c5f-6609d876b17d": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "1ed8524c-4815-4797-a444-a7819448ab4e": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "3460af1d-bf29-4ca8-8472-94b7a37b1b26": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "36a6e87c-b757-4c64-b70e-b349ba76f552": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "2c388ccc-2953-4825-92ee-99180252d3a7": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "4cff61e3-e1fb-4934-858f-0a2ff1ea7d6d": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "e8d4f638-62ba-4a6e-aae4-714b4aebf763": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "47d7f2f2-2c99-4acb-9e9d-23a54bf9e05e": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "ff5d6de7-57bb-4c7a-8557-65d56285fbea": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "c444c8ba-9969-4fc8-bc0f-161c6dc84e3f": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "0ef24ad8-a0a3-49f3-993c-3f07aebf96c1": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "766f9392-1892-4b29-b3d0-9f6f99b36833": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "cfa7c313-ce66-4725-9aff-1b8bcdcbb618": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "64805d76-646e-4514-b9c1-b4bc05dc39d6": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "6740fe25-efa5-4483-bc3f-a8d4e0858d96": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "a716d812-dea0-4edc-afc4-7315fbefafaf": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "93a29fb3-8d48-454f-9189-954ac88c2a79": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "a380a210-7d9c-48f3-ba6c-cb8106ca8327": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "1fc7fecd-8f8e-4968-ab5f-0dc310fd563a": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "977e0a46-a81a-42a6-a66f-040f9b7e8601": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "2c674fea-6202-463a-97a9-a6574f9b1b8a": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "3ebe68aa-496e-4d0e-a5da-99b59d8a6c59": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "bb4f58cb-674b-45e9-a81c-5e0fc7171125": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "1b6998b9-0448-4911-8ca9-df719faeaa68": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "fc259478-4b71-4dad-8aa1-95227df26011": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "552fbc04-f026-4ba6-8004-a3b51039b435": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "93a14a09-4834-4301-aee5-11e041a6ffb1": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "8e65174c-82dd-4a2a-ab09-96180b8b17c5": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "d71b8316-fac9-4693-830b-fe74cb2f4e6d": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "694947f9-a318-4f65-a732-7584cca79d6e": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "a386eabc-2ab2-4dbb-85be-c0420a7ed942": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "0cfbde3d-a26e-4e30-a01b-5b8b92ff4534": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "f1b94826-1796-403f-9391-9a82d8624c30": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "835ee694-885b-4141-9938-f08d0ed60b12": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "25ee4945-f9ab-4cc5-a7d2-d79a8ab931e4": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "78bf32fd-17a9-4dfb-aa1e-c25ba143cbe5": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "6f71d570-1954-4b05-baf6-976f4b9bfd04": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "12bff2e1-5d25-4387-8212-b9863a9ddbd8": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "0d534085-5fbe-4ee7-a722-42b40d6efa6f": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "0bea4c01-e782-4f11-a296-5a95a8e9e857": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "8241dfdc-95c2-43a4-993d-213cc218f21f": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "a9e72d04-68d0-4569-8bb6-4a8cbe925a70": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "52eba555-a407-4eba-b384-75c9203c9565": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "edc27d10-9ced-44c2-b8a4-f33e5bae3b97": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "1cd80a69-1bdc-4396-aacd-3dfd93fd7b12": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "4224d24c-cadb-454b-9884-d8bc9fc8baff": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "746b3b07-89b2-448c-bedd-0f6228f8c369": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "75dda89b-8258-422e-86bf-637364f02c66": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "71c266a9-37cd-4562-9391-d4950d98fefa": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "8ac5b6b8-3225-4304-9596-4adc2c64ef0c": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "0ae11f37-a19c-4581-b0af-9e60dc3f0e13": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "44fac030-e81f-4cf0-bb53-af87e68fe828": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "bb969b66-f6ef-4df7-9fb9-b747a422f850": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "08912f49-3fa0-43b1-8428-2588d860d3d7": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "96d6ae49-4990-4ecc-b6bf-273d6d2ccb01": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "41c3ece5-0ea9-4993-b23c-672adb501f61": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "0ce1d0fd-e7f6-4587-9dd0-425dea7c037b": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "559eb142-f073-4a3f-8133-03a25dbbf687": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "bfa806c2-7d96-4303-a4e1-ee2ff64c5141": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "ba001221-12a9-4822-b483-3450f30ba8d0": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "05396454-c238-4f03-9353-e43fa4f5d398": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "1ed4f91d-fc57-4053-b61c-76a8ee910ef1": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "6be72e01-84b3-4e54-9adf-1100aad29f96": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "7a37aa4c-439a-4c80-9681-8b7aeab04ca4": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "0a83486c-db8c-4ebb-b446-02c2f05f6030": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "22817b64-a214-4000-9dfb-aa0cd0ae62b7": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "3346a11e-437f-4045-81d1-728f4360cca5": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "635d801c-3db5-4698-91b3-630fc187dec7": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "a4f0f984-11e8-4c46-9689-4a4365300350": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "52324aa6-a30c-43a3-b81a-6c5d295b408c": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "009ad7cd-6f5a-4d9b-9244-7e435dddc1df": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "9dcf500c-0645-42e9-b3d0-66aefb2b4925": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "f988f5f3-52c2-466f-b198-385236a4fbfa": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "9faebcf1-d835-4554-ad6a-d829b4ccdf31": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "a5e26c0d-0ad3-4843-bb43-3e29274ed53b": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "773cf430-0a25-44a1-b789-50d320f88423": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "ba04eb3c-9f74-45ae-b637-ce96a18098d0": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "78e09c03-e12d-42a2-9464-51ebfbecc2bb": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "7d46c108-69e4-4292-9ee6-c38b0e9dc783": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "db69da42-3c48-48ae-b8bb-5d232e63cb14": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "2d3fafff-1f94-4604-9b85-3471ca12104e": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "2990cac9-49e9-4912-9157-31d151b34e65": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "58be9d90-2754-420b-837c-19b354f9fb80": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "71ffb2c5-bc19-41b1-8637-f771ae8dee1b": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "f6b61fb9-6038-405a-aad0-749feedd7a91": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "a758e055-bc0d-4dc2-ba32-2d17a4be2b38": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "639ad54e-1148-4370-851d-d42f48a155ab": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "2d798dd0-8a20-4c35-b868-d38b06d009a2": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "8864e78c-92d8-4fa7-9afb-d3c02aaba027": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "42686b56-3dfa-4b72-b620-f121442defb0": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "5440e84a-f0f6-4ea7-bfbc-9bc41cc41c8f": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "57be3257-b9de-413c-b756-bc21c2a79ebe": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "409a825b-0170-4713-a6b1-8ff25fdeaf8f": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "17b3cced-2336-4513-9082-efa5d9c2f275": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "93a8691e-6fe8-40a7-b74c-44f37cbf5015": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "69550f91-c0ac-4142-8282-3fb0df3109b6": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "69a33c0e-5da0-48bb-8712-b2804d843e8b": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "b4297f9a-f00b-4fcf-a0a4-19721d592f3e": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "aa08c063-283e-40ab-9d08-20b7e871fd95": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "b34a45d4-5098-4672-a563-6d66a14da330": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "b75ae772-b871-4c2d-92ec-cd0fb48d8aab": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "16554d6b-e129-4271-8560-48d9385beeff": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "10eaba88-972e-4a74-9382-be4c2b8231c9": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "034c5c2b-a7c9-4037-8467-77f93f62cbf8": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "1c13796d-ab30-4dae-9cb2-4a7a16770a0a": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "8c33f189-37d5-43a8-a3c7-4116b5d7c56c": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "954e941e-293d-43a7-bc50-91af58b4ae9e": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "da82928e-b682-4712-9d98-0235d6944ee9": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "a45b7871-56ab-405f-86be-003194380b21": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "b21359f6-780a-4324-bfe0-ca8bb451ef45": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "8f036539-0b25-42d0-b96b-5fb3538cd871": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "86cc3258-bd89-470e-85c9-d054a498f1f3": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "2debb817-34e1-4cbb-8f64-c15ce17a4723": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "669bcabc-3c92-441b-837c-3d4dd1e5b0a9": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "960194e3-103b-4c9a-8d09-c595bca43590": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "14d2c046-3f37-4c99-8a0f-758c3c6db12a": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "aceb7a8e-a9a1-4027-9b83-6625ba3aab1e": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "f3f2b11d-a6a7-4adb-be2a-2a80f6ea19d8": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "eae59f66-cf63-44e1-8a93-a4c4ac9df9ad": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "72e09abc-41de-4512-8d66-3eee8493975e": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "044501a0-5519-4894-ba36-903fba56a802": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "7c4231a6-c4fe-4cc1-a432-60089beccb4b": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "d30f654e-4ae5-4850-808d-17a73e2931df": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "01d17f91-3e96-4221-b470-6df58fd2ee94": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "ec77a5d2-2c86-4cd3-a4e0-e6f2b76d03a2": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "c811ac34-9fe7-47c0-8f4d-8845b89fad97": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "d4868559-faa8-4cab-89e6-4356dc96d496": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "83201bfc-3fba-4b72-a46a-a91402696f66": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "e8b82ccf-a547-47fa-88f9-b0ce8c306394": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "aea0d290-f0f4-46ac-824b-4569bf40ba9f": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "46ccc139-49ec-403a-aaeb-a9ff9123fe22": {
+    "dev_type": "PDU - Rackmount"
+  },
+  "c37f4ebc-61f7-4c28-b91a-867f2a59447f": {
+    "dev_type": "Power Meter"
+  },
+  "5d3e678f-64bf-4dca-8842-2647dfdc5af4": {
+    "dev_type": "Power Meter"
+  },
+  "41492d65-7fe6-4543-9cd3-6f3df1b5667f": {
+    "dev_type": "Power Meter"
+  },
+  "8df4ef66-3f82-4cbf-87f6-2941f0ba1c16": {
+    "dev_type": "Power Meter"
+  },
+  "531997ee-a9ec-48b6-84e1-c1106542e444": {
+    "dev_type": "Power Meter"
+  },
+  "c611e547-59fc-44e2-9485-8bb332298463": {
+    "dev_type": "Power Meter"
+  },
+  "b693bc2f-ad39-47ee-8713-160bb612c44d": {
+    "dev_type": "Power Meter"
+  },
+  "0471cd21-0058-496f-9d03-856a59ec6223": {
+    "dev_type": "Power Meter"
+  },
+  "2b2a86b0-9dee-3233-941d-7dc9595cdd80": {
+    "dev_type": "Sensor"
+  },
+  "91a8cf11-0653-3864-8876-74a55df0400d": {
+    "dev_type": "Sensor"
+  },
+  "aed084ae-2798-333c-84f3-f3b403a9dfd1": {
+    "dev_type": "Sensor"
+  },
+  "5536d86d-4991-3318-a205-e378c33d658b": {
+    "dev_type": "Sensor"
+  },
+  "30b96b8a-5264-3df0-b9ce-956e773ee6ae": {
+    "dev_type": "Sensor"
+  },
+  "0981bce1-dfac-3857-9bfe-5ec68378e56e": {
+    "dev_type": "Sensor"
+  },
+  "931efa6e-e59e-3438-bdeb-3160c3110f29": {
+    "dev_type": "Sensor"
+  },
+  "cb9fbe84-71df-375c-ac2a-97877d18d412": {
+    "dev_type": "Sensor"
+  },
+  "81a1ab4c-d604-3dbd-a714-08e97a40c7c2": {
+    "dev_type": "Sensor"
+  },
+  "b503e275-f8c7-37b9-8d9b-bca7b29c805f": {
+    "dev_type": "Sensor"
+  },
+  "70fc01a8-7722-303d-90ef-2345418e3e98": {
+    "dev_type": "Sensor"
+  },
+  "a1b147f9-d9e7-3d3b-bda8-4f7537230e21": {
+    "dev_type": "Sensor"
+  },
+  "b24b3a12-57e7-36fc-878e-4b267ce6c876": {
+    "dev_type": "Sensor"
+  },
+  "2433389c-56c7-3bc3-9991-91ec557286dc": {
+    "dev_type": "Sensor"
+  },
+  "76b64ccc-cba9-3d8f-9f46-334349df6eea": {
+    "dev_type": "Sensor"
+  },
+  "6f7f77fc-d9c1-317c-b82d-61b13a34f1d3": {
+    "dev_type": "Sensor"
+  },
+  "0a7392b7-cb5a-37eb-9743-67b6acc3ed88": {
+    "dev_type": "Sensor"
+  },
+  "8814fa7f-1c88-3484-bb94-6306800123e6": {
+    "dev_type": "Sensor"
+  },
+  "94f63a4f-e91c-373a-aa0a-b5c851427890": {
+    "dev_type": "Sensor"
+  },
+  "7b0c4918-965e-30ee-825e-06a8001a0442": {
+    "dev_type": "Sensor"
+  },
+  "2daa8934-714e-3145-8ecb-8f288413de52": {
+    "dev_type": "Sensor"
+  },
+  "33be1fb5-1754-35cc-a900-5fab5d623a84": {
+    "dev_type": "Sensor"
+  },
+  "8b857f90-17e7-3bec-bfd9-c2f55df45b98": {
+    "dev_type": "Sensor"
+  },
+  "2cc42414-2649-3231-92c3-a9384c82f948": {
+    "dev_type": "Sensor"
+  },
+  "21b8ec47-9fcc-30e8-9baa-2e80a5be1096": {
+    "dev_type": "Sensor"
+  },
+  "78fcddd1-9847-3387-b8ae-1601b44d3eee": {
+    "dev_type": "Sensor"
+  },
+  "2311eaef-6519-3f50-9daa-d7ee709002ba": {
+    "dev_type": "Sensor"
+  },
+  "4c069717-db95-332b-a9d5-62f05b299239": {
+    "dev_type": "Sensor"
+  },
+  "9707ba60-465b-38ef-9ed3-1bbc66a98102": {
+    "dev_type": "Sensor"
+  },
+  "7cc80164-1b52-3c39-9138-18c58e7c71e2": {
+    "dev_type": "Sensor"
+  },
+  "accdec35-16b7-3f19-a75b-b8e96cf054c8": {
+    "dev_type": "Sensor"
+  },
+  "26b50568-bd79-3200-9506-5a13a0849aea": {
+    "dev_type": "Sensor"
+  },
+  "5bafce2b-d787-3b80-87d3-e242fc2d0c6b": {
+    "dev_type": "Sensor"
+  },
+  "9935c865-eba6-31c5-8da4-a7715a3c5db0": {
+    "dev_type": "Sensor"
+  },
+  "bc885f02-a5ee-3d5f-9005-b5d9346b579a": {
+    "dev_type": "Sensor"
+  },
+  "9beaad7e-7719-3b14-bd52-cafb8ad498f2": {
+    "dev_type": "Sensor"
+  },
+  "1e464bf6-170f-32e0-9f15-c8fbfc47d625": {
+    "dev_type": "Sensor"
+  },
+  "a4390919-9be9-3a22-850f-a307a96d82ed": {
+    "dev_type": "Sensor"
+  },
+  "ed6efb7e-2561-3a8f-85de-8e1513f14555": {
+    "dev_type": "Sensor"
+  },
+  "42c24992-4d83-3b0b-82db-6a7db4d53f99": {
+    "dev_type": "Sensor"
+  },
+  "e18ec938-78c9-3f24-a9b6-448c57961021": {
+    "dev_type": "Sensor"
+  },
+  "c8a1992d-7ccc-3ee2-9ab2-50bd0f3c3281": {
+    "dev_type": "Sensor"
+  },
+  "7b9faa65-f87d-3029-88ac-91310b11dcb3": {
+    "dev_type": "Sensor"
+  },
+  "5434eba5-5afd-37e7-bb39-9da370632372": {
+    "dev_type": "Sensor"
+  },
+  "3cd38bc5-275f-347f-8aa5-ebf3ac153bb0": {
+    "dev_type": "Sensor"
+  },
+  "1f878d6f-4c23-3bca-a719-2034f9d92dc3": {
+    "dev_type": "Sensor"
+  },
+  "18b6ebda-fed9-31c7-a41b-8bc596d855fd": {
+    "dev_type": "Sensor"
+  },
+  "7e09eab0-541f-3041-99b8-717a9513baf6": {
+    "dev_type": "Sensor"
+  },
+  "667744f9-6688-3bbb-bfd6-58b6ee92fbbf": {
+    "dev_type": "Sensor"
+  },
+  "33fddedc-4faa-3cab-a52e-0a5e1e8ee5a1": {
+    "dev_type": "Sensor"
+  },
+  "1b9a84ab-ac6c-39cf-b0ce-e3812486ca4a": {
+    "dev_type": "Sensor"
+  },
+  "ef0de7dd-f370-3c33-b2e2-ee9e0a8b044a": {
+    "dev_type": "Sensor"
+  },
+  "3855c733-bd05-33e7-aff3-a9fe37930b2d": {
+    "dev_type": "Sensor"
+  },
+  "da28598c-7405-36d2-8e46-81ce4b2118e2": {
+    "dev_type": "Sensor"
+  },
+  "a86738d1-052c-36ac-97b0-a5d51f374361": {
+    "dev_type": "Sensor"
+  },
+  "fe9fa7de-d575-3cf8-a854-6edaa0daf3a1": {
+    "dev_type": "Sensor"
+  },
+  "906c17bc-6387-3bf6-9dfa-5bfa76d8493d": {
+    "dev_type": "Sensor"
+  },
+  "2b0c151f-9477-3f60-bade-8585da8d5a0f": {
+    "dev_type": "Sensor"
+  },
+  "46812643-383e-3316-88fd-1ea887bb7cf7": {
+    "dev_type": "Sensor"
+  },
+  "045bfb50-cc65-39fd-8eec-aa13c2535dcc": {
+    "dev_type": "Sensor"
+  },
+  "1d3a66e1-c0a6-3f1e-bffb-3b8bf3373b56": {
+    "dev_type": "Sensor"
+  },
+  "2d6957e4-c758-3e07-86bd-1b9840037449": {
+    "dev_type": "Sensor"
+  },
+  "4a7987b4-a2c5-344a-baa6-0fe8c8c9f3d2": {
+    "dev_type": "Sensor"
+  },
+  "25ddaee4-9ec7-3f88-ab8c-b81d9f9714af": {
+    "dev_type": "Sensor"
+  },
+  "3887374d-4ef7-31e4-881b-7c23174fe41b": {
+    "dev_type": "Sensor"
+  },
+  "aabcd677-7e42-342e-acf3-b6ecf893147a": {
+    "dev_type": "Sensor"
+  },
+  "7aaf5233-805c-3077-a701-7ef8c82b4f9d": {
+    "dev_type": "Sensor"
+  },
+  "ad69c7bd-0be2-345c-a0d2-bd8d1d183bfc": {
+    "dev_type": "Sensor"
+  },
+  "d44a7bae-f591-39f9-a820-95a47962ae9d": {
+    "dev_type": "Sensor"
+  },
+  "cd51be08-73f2-3991-94ed-a500a8022577": {
+    "dev_type": "Sensor"
+  },
+  "b6b4bd5a-0a21-36b7-b6e3-472709f2c795": {
+    "dev_type": "Sensor"
+  },
+  "c165c235-8fab-3353-82cf-e376039b1369": {
+    "dev_type": "Sensor"
+  },
+  "1951daab-8b1f-3e8f-bf7c-3e96b5ee8b85": {
+    "dev_type": "Sensor"
+  },
+  "9d019c2b-3414-3efa-a883-42290aab9c00": {
+    "dev_type": "Sensor"
+  },
+  "2e365efb-4410-34c1-841c-e6b3fb2ee94b": {
+    "dev_type": "Sensor"
+  },
+  "0f0801e5-fb30-3f2d-b660-2ec1b41690b9": {
+    "dev_type": "Sensor"
+  },
+  "b14100b6-5dce-32c2-9d45-45fb90e37650": {
+    "dev_type": "Sensor"
+  },
+  "4fe58638-aca3-3c20-a194-5474b9f5f71f": {
+    "dev_type": "Sensor"
+  },
+  "5ae35514-e30f-36de-80a4-1bad1a6173d6": {
+    "dev_type": "Sensor"
+  },
+  "08d6bc55-67fc-3302-9fd3-6c8e3f2f8bdd": {
+    "dev_type": "Sensor"
+  },
+  "735db41c-85e0-37a6-b7cd-91237c14d33f": {
+    "dev_type": "Sensor"
+  },
+  "d3768641-0546-3784-ae02-7c34464cf69e": {
+    "dev_type": "Sensor"
+  },
+  "fef677b9-05f0-3cfa-91f4-e386adf37769": {
+    "dev_type": "Sensor"
+  },
+  "ce2e9759-fde8-33de-a1d9-b72659960781": {
+    "dev_type": "Sensor"
+  },
+  "04a3adf2-7541-365b-969b-abbd695e2102": {
+    "dev_type": "Sensor"
+  },
+  "bb61c4a5-8ac9-34d5-a037-7aafeac8273d": {
+    "dev_type": "Sensor"
+  },
+  "ba754b91-e654-35e8-b5d3-4c023ff6bd19": {
+    "dev_type": "Sensor"
+  },
+  "47f79289-73f4-3a2a-97a8-df43be8fdb9b": {
+    "dev_type": "Sensor"
+  },
+  "fc2cd4a7-a8cb-3120-a06e-9b42282e9b9e": {
+    "dev_type": "Sensor"
+  },
+  "4cedd6f7-dc45-3975-ad32-c1a4ae62d852": {
+    "dev_type": "Sensor"
+  },
+  "4ebd3a31-b52e-3f8c-80e3-af88dc114045": {
+    "dev_type": "Sensor"
+  },
+  "b54609cc-b873-36b9-b318-dcccd72ce4e0": {
+    "dev_type": "Sensor"
+  },
+  "ea2007fc-7a8d-36a2-8a38-d0805a00a749": {
+    "dev_type": "Sensor"
+  },
+  "1fde4445-c362-3451-9121-e0dd1913c778": {
+    "dev_type": "Sensor"
+  },
+  "c29a078b-7b52-3974-a1c8-5c4ebdb1c1b8": {
+    "dev_type": "Sensor"
+  },
+  "5da67135-94ec-35f4-bcbf-b59b34309c72": {
+    "dev_type": "Sensor"
+  },
+  "89cf181c-7b3a-3aea-8e91-1de52d66bc1a": {
+    "dev_type": "Sensor"
+  },
+  "1ad196dd-969d-3406-ba41-6a55922d6edd": {
+    "dev_type": "Sensor"
+  },
+  "9991bb0c-81d0-34c2-8b86-6ddbf17bcd24": {
+    "dev_type": "Sensor"
+  },
+  "9f3972fc-af16-39f4-83ad-c93a8dda7176": {
+    "dev_type": "Sensor"
+  },
+  "3b4526c2-6141-335b-86b5-63936cee060e": {
+    "dev_type": "Sensor"
+  },
+  "f71ab8da-2c73-3a68-9d81-0bce2848c6a1": {
+    "dev_type": "Sensor"
+  },
+  "e3c5384b-d8ba-3578-9fda-987877328a43": {
+    "dev_type": "Sensor"
+  },
+  "29497ff1-de99-3a0f-9f1c-374b02da66d5": {
+    "dev_type": "Sensor"
+  },
+  "b8410d00-1c95-38f1-ac13-77c3bf71cee1": {
+    "dev_type": "Sensor"
+  },
+  "947319b5-ada4-3239-9791-091454430189": {
+    "dev_type": "Sensor"
+  },
+  "967f1fc8-cc68-3191-b132-3673e0fa3908": {
+    "dev_type": "Sensor"
+  },
+  "ec4fa5a2-7f13-3ec3-9845-0817f48faa91": {
+    "dev_type": "Sensor"
+  },
+  "9fd11af6-0086-3a9a-823e-7bf4e261a30c": {
+    "dev_type": "Sensor"
+  },
+  "9524ae91-e45b-313a-b572-480e4ff43c0b": {
+    "dev_type": "Sensor"
+  },
+  "ace1abc1-d034-31c1-af81-8c5b0fb72533": {
+    "dev_type": "Sensor"
+  },
+  "35ac178d-c0cf-3cbd-9add-78ab29f0af4a": {
+    "dev_type": "Sensor"
+  },
+  "4a2274a4-0008-3f8e-a0fa-0c596266eddd": {
+    "dev_type": "Sensor"
+  },
+  "e2bc2598-fc39-3e6d-b642-cade3324dc21": {
+    "dev_type": "Sensor"
+  },
+  "37096c51-cae1-3d06-ad8d-6d8729f87689": {
+    "dev_type": "Sensor"
+  },
+  "3ec32917-393c-3702-9c46-2b2cf7047016": {
+    "dev_type": "Sensor"
+  },
+  "9ff24d5a-1653-3722-bc2a-6689b2fb3e52": {
+    "dev_type": "Sensor"
+  },
+  "008c1d6d-9c7e-3f11-91f5-f57979ee4c85": {
+    "dev_type": "Sensor"
+  },
+  "a8d8fe72-57d1-3a0c-9bdc-236d822ba13c": {
+    "dev_type": "Sensor"
+  },
+  "589263fd-b3e7-374f-99ca-39585f2eb7f0": {
+    "dev_type": "Sensor"
+  },
+  "2218c01b-ea0c-39fe-8381-a60dac9a56b4": {
+    "dev_type": "Sensor"
+  },
+  "a3484704-39d9-3ef3-9503-328b7cd05f9c": {
+    "dev_type": "Sensor"
+  },
+  "d4de346e-ad2b-3a57-bb70-1e6863c10a3a": {
+    "dev_type": "Sensor"
+  },
+  "bf4d8667-1256-39d1-8dec-bf16933812c1": {
+    "dev_type": "Sensor"
+  },
+  "8b01611a-36f5-3a7d-a6d5-0de62569a9c7": {
+    "dev_type": "Sensor"
+  },
+  "4d6debbd-0584-31a6-9eea-47b39c78d6b0": {
+    "dev_type": "Sensor"
+  },
+  "6d8589d1-5b00-3a5b-bc26-eca54ee2eb03": {
+    "dev_type": "Sensor"
+  },
+  "eadf70b4-64e6-3b54-9b47-0ea7f1c4413d": {
+    "dev_type": "Sensor"
+  },
+  "f5418b82-c230-392c-8c05-b1740d429ef2": {
+    "dev_type": "Sensor"
+  },
+  "781a548a-465f-3a1c-9420-e3993009d6f5": {
+    "dev_type": "Sensor"
+  },
+  "44120b69-6aff-307d-af6f-8cd021cb41e4": {
+    "dev_type": "Sensor"
+  },
+  "792a6d86-e4e3-38b8-8777-503854a8b139": {
+    "dev_type": "Sensor"
+  },
+  "f0c7d066-2b0a-3705-a502-d756e3656fff": {
+    "dev_type": "Sensor"
+  },
+  "aeefd20f-7d30-350e-9dcb-66defc308187": {
+    "dev_type": "Sensor"
+  },
+  "a212ad82-31b2-3c00-85f5-2c8d9ebff382": {
+    "dev_type": "Sensor"
+  },
+  "4397849f-2480-3834-aab9-a95fe11331b4": {
+    "dev_type": "Sensor"
+  },
+  "352ef547-1a93-3668-8673-5fe2ed010aba": {
+    "dev_type": "Sensor"
+  },
+  "9ca36652-0301-3454-b1ae-1e734608315c": {
+    "dev_type": "Sensor"
+  },
+  "41eca939-9601-3ef3-8029-59f3da50c79f": {
+    "dev_type": "Sensor"
+  },
+  "04ea99fd-cb6f-334a-b06f-312b6a0e0431": {
+    "dev_type": "Sensor"
+  },
+  "1fd445de-9a49-318e-a7b0-4ca7217125fc": {
+    "dev_type": "Sensor"
+  },
+  "f8024941-377b-3c90-af4e-5dc9104131b4": {
+    "dev_type": "Sensor"
+  },
+  "b14b3343-cf9e-3e42-961a-636cee6259e1": {
+    "dev_type": "Sensor"
+  },
+  "43daaa6f-8bcc-375c-8513-7b93439186c1": {
+    "dev_type": "Sensor"
+  },
+  "780cd0c2-3c00-3033-aca9-10c5cdb85650": {
+    "dev_type": "Sensor"
+  },
+  "611abfed-748f-320f-a99b-1b62d2481123": {
+    "dev_type": "Sensor"
+  },
+  "effb72be-d684-3c80-b6ea-16872a6e9f45": {
+    "dev_type": "Sensor"
+  },
+  "92752da6-2c18-3d3d-b547-79848d2bd06d": {
+    "dev_type": "Sensor"
+  },
+  "e3a116ed-7a06-3845-880b-0af7a436d07a": {
+    "dev_type": "Sensor"
+  },
+  "3dc50d23-f3bf-3e52-8564-2becf9bb567f": {
+    "dev_type": "Sensor"
+  },
+  "6c313b45-6f81-31a7-ba99-f95dbc2cd479": {
+    "dev_type": "Sensor"
+  },
+  "9b3c5f02-3826-3192-8bd4-35b237b4341f": {
+    "dev_type": "Sensor"
+  },
+  "c5046d09-e0c9-34a2-9dff-077474d0f5b9": {
+    "dev_type": "Sensor"
+  },
+  "a6e2a79c-7423-3a73-abb0-684cb264437f": {
+    "dev_type": "Sensor"
+  },
+  "f34354d4-04da-344b-892f-ce1eaac079bd": {
+    "dev_type": "Sensor"
+  },
+  "684da9ac-6b2d-3251-ad1c-a54dfe9f5b07": {
+    "dev_type": "Sensor"
+  },
+  "a789a90a-aa87-3057-9425-1c86ee0cedae": {
+    "dev_type": "Sensor"
+  },
+  "08caac4b-fb82-3dc9-8f0b-d1ae3e7edc53": {
+    "dev_type": "Sensor"
+  },
+  "2f65abcf-1079-3eb0-8eb1-259fabc15019": {
+    "dev_type": "Sensor"
+  },
+  "f67a82c6-389a-3ddc-9c4d-4a2f83360737": {
+    "dev_type": "Sensor"
+  },
+  "2a01da82-cb09-38b3-8fe5-3648c007fde2": {
+    "dev_type": "Sensor"
+  },
+  "9111b451-d91a-36c8-b236-a4b9672b8920": {
+    "dev_type": "Sensor"
+  },
+  "57db43b7-643e-3005-8553-353162ee8efe": {
+    "dev_type": "Sensor"
+  },
+  "c06e2bee-c53d-3f46-a0ed-ea682f5681b5": {
+    "dev_type": "Sensor"
+  },
+  "e9c1dde2-749d-3069-a5f0-7995f8ecec7f": {
+    "dev_type": "Sensor"
+  },
+  "a3358d9d-561f-37ee-85cb-aabb39322f19": {
+    "dev_type": "Sensor"
+  },
+  "89742463-38eb-3691-9db9-59cd5e84a369": {
+    "dev_type": "Sensor"
+  },
+  "db3039be-787a-33f5-8deb-c73b19360b48": {
+    "dev_type": "Sensor"
+  },
+  "2d439c61-9713-338a-9d20-f95c8d433ce9": {
+    "dev_type": "Sensor"
+  },
+  "967c70a3-45de-3b6f-bfe6-10731c88eed5": {
+    "dev_type": "Sensor"
+  },
+  "90cd7f99-69c3-3f1e-b0be-8c04dd479ac7": {
+    "dev_type": "Sensor"
+  },
+  "a7b9e0e3-e0da-3748-9ac1-e77c59077d71": {
+    "dev_type": "Sensor"
+  },
+  "e701afd8-d990-3a99-b7eb-ad4ba2fba27b": {
+    "dev_type": "Sensor"
+  },
+  "e695d5b5-4ec8-3835-9b63-9e4dfd70ce4e": {
+    "dev_type": "Sensor"
+  },
+  "0cff49a4-1ce5-3f4f-a0ba-5f889112de1e": {
+    "dev_type": "Sensor"
+  },
+  "68492b95-9efa-3139-8838-530d9de21d12": {
+    "dev_type": "Sensor"
+  },
+  "07bb84ad-f6a2-3e0a-8d3f-d4ec5787ac8d": {
+    "dev_type": "Sensor"
+  },
+  "e4e82fb9-8a15-3566-b0eb-39ad99cf0c18": {
+    "dev_type": "Sensor"
+  },
+  "64f77ebd-493c-36ca-b138-a862f5ea284a": {
+    "dev_type": "Sensor"
+  },
+  "3b77bae3-d437-3f86-8d91-8447476f9c0e": {
+    "dev_type": "Sensor"
+  },
+  "a6b4b15d-7102-3005-87d4-2ff890ece3d2": {
+    "dev_type": "Sensor"
+  },
+  "91208b29-4cc6-3c00-85f1-47d9e339a741": {
+    "dev_type": "Sensor"
+  },
+  "279b38b1-6128-3679-a27b-2f3b7eb148cd": {
+    "dev_type": "Sensor"
+  },
+  "e78599b0-165c-3202-b619-e472839c9a10": {
+    "dev_type": "Sensor"
+  },
+  "ddd9928b-c3c2-3cfc-a9ee-e729c4bf760b": {
+    "dev_type": "Sensor"
+  },
+  "0b761ba3-c7e3-3326-b725-fea206edc7c0": {
+    "dev_type": "Sensor"
+  },
+  "62195a27-d21c-3f65-9562-88336a99ac9e": {
+    "dev_type": "Sensor"
+  },
+  "4c52e0fd-b8d9-3d5c-aa86-5822c23afd2b": {
+    "dev_type": "Sensor"
+  },
+  "d4d380e6-670d-311f-b199-4ce17552290a": {
+    "dev_type": "Sensor"
+  },
+  "a5f7583d-6718-3a5e-a2ca-db744d29604f": {
+    "dev_type": "Sensor"
+  },
+  "10f9103f-4fa3-3e79-9070-fb259ac2aa79": {
+    "dev_type": "Sensor"
+  },
+  "0f0ac25b-801e-3e97-9ccc-cadcb38a07ac": {
+    "dev_type": "Sensor"
+  },
+  "b887219b-54f7-3e09-9cce-7e96ccab1d66": {
+    "dev_type": "Sensor"
+  },
+  "22a29793-7f46-37c0-a7c7-aa010f504e7e": {
+    "dev_type": "Sensor"
+  },
+  "7640b486-e804-341c-8750-fd78980f304c": {
+    "dev_type": "Sensor"
+  },
+  "c7ba21a3-066f-38a6-bda6-2ba2a9a90bb8": {
+    "dev_type": "Sensor"
+  },
+  "47a34feb-e643-3e85-bb28-df91d409ad5a": {
+    "dev_type": "Sensor"
+  },
+  "d5dfb715-25e0-30cf-9af4-173bafdc7d32": {
+    "dev_type": "Sensor"
+  },
+  "44228ed8-35e1-3fe4-aaa4-240a308713c2": {
+    "dev_type": "Sensor"
+  },
+  "148a0dcf-5788-39cd-b895-70b9feb655c2": {
+    "dev_type": "Sensor"
+  },
+  "2e080917-1647-301f-8069-92957673737a": {
+    "dev_type": "Sensor"
+  },
+  "1cf510cb-9f4d-3492-9f25-315284829f10": {
+    "dev_type": "Sensor"
+  },
+  "0f60e137-a02a-389f-8959-34a9a2fd139f": {
+    "dev_type": "Sensor"
+  },
+  "5df4cfa5-1d99-3f61-96a7-fb53186727bf": {
+    "dev_type": "Sensor"
+  },
+  "3e681f5e-2ab9-3007-bb57-c1459f9ec06c": {
+    "dev_type": "Sensor"
+  },
+  "2addd3fd-d73b-36c6-a770-9ffb55e8c6a4": {
+    "dev_type": "Sensor"
+  },
+  "f62a7119-11ba-3c29-8d0b-89853d3b48b5": {
+    "dev_type": "Sensor"
+  },
+  "6dc39820-1402-393d-a1dc-4212c23aa914": {
+    "dev_type": "Sensor"
+  },
+  "1e8dd884-4154-346b-85d1-de9aec3f7e31": {
+    "dev_type": "Sensor"
+  },
+  "fc03785a-42ff-32d6-89a4-c71ff58d6cf1": {
+    "dev_type": "Sensor"
+  },
+  "11638ba9-26be-34f5-93c2-20bf15da4080": {
+    "dev_type": "Sensor"
+  },
+  "bd51cded-6abd-3354-9991-1e717889d1fc": {
+    "dev_type": "Sensor"
+  },
+  "b2c99fc9-b352-340e-9337-20932b009866": {
+    "dev_type": "Sensor"
+  },
+  "6c203ee6-5649-3275-8cc4-b71433577976": {
+    "dev_type": "Sensor"
+  },
+  "31b4fa01-dd82-39ce-b106-a82befe1fec1": {
+    "dev_type": "Sensor"
+  },
+  "f642bb31-3b1b-3d1c-9c6a-1abe0219cef3": {
+    "dev_type": "Sensor"
+  },
+  "3efe3f83-b792-32ed-94b2-f43f366e0178": {
+    "dev_type": "Sensor"
+  },
+  "82af762d-f45a-3c62-904c-cdcd139a2eff": {
+    "dev_type": "Sensor"
+  },
+  "8af16dbf-5575-3161-854a-5eeb54084043": {
+    "dev_type": "Sensor"
+  },
+  "33f5754e-b42e-3d4c-8389-806fea5c5c4b": {
+    "dev_type": "Sensor"
+  },
+  "4ce8789d-db0d-3bbe-86ac-7221f2d99df4": {
+    "dev_type": "Sensor"
+  },
+  "395ff97a-eb3a-3fd3-a0d4-30077a431b01": {
+    "dev_type": "Sensor"
+  },
+  "be8f1c71-8dc9-3193-90b3-b1750a721c9a": {
+    "dev_type": "Sensor"
+  },
+  "da4993f2-0201-3c3f-b256-707aee333459": {
+    "dev_type": "Sensor"
+  },
+  "63e1dfc3-b09e-353d-b9cb-6c0bfeef9275": {
+    "dev_type": "Sensor"
+  },
+  "863157cc-bd7d-30a0-843a-f335d316be3f": {
+    "dev_type": "Sensor"
+  },
+  "479046dc-21d6-3f1d-a42a-593e97de2465": {
+    "dev_type": "Sensor"
+  },
+  "30d244fb-bb25-37a8-bc0e-b9d25c9f04c4": {
+    "dev_type": "Sensor"
+  },
+  "7411cd85-412e-3475-8d3c-30fa79871210": {
+    "dev_type": "Sensor"
+  },
+  "8a43b600-028b-389c-9a90-004445614d49": {
+    "dev_type": "Sensor"
+  },
+  "3e2e9e9e-b58c-3a49-888d-66790c645425": {
+    "dev_type": "Sensor"
+  },
+  "437a4691-bbce-303d-83d7-5659b0d708f8": {
+    "dev_type": "Sensor"
+  },
+  "bc8740f2-af43-34c0-afbb-d62ac7298628": {
+    "dev_type": "Sensor"
+  },
+  "0db8df23-b320-3a6c-8f4b-18499c8415c5": {
+    "dev_type": "Sensor"
+  },
+  "2b974260-334a-38da-8c1a-a00a6f3dedb0": {
+    "dev_type": "Sensor"
+  },
+  "4799072d-9871-3524-87c8-05f16a330475": {
+    "dev_type": "Sensor"
+  },
+  "0c815b49-1c57-3b68-a7c9-0de546ebf7c3": {
+    "dev_type": "Sensor"
+  },
+  "ec4e6bfb-2143-357b-9fac-4287991b3d42": {
+    "dev_type": "Sensor"
+  },
+  "eaf084a5-5a52-37dc-b165-2787611e9e54": {
+    "dev_type": "Sensor"
+  },
+  "54ccd740-70bb-3f8f-a126-7a08ad09fc16": {
+    "dev_type": "Sensor"
+  },
+  "24115e15-6200-3784-819c-37185636e880": {
+    "dev_type": "Sensor"
+  },
+  "a4587eec-d7ee-3767-9ab5-3a3e4776dc6e": {
+    "dev_type": "Sensor"
+  },
+  "d3f73ef6-e0e8-3ccc-b36c-7211147273a4": {
+    "dev_type": "Sensor"
+  },
+  "45378a80-1011-3458-98e1-a91f0a092178": {
+    "dev_type": "Sensor"
+  },
+  "fad6fb75-5e40-3d1c-bcf6-3338cfaed776": {
+    "dev_type": "Sensor"
+  },
+  "2e54f26a-d530-3471-a5cb-bdd9699cf312": {
+    "dev_type": "Sensor"
+  },
+  "c437fd42-e59a-3a0b-aef5-f2e9f14bed45": {
+    "dev_type": "Sensor"
+  },
+  "f9221385-468a-385c-941b-1fa67a406a20": {
+    "dev_type": "Sensor"
+  },
+  "825051c0-77ff-35a2-925c-51b253d4a918": {
+    "dev_type": "Sensor"
+  },
+  "91964eb8-e4dd-3592-9ee7-09cd66523b06": {
+    "dev_type": "Sensor"
+  },
+  "88ff3a39-c311-3f33-8309-721838618008": {
+    "dev_type": "Sensor"
+  },
+  "93cf7dee-1326-3d4e-9009-10ce5d54286d": {
+    "dev_type": "Sensor"
+  },
+  "34d0edbe-5ac7-3ebc-b511-9094ac657eb2": {
+    "dev_type": "Sensor"
+  },
+  "d9e96f21-ec9d-3beb-874b-9058f0b8b116": {
+    "dev_type": "Sensor"
+  },
+  "e5e530a4-320b-3124-af64-5cfd84a99f55": {
+    "dev_type": "Sensor"
+  },
+  "b7badb08-b456-3835-84d2-145f179845bc": {
+    "dev_type": "Sensor"
+  },
+  "91440c47-d720-31c2-a484-a29ae7f33ef2": {
+    "dev_type": "Sensor"
+  },
+  "690c6054-dc3c-3680-b0bc-3a6d8f97cf54": {
+    "dev_type": "Sensor"
+  },
+  "034a95c9-50ea-3b75-8658-cbed29ea2350": {
+    "dev_type": "Sensor"
+  },
+  "43c4e02b-31e0-3be6-acd5-fba0b1d15445": {
+    "dev_type": "Sensor"
+  },
+  "beb173f5-c83d-3ad2-9a93-51a9f2d80f2e": {
+    "dev_type": "Sensor"
+  },
+  "3c78d70b-cd32-393b-9e67-e995fb82ef70": {
+    "dev_type": "Sensor"
+  },
+  "a1a1b46f-2687-3615-ba62-b2d8d1d62f5a": {
+    "dev_type": "Sensor"
+  },
+  "cc674481-c918-3ab5-8c41-60302cebe2c9": {
+    "dev_type": "Sensor"
+  },
+  "8ea4e896-0348-30ed-bf85-1b7739dbc08f": {
+    "dev_type": "Sensor"
+  },
+  "d88ce856-0c65-31a7-bc7a-1ce03b8d33d4": {
+    "dev_type": "Sensor"
+  },
+  "c96dfddf-fc30-3fd4-bfb6-8d07228b2e1b": {
+    "dev_type": "Sensor"
+  },
+  "b39416fd-dffb-354e-b62a-00ea1232bda8": {
+    "dev_type": "Sensor"
+  },
+  "11c65584-71b6-33fc-b9b7-80b4b1627d2b": {
+    "dev_type": "Sensor"
+  },
+  "243967b9-5c21-3fc8-82a9-637a9eb3b327": {
+    "dev_type": "Sensor"
+  },
+  "e7d0e197-cf60-3e09-8b3c-deb035ca7940": {
+    "dev_type": "Sensor"
+  },
+  "862f0f1b-6366-36aa-b842-1350e77ca3df": {
+    "dev_type": "Sensor"
+  },
+  "8cf2442d-5f49-3489-91f1-2124d6bd7d01": {
+    "dev_type": "Sensor"
+  },
+  "a8902e75-f959-3da0-ab87-4cc5c3c64ed3": {
+    "dev_type": "Sensor"
+  },
+  "0a7a432b-62cd-31d0-8598-0ceb4976943f": {
+    "dev_type": "Sensor"
+  },
+  "ac224f18-59e9-3d29-9ed7-e67ffcff0b5b": {
+    "dev_type": "Sensor"
+  },
+  "27e5bee0-5a10-30c1-8354-50ecbdf5fcc1": {
+    "dev_type": "Sensor"
+  },
+  "ac5affa5-db36-3df3-95d0-032b22eea810": {
+    "dev_type": "Sensor"
+  },
+  "caea6819-b554-37c1-92eb-a8fcd2944d4f": {
+    "dev_type": "Sensor"
+  },
+  "ae1615c7-5ae0-3a08-aaae-f912b1728867": {
+    "dev_type": "Sensor"
+  },
+  "a80052e9-822b-3acd-94c0-cb7a66b173e5": {
+    "dev_type": "Sensor"
+  },
+  "6773b50f-d843-3673-b2ab-6dcb19929bb9": {
+    "dev_type": "Sensor"
+  },
+  "ad293745-ab7c-3c20-98b0-7a8271be867c": {
+    "dev_type": "Sensor"
+  },
+  "cb0e8645-a406-3d28-9ac2-298d60b3965c": {
+    "dev_type": "Sensor"
+  },
+  "9dbb7a2d-6502-3df0-ae24-96a58cacd04d": {
+    "dev_type": "Sensor"
+  },
+  "f3a066b6-6a71-3902-8b98-aebea14aface": {
+    "dev_type": "Sensor"
+  },
+  "3a5a46d0-1f20-34d8-8c56-8ebbd36dd0ab": {
+    "dev_type": "Sensor"
+  },
+  "7b4d9537-62a4-3f7c-81bd-bc84e258f09c": {
+    "dev_type": "Sensor"
+  },
+  "08a10c6a-7a96-3953-87d2-a54e5bfe6b71": {
+    "dev_type": "Sensor"
+  },
+  "33626c7b-e948-3de4-bfbe-853f09962f85": {
+    "dev_type": "Sensor"
+  },
+  "6efd57b9-0746-3749-ae85-a7825f30fc3c": {
+    "dev_type": "Sensor"
+  },
+  "cb704d69-5057-3be1-a3be-52d85fcbbf0c": {
+    "dev_type": "Sensor"
+  },
+  "20ee500d-4945-30a9-8ba5-e4b7de6b77e9": {
+    "dev_type": "Sensor"
+  },
+  "46d4ceec-fbaa-3a58-b80e-90a924f0edef": {
+    "dev_type": "Sensor"
+  },
+  "0d70e0f0-44c2-3eb5-ba60-82f3dbf8b940": {
+    "dev_type": "Sensor"
+  },
+  "c5979265-c9fe-323e-ac92-f8ecdb223f0e": {
+    "dev_type": "Sensor"
+  },
+  "3bdea06b-3028-3bd1-84aa-6352dc41a1ee": {
+    "dev_type": "Sensor"
+  },
+  "1dd3bee4-43ab-3b01-a05e-fe8be09dd6b9": {
+    "dev_type": "Sensor"
+  },
+  "d2456c83-87a2-3b54-acc0-371c5111170e": {
+    "dev_type": "Sensor"
+  },
+  "9add6a77-f0ef-321b-8d3c-3e1ff70274bd": {
+    "dev_type": "Sensor"
+  },
+  "02e0b8b5-6bab-31d6-a1c2-379f9eb92df4": {
+    "dev_type": "Sensor"
+  },
+  "ad64064a-cadd-3e09-b4c6-6b576a2e8119": {
+    "dev_type": "Sensor"
+  },
+  "b666ba76-ed80-3baf-a764-474d7f7b8f2e": {
+    "dev_type": "Sensor"
+  },
+  "9ff03a93-e93e-319d-81c6-24c9d963d6a1": {
+    "dev_type": "Sensor"
+  },
+  "6f98243a-16dc-3431-90b8-13040efcbc28": {
+    "dev_type": "Sensor"
+  },
+  "982efb65-0faf-30e9-960e-2b7e4123dc62": {
+    "dev_type": "Sensor"
+  },
+  "5c543e4e-a334-3c89-b8af-36ab3340e38d": {
+    "dev_type": "Sensor"
+  },
+  "5a610f45-b642-3271-8de9-9b75d9863718": {
+    "dev_type": "Sensor"
+  },
+  "df8f6f49-d417-3ed4-b10f-f69b91af4985": {
+    "dev_type": "Sensor"
+  },
+  "0f06bc44-19c2-33c3-9daa-0b56f2cbf821": {
+    "dev_type": "Sensor"
+  },
+  "ff5bbdc2-ad80-3d57-b6f9-639d5bb8b990": {
+    "dev_type": "Sensor"
+  },
+  "7ec18bb8-9d42-3fd0-a194-59191901c5a3": {
+    "dev_type": "Sensor"
+  },
+  "466e20fe-8bfc-3262-9490-797d692ba805": {
+    "dev_type": "Sensor"
+  },
+  "e3a38fa2-e32e-3874-a311-dc7a744b9866": {
+    "dev_type": "Sensor"
+  },
+  "0c84bb2a-4e26-3f1b-8539-b4ba2adfa6a4": {
+    "dev_type": "Sensor"
+  },
+  "120b79c3-b3c1-3fea-9227-c0a9ac0819d4": {
+    "dev_type": "Sensor"
+  },
+  "d65229f1-989e-3ea7-b66c-0ac01a3376f0": {
+    "dev_type": "Sensor"
+  },
+  "7e5f7f16-77e4-362c-82d6-54eaa98cbcfc": {
+    "dev_type": "Sensor"
+  },
+  "c070ea05-0e51-32fb-962b-73df782c2311": {
+    "dev_type": "Sensor"
+  },
+  "445faa25-58aa-33e7-8445-7aab211b5ecc": {
+    "dev_type": "Sensor"
+  },
+  "d066629f-e871-3b2b-a64d-90e39d041fd9": {
+    "dev_type": "Sensor"
+  },
+  "b42bee4c-0ffd-3a47-a5f7-b96f60f49f38": {
+    "dev_type": "Sensor"
+  },
+  "9010a1a9-2b88-3bad-be67-115f46e91fe8": {
+    "dev_type": "Sensor"
+  },
+  "192a17b9-2e33-3a6c-9989-f2802caa7a79": {
+    "dev_type": "Sensor"
+  },
+  "07828d86-5b43-3887-906a-324a17856568": {
+    "dev_type": "Sensor"
+  },
+  "d6e66abf-e0d2-34e6-8b3a-2d5b22d23070": {
+    "dev_type": "Sensor"
+  },
+  "81b5b10a-c3d5-36ed-93ca-1105a9af9848": {
+    "dev_type": "Sensor"
+  },
+  "7bd3f9dd-0ea4-3e52-88ab-6ed93be32854": {
+    "dev_type": "Sensor"
+  },
+  "10a6cef3-7922-3936-bbb3-2785d61440be": {
+    "dev_type": "Sensor"
+  },
+  "64ad3ae2-7fae-3577-9ca3-f143eefb206b": {
+    "dev_type": "Sensor"
+  },
+  "37200268-c681-3092-9b33-27ae50437d00": {
+    "dev_type": "Sensor"
+  },
+  "a02c52a9-c553-34ca-aade-ea00b8b9bc34": {
+    "dev_type": "Sensor"
+  },
+  "3feb7686-07ec-3d56-a257-98f46cfcc24e": {
+    "dev_type": "Sensor"
+  },
+  "affd2432-0940-314d-b0f7-a13de9379c19": {
+    "dev_type": "Sensor"
+  },
+  "c57b931d-6c35-3a5b-895e-7b60bdf94631": {
+    "dev_type": "Sensor"
+  },
+  "8de9c915-6120-3349-8a5f-aaebafb21587": {
+    "dev_type": "Sensor"
+  },
+  "e6fa98a9-4a18-3f6d-8acc-e32316fdaddf": {
+    "dev_type": "Sensor"
+  },
+  "9e19afd3-8fa3-3340-b7c6-7e823cccab3d": {
+    "dev_type": "Sensor"
+  },
+  "97eb0a56-5af5-3913-965f-5c9c7fc0df0e": {
+    "dev_type": "Sensor"
+  },
+  "ad4fac3e-99e6-30d6-bbd7-a58b85d7a5a5": {
+    "dev_type": "Sensor"
+  },
+  "1fc5141d-aeea-334e-8841-dbd0de14a74c": {
+    "dev_type": "Sensor"
+  },
+  "4de555cc-75f3-3935-a6ed-e9296fff34a2": {
+    "dev_type": "Sensor"
+  },
+  "b10c5653-08a3-382b-99c8-382e72835a27": {
+    "dev_type": "Sensor"
+  },
+  "f8d07bfe-fd46-3361-9be9-8095b428bde2": {
+    "dev_type": "Sensor"
+  },
+  "bf9db8b3-7133-3ea2-a59e-0c3057284e47": {
+    "dev_type": "Sensor"
+  },
+  "9b8ce393-40d2-3377-b353-19b8fe42256a": {
+    "dev_type": "Sensor"
+  },
+  "42d7786d-0a93-39b8-965b-fc3295a9afbe": {
+    "dev_type": "Sensor"
+  },
+  "ddd30e4f-2e1b-322f-b20e-6283117cdf01": {
+    "dev_type": "Sensor"
+  },
+  "22cb64eb-cfbf-3a06-bcda-bf217810bf41": {
+    "dev_type": "Sensor"
+  },
+  "1daba181-ad92-34bc-9573-713447b140f3": {
+    "dev_type": "Sensor"
+  },
+  "05d48cf0-b0f8-3277-bc9f-00ce9e9f0557": {
+    "dev_type": "Sensor"
+  },
+  "7f54fab9-25c6-3d3c-a614-7a9de2d195a9": {
+    "dev_type": "Sensor"
+  },
+  "53418ab9-bbc0-3521-9b27-3bcb4c8dac6c": {
+    "dev_type": "Sensor"
+  },
+  "eadf4637-84db-3010-b5a8-4a4863bb4c8a": {
+    "dev_type": "Sensor"
+  },
+  "7879d378-8fa7-346c-b2a4-2e766652c47c": {
+    "dev_type": "Sensor"
+  },
+  "2c9430cf-abd8-3e50-881a-84a0953ef8e3": {
+    "dev_type": "Sensor"
+  },
+  "f06e34c5-8b4e-3e0b-9714-613a1cc48fe5": {
+    "dev_type": "Sensor"
+  },
+  "810c799c-9670-3cb6-b9d3-180c2ad921b4": {
+    "dev_type": "Sensor"
+  },
+  "9f642077-2bd8-392c-825f-c02adb5ac1a1": {
+    "dev_type": "Sensor"
+  },
+  "b18ae890-ffe1-3da0-bcde-e07eb6bc7754": {
+    "dev_type": "Sensor"
+  },
+  "1c3a402d-426f-3368-a795-b9a77a7c416d": {
+    "dev_type": "Sensor"
+  },
+  "bacc23cf-59bf-3bfb-8a18-9c0bee45108a": {
+    "dev_type": "Sensor"
+  },
+  "704c8668-8c79-3e7f-b8a4-b37cbecbbc81": {
+    "dev_type": "Sensor"
+  },
+  "0c11d129-9272-3d8f-8439-eb5a4732c05f": {
+    "dev_type": "Sensor"
+  },
+  "a84c59c9-9b68-3eb3-81f0-e7aff6838409": {
+    "dev_type": "Sensor"
+  },
+  "4d012279-3bde-3f68-991d-6015680a4147": {
+    "dev_type": "Sensor"
+  },
+  "7cf7b709-aea0-36f8-82ba-ff54c98869bb": {
+    "dev_type": "Sensor"
+  },
+  "6964c042-7d29-3ce4-be2e-74998f45efc1": {
+    "dev_type": "Sensor"
+  },
+  "67540e56-8a51-3568-bc75-a711318aae24": {
+    "dev_type": "Sensor"
+  },
+  "728bf22c-1c52-3863-b0e2-431a8a75467e": {
+    "dev_type": "Sensor"
+  },
+  "428b7829-3920-37dc-8131-eb88e5807d69": {
+    "dev_type": "Sensor"
+  },
+  "6e9548af-8ccb-3dca-9667-b990386664f9": {
+    "dev_type": "Sensor"
+  },
+  "75a3b3a9-4009-39d6-9a0f-917475d04a11": {
+    "dev_type": "Sensor"
+  },
+  "bd5667c3-acea-34c5-b5d6-4f30d09d1969": {
+    "dev_type": "Sensor"
+  },
+  "23743d24-7b8f-3750-a3a6-c02c27c8a2f0": {
+    "dev_type": "Sensor"
+  },
+  "4349dbc4-bac0-31d6-aaf9-653dd6583f2c": {
+    "dev_type": "Sensor"
+  },
+  "0a4571ec-aaf9-3613-af06-a95a13755fce": {
+    "dev_type": "Sensor"
+  },
+  "4c5bdd42-a4ad-342b-918b-447c28631a34": {
+    "dev_type": "Sensor"
+  },
+  "ad7bebba-343f-36b1-8669-197315987a18": {
+    "dev_type": "Sensor"
+  },
+  "ff61fcdb-9d9b-3165-9049-a86ad332ab0c": {
+    "dev_type": "Sensor"
+  },
+  "56369b29-f89d-3e4c-9c5c-c727be179658": {
+    "dev_type": "Sensor"
+  },
+  "70a7b849-3d61-3d90-ac7f-54bad7bc4ea2": {
+    "dev_type": "Sensor"
+  },
+  "c7c9bc74-2d2a-34e2-b1a3-51f61f7a90f6": {
+    "dev_type": "Sensor"
+  },
+  "c6921949-0232-3266-95bc-ec1f1c115254": {
+    "dev_type": "Sensor"
+  },
+  "2b6bc055-816f-3904-8678-64b8b81fa3b6": {
+    "dev_type": "Sensor"
+  },
+  "7d5e358b-9760-3f35-af04-d542cdf24b1c": {
+    "dev_type": "Sensor"
+  },
+  "1bdf72c4-1c45-39a0-a47c-41e3df6cb971": {
+    "dev_type": "Sensor"
+  },
+  "0c3912e4-a464-3a90-afc6-20714fc896a6": {
+    "dev_type": "Sensor"
+  },
+  "6c2f164f-ed6b-3cff-8f12-3d9fec1c7cd9": {
+    "dev_type": "Sensor"
+  },
+  "7c479e89-be38-3e8b-bd92-0635aa4d004c": {
+    "dev_type": "Sensor"
+  },
+  "b505b039-fb56-37ac-9663-0c44d37b1a52": {
+    "dev_type": "Sensor"
+  },
+  "1318d8d2-0405-3b5b-b2f0-84913a3f2a3c": {
+    "dev_type": "Sensor"
+  },
+  "2c43a57c-8b32-3a77-87f4-46cf7d1f61fe": {
+    "dev_type": "Sensor"
+  },
+  "1c609081-c14e-388f-b21f-4618eca7e2ad": {
+    "dev_type": "Sensor"
+  },
+  "89b7f32e-96db-381f-9c8c-1833de8865e0": {
+    "dev_type": "Sensor"
+  },
+  "17cb687a-e830-3170-a54c-766f7f5e8643": {
+    "dev_type": "Sensor"
+  },
+  "2663b8e5-382d-3ee5-a07a-a4f9d070ead8": {
+    "dev_type": "Sensor"
+  },
+  "a226f0ac-b86b-3327-a407-84bb6eda2525": {
+    "dev_type": "Sensor"
+  },
+  "89c62266-1a44-3b40-af68-fdc27b65f094": {
+    "dev_type": "Sensor"
+  },
+  "47bd4e9c-c9b0-3c14-b540-79ca3f31a586": {
+    "dev_type": "Sensor"
+  },
+  "bfa4daba-70b8-3004-944d-3678855678ce": {
+    "dev_type": "Sensor"
+  },
+  "d4203487-b1d8-377e-83e7-4a277df626df": {
+    "dev_type": "Sensor"
+  },
+  "c8a01fc7-404a-335c-95fa-2ab17f2e63bf": {
+    "dev_type": "Sensor"
+  },
+  "94088280-5a7e-3bdb-a4fa-dbf57625321e": {
+    "dev_type": "Sensor"
+  },
+  "132e3b40-0abf-3360-ba87-f10959b433c6": {
+    "dev_type": "Sensor"
+  },
+  "483bc87d-4cf5-3df3-b46f-81fddf401584": {
+    "dev_type": "Sensor"
+  },
+  "aa6c259a-00d9-39f0-9dc9-0880deb7d8d5": {
+    "dev_type": "Sensor"
+  },
+  "2fafcce3-50db-38c0-ac39-b2865eb4d69c": {
+    "dev_type": "Sensor"
+  },
+  "9dc1f165-0072-330e-a7de-9301699a3752": {
+    "dev_type": "Sensor"
+  },
+  "ba3c67be-7157-3059-9407-2423b3af8e44": {
+    "dev_type": "Sensor"
+  },
+  "9819bd35-2a95-3e7a-b8e2-05efadf30427": {
+    "dev_type": "Sensor"
+  },
+  "f52c70cf-8afc-3d91-9fd2-9763cb52f791": {
+    "dev_type": "Sensor"
+  },
+  "8a835863-3a0e-3ae7-a800-ac3009c6fb27": {
+    "dev_type": "Sensor"
+  },
+  "90f3b0d1-0bb4-3d74-b796-4457901a2dea": {
+    "dev_type": "Sensor"
+  },
+  "bb745d4a-114b-3a29-a29c-89d52e64c5ff": {
+    "dev_type": "Sensor"
+  },
+  "986fd90e-51ad-382f-b0de-85790cbf6f7e": {
+    "dev_type": "Sensor"
+  },
+  "d29c1fdd-cda3-3864-b8a4-b5ecb75a253e": {
+    "dev_type": "Sensor"
+  },
+  "7e3b90ea-8d59-30b1-9e02-bae43adbea31": {
+    "dev_type": "Sensor"
+  },
+  "e5f38ff3-92c3-31e2-ae23-81f374a39c2a": {
+    "dev_type": "Sensor"
+  },
+  "d34b3081-2966-3df8-baab-ea68d838a8e1": {
+    "dev_type": "Sensor"
+  },
+  "50018de2-a5af-3b94-a209-cbf0bbdd6149": {
+    "dev_type": "Sensor"
+  },
+  "3a9b89d7-c3e0-3e88-bcf4-260b5f2dda27": {
+    "dev_type": "Sensor"
+  },
+  "5ae64b5d-5aa0-3e10-979d-3bc6d123e639": {
+    "dev_type": "Sensor"
+  },
+  "cb0a398e-7609-3bee-b0ff-6583285660ab": {
+    "dev_type": "Sensor"
+  },
+  "17e289e6-5837-324b-8e22-a419c0f2e879": {
+    "dev_type": "Sensor"
+  },
+  "d839794e-057f-34e6-9ba9-8306d5483a63": {
+    "dev_type": "Sensor"
+  },
+  "44251e10-b230-3427-a3d0-bcd8c0168677": {
+    "dev_type": "Sensor"
+  },
+  "d3c7aee0-8b5c-3d56-af2c-eb20291ff528": {
+    "dev_type": "Sensor"
+  },
+  "1f628429-0875-3966-8898-91fe0e75044a": {
+    "dev_type": "Sensor"
+  },
+  "2d65eeb8-d1fc-3fd7-989c-2c20dd1d5e36": {
+    "dev_type": "Sensor"
+  },
+  "4d9e4588-b780-3c03-904c-6137c8477cf7": {
+    "dev_type": "Sensor"
+  },
+  "b85d01eb-dbde-3a45-8e63-aec376bd2069": {
+    "dev_type": "Sensor"
+  },
+  "cf5a999b-787b-3154-97eb-f145812e8bc2": {
+    "dev_type": "Sensor"
+  },
+  "5b11f975-5868-39c5-adc0-ce77bec3dcf8": {
+    "dev_type": "Sensor"
+  },
+  "3420c1e2-921c-3d5d-bd76-2ec940c08a77": {
+    "dev_type": "Sensor"
+  },
+  "a8d31a6f-6921-4827-98df-72a2bc1f96f3": {
+    "dev_type": "UPS"
+  },
+  "1b863bde-9f44-4a1e-bf05-ae1775349c88": {
+    "dev_type": "UPS"
+  },
+  "e1b70bf3-6f2f-45d3-9909-f15f40a812e1": {
+    "dev_type": "UPS"
+  },
+  "33294e78-a3c1-4952-ade4-c8352400ebdf": {
+    "dev_type": "UPS"
+  },
+  "fa878a98-93c0-429b-80c6-27d2f79e55f2": {
+    "dev_type": "UPS"
+  },
+  "e4f9ecf1-8171-48d0-82d4-c24d3dac5a53": {
+    "dev_type": "UPS"
+  },
+  "6a2ab696-45d5-4672-8837-bb46c8749b74": {
+    "dev_type": "UPS"
+  },
+  "a2051af6-7e16-4f46-b72f-2c0fd69c62c5": {
+    "dev_type": "UPS"
+  },
+  "0cdef0c0-5d1f-4a34-95be-5b57412cce55": {
+    "dev_type": "UPS"
+  },
+  "149f219d-1908-4f97-989d-8b4f0466e6a4": {
+    "dev_type": "UPS"
+  },
+  "8604f31d-cdf7-4cb1-ae3b-5f30af473460": {
+    "dev_type": "UPS"
+  },
+  "bebeba48-09be-40f6-9f58-e94bb2e2ab42": {
+    "dev_type": "UPS"
+  },
+  "3c72734b-7839-47ee-a227-391e4efc6186": {
+    "dev_type": "UPS"
+  },
+  "6edcfe6f-cfd8-4bb4-9193-541fa93bceb5": {
+    "dev_type": "UPS"
+  },
+  "c31e9266-68e7-401c-903d-67df40834b11": {
+    "dev_type": "UPS"
+  }
+}

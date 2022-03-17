@@ -1,33 +1,33 @@
 dispatchers:
   - type: default
-    connector: eaton_conn_test
-    batch_size: 10
+    connector: virtgen_conn
+    batch_size: 100
     interval: 10
-    entity_file: config/eaton_devices.json
+    entity_file: config/virtgen_devices.json
 
 connectors:
-  - name: eaton_conn_test
-    type: eaton_telemetry
-    base_url: http://eatondcimdemo.com/rest
+  - name: virtgen_conn
+    type: virtgen_telemetry
+    base_url: https://dcwiz-platform.staging.rda.ai/api/dc-gateway/virtual-generator
+    generator_name: snapshot_ma
     connection_args:
       timeout: 600
+      verify: false
     security:
       type: basic
       username:
       password:
     converter:
-      - eaton_telemetry
       - fix_timestamp
       - set_measurement
       - update_info
 
 converters:
-  - type: eaton_telemetry
   - type: fix_timestamp
     tz_infos:
       SGT: Aisa/Singapore
   - type: set_measurement
-    measurement: eaton_ma
+    measurement: virtgen_ma
   - type: update_info
-    info_file: config/eaton_device_types.json
+    info_file: config/virtgen_device_types.json
     key: dev_id
