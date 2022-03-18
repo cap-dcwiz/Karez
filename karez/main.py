@@ -83,7 +83,8 @@ def config_doc(plugin_type: PluginType,
     if role is None:
         print(f"Cannot find {plugin_type} called {plugin_name}.")
         sys.exit(1)
-    print(f"\nConfiguration Options for {plugin_type} {plugin_name}:\n")
+    print(f"\n[{plugin_type}] {plugin_name}: {role.role_description()}\n")
+    print(f"Configuration Options:\n")
     role.print_config_docs(4)
 
 

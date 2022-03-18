@@ -12,6 +12,10 @@ class DispatcherBase(KarezRoleBase):
         self.target = self.config.connector
 
     @classmethod
+    def role_description(cls):
+        return "Default dispatcher."
+
+    @classmethod
     def config_entities(cls):
         yield from super(DispatcherBase, cls).config_entities()
         yield ConfigEntity("interval", "Collection interval.")

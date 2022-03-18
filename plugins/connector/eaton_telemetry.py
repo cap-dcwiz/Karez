@@ -3,6 +3,10 @@ from karez.connector import RestfulConnectorForTelemetries
 
 
 class Connector(RestfulConnectorForTelemetries):
+    @classmethod
+    def role_description(cls):
+        return "Connector for Eaton DCIM."
+
     async def fetch_data(self, client, entities):
         r = await client.post("/mtemplates/resources/v3/list",
                               json={

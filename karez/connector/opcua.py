@@ -16,6 +16,10 @@ class OPCUAPullConnector(PullConnectorBase):
         yield from super(OPCUAPullConnector, cls).config_entities()
         yield ConfigEntity("url", "OPC-UA server url.")
 
+    @classmethod
+    def role_description(cls):
+        return "Connector for OPCUA."
+
     def create_client(self):
         return Client(url=self.url)
 

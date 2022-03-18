@@ -4,6 +4,10 @@ from karez.connector import RestfulConnectorForTelemetries
 
 class Connector(RestfulConnectorForTelemetries):
     @classmethod
+    def role_description(cls):
+        return "Connector for DCWiz virtual generator."
+
+    @classmethod
     def config_entities(cls):
         yield from super(Connector, cls).config_entities()
         yield ConfigEntity("generator_name", "Generator Name")

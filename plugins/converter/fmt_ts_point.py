@@ -4,6 +4,10 @@ from karez.converter import ConverterBase
 
 class Converter(ConverterBase):
     @classmethod
+    def role_description(cls):
+        return "Converter to format time-series points."
+
+    @classmethod
     def config_entities(cls):
         yield from super(Converter, cls).config_entities()
         yield ConfigEntity("measurement", "Key name to be used as measurement name in TSDB.")

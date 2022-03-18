@@ -9,6 +9,10 @@ from karez.converter import ConverterBase
 
 class Converter(ConverterBase):
     @classmethod
+    def role_description(cls):
+        return "Converter to add or format timestamp."
+
+    @classmethod
     def config_entities(cls):
         yield from super(Converter, cls).config_entities()
         yield ConfigEntity("tz_infos", "tz_infos as a dict. See dateutil.parser.parse.")

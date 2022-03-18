@@ -1,4 +1,5 @@
 import logging
+from abc import abstractmethod
 
 import nats
 
@@ -23,6 +24,11 @@ class KarezRoleBase(ConfigurableBase):
         conf_type = ConfigEntity("type", "Type of the plugin.")
         yield OptionalConfigEntity("name", conf_type, "Name of the plugin.")
         yield conf_type
+
+    @classmethod
+    @abstractmethod
+    def role_description(cls):
+        pass
 
     async def error_cb(self, e):
         logging.error(f'{self.name}: {str(e)}!')

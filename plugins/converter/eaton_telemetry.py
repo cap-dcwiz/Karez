@@ -2,6 +2,10 @@ from karez.converter import ConverterBase
 
 
 class Converter(ConverterBase):
+    @classmethod
+    def role_description(cls):
+        return "Converter to post process Eaton telemetries."
+
     def convert(self, payload):
         value = payload["value"]
         if value is None:
