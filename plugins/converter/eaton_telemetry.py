@@ -13,11 +13,8 @@ class Converter(ConverterBase):
                 value = float(value)
             else:
                 return
-            payload[payload["ma_name"]] = value
-
+            payload["value"] = value
             del payload["value_type"]
-            del payload["value"]
-            del payload["ma_name"]
 
             return payload
         except:

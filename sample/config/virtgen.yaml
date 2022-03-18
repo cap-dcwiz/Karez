@@ -19,14 +19,14 @@ connectors:
       password:
     converter:
       - fix_timestamp
-      - set_measurement
+      - fmt_ts_point
       - update_info
 
 converters:
   - type: fix_timestamp
     tz_infos:
       SGT: Aisa/Singapore
-  - type: set_measurement
+  - type: fmt_ts_point
     measurement: virtgen_ma
   - type: update_info
     info_file: config/virtgen_device_types.json

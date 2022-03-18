@@ -12,14 +12,16 @@ connectors:
     converter:
       - update_info
       - fix_timestamp
-      - set_measurement
+      - fmt_ts_point
 
 converters:
   - type: fix_timestamp
     tz_infos:
       SGT: Aisa/Singapore
-  - type: set_measurement
+  - type: fmt_ts_point
     measurement: opcua_ma
+    field_name: ma_name
+    field_value: value
   - type: update_info
     info_file: config/opcua_points_info.json
     key: ma_id
