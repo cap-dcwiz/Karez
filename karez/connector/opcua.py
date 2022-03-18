@@ -2,13 +2,19 @@ from numbers import Number
 
 from asyncua import Client
 
-from karez.connector.base import PullConnectorBase
+from ..config import ConfigEntity
+from .base import PullConnectorBase
 
 
 class OPCUAPullConnector(PullConnectorBase):
     def __init__(self, *args, **kwargs):
         super(OPCUAPullConnector, self).__init__(*args, **kwargs)
         self.url = self.config.url
+
+    @classmethod
+    def config_entities(cls):
+        yield from super(OPCUAPullConnector, cls).config_entities()
+        yield ConfigEntity("url", "OPC-UA server url.")
 
     def create_client(self):
         return Client(url=self.url)

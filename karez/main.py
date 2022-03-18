@@ -1,11 +1,13 @@
 import asyncio
 import logging
+from enum import Enum
 from pathlib import Path
-from typing import Union
 
+import sys
 import typer
 from dynaconf import Dynaconf
 
+from karez.role import KarezRoleBase
 from karez.utils import search_plugins
 
 
@@ -60,5 +62,34 @@ def main(config_files: list[Path] = typer.Option(None, "--config", "-c"),
     event_loop.run_forever()
 
 
+def search_role_for_help(role: str, role_name, plugin_path) -> KarezRoleBase:
+    role_lib = search_plugins([Path(plugin_path, role)], role.capitalize())
+    return role_lib.get(role_name)
+
+
+class PluginType(str, Enum):
+    dispatcher = "dispatcher"
+    connector = "connector"
+    converter = "converter"
+
+
+def config_doc(plugin_type: PluginType,
+               plugin_name: str,
+               plugin_path: Path = typer.Option("plugins", "--plugin-directory", "-p"),
+               ):
+    role = search_role_for_help(role=plugin_type.value,
+                                role_name=plugin_name,
+                                plugin_path=plugin_path)
+    if role is None:
+        print(f"Cannot find {plugin_type} called {plugin_name}.")
+        sys.exit(1)
+    print(f"\nConfiguration Options for {plugin_type} {plugin_name}:\n")
+    role.print_config_docs(4)
+
+
 def run():
     typer.run(main)
+
+
+def plugin_help():
+    typer.run(config_doc)

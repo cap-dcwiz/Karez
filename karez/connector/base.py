@@ -4,13 +4,19 @@ import logging
 from abc import abstractmethod
 from copy import copy
 
-from ..base import KarezRoleBase, CHECKING_STATUS_INTERVAL
+from ..config import OptionalConfigEntity
+from ..role import KarezRoleBase, CHECKING_STATUS_INTERVAL
 
 
 class ConnectorBase(KarezRoleBase):
     def __init__(self, *args, **kwargs):
         super(ConnectorBase, self).__init__(*args, **kwargs)
-        self.converter = self.config.get("converter", None)
+        self.converter = self.config.converter
+
+    @classmethod
+    def config_entities(cls):
+        yield from super(ConnectorBase, cls).config_entities()
+        yield OptionalConfigEntity("converter", None, "Converters to be used.")
 
 
 class PullConnectorBase(ConnectorBase):

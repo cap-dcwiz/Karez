@@ -1,5 +1,1 @@
-from karez.dispatcher import DispatcherBase
-
-
-class Dispatcher(DispatcherBase):
-    pass
+from karez.dispatcher import DispatcherBase as Dispatcher

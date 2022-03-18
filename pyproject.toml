@@ -21,3 +21,4 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
 karez = "karez.main:run"
+karez-config-help = "karez.main:plugin_help"

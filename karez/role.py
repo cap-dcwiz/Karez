@@ -2,18 +2,27 @@ import logging
 
 import nats
 
+from .config import ConfigurableBase, OptionalConfigEntity, ConfigEntity
+
 CHECKING_STATUS_INTERVAL = 10
 CONNECTOR_MODE_WORKER = 0
 CONNECTOR_MODE_CONTROLLER = 1
 
 
-class KarezRoleBase:
+class KarezRoleBase(ConfigurableBase):
     def __init__(self, config, nats_addr="nats://localhost:4222"):
-        self.config = config
-        self.name = config.get("name", config.type)
+        super(KarezRoleBase, self).__init__(config)
+        self.name = self.config.name
         self.nc_addr = nats_addr
         self.nc = None
         self.sub = None
+
+    @classmethod
+    def config_entities(cls):
+        yield from super(KarezRoleBase, cls).config_entities()
+        conf_type = ConfigEntity("type", "Type of the plugin.")
+        yield OptionalConfigEntity("name", conf_type, "Name of the plugin.")
+        yield conf_type
 
     async def error_cb(self, e):
         logging.error(f'{self.name}: {str(e)}!')

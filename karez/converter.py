@@ -3,7 +3,7 @@ import json
 from abc import abstractmethod
 from typing import Union
 
-from .base import KarezRoleBase, CHECKING_STATUS_INTERVAL
+from .role import KarezRoleBase, CHECKING_STATUS_INTERVAL
 
 
 class ConverterBase(KarezRoleBase):
