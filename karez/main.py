@@ -25,7 +25,7 @@ def launch_role(role, plugin_path, config, event_loop, nats_addr):
 def main(config_files: list[Path] = typer.Option(None, "--config", "-c"),
          plugin_path: Path = typer.Option("plugins", "--plugin-directory", "-p"),
          nats_addr: str = typer.Option("nats://localhost:4222", "--nats-addr", "-a"),
-         logging_level: str = typer.Option("INFO", "--logging-level", "-l"),
+         logging_level: str = typer.Option("WARNING", "--logging-level", "-l"),
          launch_dispatcher: bool = typer.Option(False, "--dispatcher", "-d"),
          launch_connector: bool = typer.Option(False, "--connector", "-n"),
          launch_converter: bool = typer.Option(False, "--converter", "-v"),

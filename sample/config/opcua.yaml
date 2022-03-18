@@ -1,0 +1,25 @@
+dispatchers:
+  - type: default
+    connector: opcua_conn
+    batch_size: 100
+    interval: 10
+    entity_file: config/opcua_points.json
+
+connectors:
+  - name: opcua_conn
+    type: opcua
+    url: opc.tcp://opcuaserver.com:48010
+    converter:
+      - update_info
+      - fix_timestamp
+      - set_measurement
+
+converters:
+  - type: fix_timestamp
+    tz_infos:
+      SGT: Aisa/Singapore
+  - type: set_measurement
+    measurement: opcua_ma
+  - type: update_info
+    info_file: config/opcua_points_info.json
+    key: ma_id

@@ -9,7 +9,7 @@ from karez.converter import ConverterBase
 class Converter(ConverterBase):
     def convert(self, payload):
         tz_infos = {k: gettz(v) for k, v in self.config.tz_infos.items()}
-        timestamp = payload["timestamp"]
+        timestamp = payload.get("timestamp", None)
         if timestamp:
             timestamp = parse(timestamp, tzinfos=tz_infos)
         else:

@@ -4,9 +4,7 @@ import logging
 from abc import abstractmethod
 from copy import copy
 
-from httpx import AsyncClient, Limits
-
-from .base import KarezRoleBase, CHECKING_STATUS_INTERVAL
+from ..base import KarezRoleBase, CHECKING_STATUS_INTERVAL
 
 
 class ConnectorBase(KarezRoleBase):
@@ -37,16 +35,6 @@ class PullConnectorBase(ConnectorBase):
                 await self.subscribe(f"connector.{self.name}")
             await asyncio.sleep(CHECKING_STATUS_INTERVAL)
 
-    @abstractmethod
-    async def pull(self, entities):
-        pass
-
-
-class RestfulConnectorForTelemetries(PullConnectorBase):
-    def __init__(self, *args, **kwargs):
-        super(RestfulConnectorForTelemetries, self).__init__(*args, **kwargs)
-        self.base_url = self.config.base_url
-
     async def _try_fetch_data(self, client, entities):
         try:
             res = await self.fetch_data(client, entities)
@@ -56,27 +44,15 @@ class RestfulConnectorForTelemetries(PullConnectorBase):
             return []
 
     @abstractmethod
+    def create_client(self):
+        pass
+
+    @abstractmethod
     async def fetch_data(self, client, entities):
         pass
 
-    def _create_client(self):
-        security_conf = self.config.security
-        auth = None
-        if security_conf:
-            if security_conf.type == "basic":
-                auth = security_conf.username, security_conf.password
-            else:
-                raise NotImplementedError
-        client = AsyncClient(base_url=self.base_url,
-                             auth=auth,
-                             limits=Limits(max_keepalive_connections=10,
-                                           max_connections=20),
-                             **self.config.connection_args or {},
-                             )
-        return client
-
     async def pull(self, entities):
         data = []
-        async with self._create_client() as client:
+        async with self.create_client() as client:
             data.extend(await self._try_fetch_data(client, entities))
         return data
