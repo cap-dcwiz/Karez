@@ -7,7 +7,7 @@ import sys
 import typer
 from dynaconf import Dynaconf
 
-from karez.role import KarezRoleBase
+from karez.role import RoleBase
 from karez.utils import search_plugins
 
 
@@ -62,7 +62,7 @@ def main(config_files: list[Path] = typer.Option(None, "--config", "-c"),
     event_loop.run_forever()
 
 
-def search_role_for_help(role: str, role_name, plugin_path) -> KarezRoleBase:
+def search_role_for_help(role: str, role_name, plugin_path) -> RoleBase:
     role_lib = search_plugins([Path(plugin_path, role)], role.capitalize())
     return role_lib.get(role_name)
 

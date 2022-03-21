@@ -7,16 +7,16 @@ from typing import Union, TypeAlias
 from dynaconf import Dynaconf
 
 
-class _CE:
+class ConfigEntityBase:
     def __init__(self, name: str):
         self.name: str = name
 
     @abstractmethod
-    def describe(self, indent):
+    def describe(self, indent: int) -> str:
         pass
 
 
-class ConfigEntity(_CE):
+class ConfigEntity(ConfigEntityBase):
     def __init__(self, name: str, description: str = ""):
         super(ConfigEntity, self).__init__(name)
         self.description: str = description.strip(".") + "."
@@ -25,17 +25,17 @@ class ConfigEntity(_CE):
         return f"{' ' * indent} - {self.name}: {self.description}\n"
 
 
-DefaultType: TypeAlias = Union[Union[Number, str], _CE, dict, list, tuple, None]
+DefaultType: TypeAlias = Union[Union[Number, str], ConfigEntityBase, dict, list, tuple, None]
 
 
-class OptionalConfigEntity(_CE):
+class OptionalConfigEntity(ConfigEntityBase):
     def __init__(self, name: str, default: DefaultType, description: str = ""):
         super(OptionalConfigEntity, self).__init__(name)
         self.default: DefaultType = default
         self.description: str = description.strip(".") + "."
 
     def describe(self, indent):
-        if isinstance(self.default, _CE):
+        if isinstance(self.default, ConfigEntityBase):
             default = f"Same as {self.default.name}"
         else:
             default = self.default
@@ -54,12 +54,12 @@ class ConfigGetter:
 class ConfigurableBase(ABC):
     def __init__(self, config: Dynaconf):
         self._config: Dynaconf = config
-        self._conf_entities: dict[str, _CE] = {e.name: e for e in self.config_entities()}
+        self._conf_entities: dict[str, ConfigEntityBase] = {e.name: e for e in self.config_entities()}
         self._conf_getter = ConfigGetter(self)
 
     @classmethod
     @abstractmethod
-    def config_entities(cls) -> Iterable[_CE]:
+    def config_entities(cls) -> Iterable[ConfigEntityBase]:
         return []
 
     def is_configured(self, item):
@@ -75,7 +75,7 @@ class ConfigurableBase(ABC):
                     raise RuntimeError(f"[{self.__class__.__name__}] Config entity {name} is required but not found.")
             elif isinstance(e, OptionalConfigEntity):
                 default = e.default
-                if isinstance(default, _CE):
+                if isinstance(default, ConfigEntityBase):
                     default = self.get_config(default.name)
                 return self._config.get(name, default)
         else:

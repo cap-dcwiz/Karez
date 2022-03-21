@@ -1,1 +1,1 @@
-from karez.dispatcher import DispatcherBase as Dispatcher
+from karez.dispatcher.default import DefaultDispatcher as Dispatcher

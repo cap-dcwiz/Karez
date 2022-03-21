@@ -3,14 +3,16 @@ import json
 from abc import abstractmethod
 from typing import Union
 
-from .role import KarezRoleBase, CHECKING_STATUS_INTERVAL
+from karez.role import RoleBase, CHECKING_STATUS_INTERVAL
 
 
-class ConverterBase(KarezRoleBase):
+class ConverterBase(RoleBase):
+    TYPE = "converter"
+
     async def run(self):
         while True:
             if not (self.nc and self.nc.is_connected and self.sub):
-                await self.subscribe(f"converter.{self.name}")
+                await self.subscribe()
             await asyncio.sleep(CHECKING_STATUS_INTERVAL)
 
     async def _subscribe_handler(self, msg):
@@ -21,7 +23,7 @@ class ConverterBase(KarezRoleBase):
             return
         next_converters = data.get("_next", None)
         if next_converters:
-            topic = f"karez.converter.{next_converters.pop(0)}"
+            topic = self.converter_topic(next_converters.pop(0))
             reply = reply
         else:
             if "_next" in data:
@@ -33,5 +35,5 @@ class ConverterBase(KarezRoleBase):
         await self.nc.publish(topic, json.dumps(result).encode("utf-8"), reply=reply)
 
     @abstractmethod
-    def convert(self, payload) -> Union[None, dict]:
+    def convert(self, payload: dict) -> Union[None, dict]:
         pass

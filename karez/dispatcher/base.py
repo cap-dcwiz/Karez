@@ -1,19 +1,19 @@
 import asyncio
 import json
+from abc import abstractmethod
+from collections.abc import Iterable
 
-from .config import ConfigEntity, OptionalConfigEntity
-from .role import KarezRoleBase
+from karez.config import ConfigEntity, OptionalConfigEntity
+from karez.role import RoleBase
 
 
-class DispatcherBase(KarezRoleBase):
+class DispatcherBase(RoleBase):
+    TYPE = "dispatcher"
+
     def __init__(self, *args, **kwargs):
         super(DispatcherBase, self).__init__(*args, **kwargs)
         self.interval = self.config.interval
         self.target = self.config.connector
-
-    @classmethod
-    def role_description(cls):
-        return "Default dispatcher."
 
     @classmethod
     def config_entities(cls):
@@ -24,10 +24,9 @@ class DispatcherBase(KarezRoleBase):
         yield OptionalConfigEntity("entities", None, "Entities")
         yield OptionalConfigEntity("entity_file", None, "Entity file")
 
-    def divide_tasks(self, entities):
-        batch_size = self.config.batch_size
-        for i in range(0, len(entities), batch_size):
-            yield entities[i: i + batch_size]
+    @abstractmethod
+    def divide_tasks(self, entities: Iterable) -> Iterable[Iterable]:
+        pass
 
     def _read_entities(self):
         if self.is_configured("entities"):
@@ -44,6 +43,8 @@ class DispatcherBase(KarezRoleBase):
             if await self.async_ensure_init():
                 entities = self._read_entities()
                 for _e in self.divide_tasks(entities):
-                    await self.nc.publish(f"karez.connector.{self.target}",
+                    await self.nc.publish(self.connector_topic(self.target),
                                           json.dumps(_e).encode("utf-8"))
             await asyncio.sleep(self.interval)
+
+

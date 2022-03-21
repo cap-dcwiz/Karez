@@ -1,14 +1,15 @@
 import asyncio
 import json
 import logging
-from abc import abstractmethod
+from abc import abstractmethod, ABC
+from collections.abc import Iterable
 from copy import copy
 
 from ..config import OptionalConfigEntity
-from ..role import KarezRoleBase, CHECKING_STATUS_INTERVAL
+from ..role import RoleBase, CHECKING_STATUS_INTERVAL
 
 
-class ConnectorBase(KarezRoleBase):
+class ConnectorBase(RoleBase, ABC):
     def __init__(self, *args, **kwargs):
         super(ConnectorBase, self).__init__(*args, **kwargs)
         self.converter = self.config.converter
@@ -18,8 +19,13 @@ class ConnectorBase(KarezRoleBase):
         yield from super(ConnectorBase, cls).config_entities()
         yield OptionalConfigEntity("converter", None, "Converters to be used.")
 
+    def reply_topic(self, point_type="telemetry"):
+        return f"karez.{point_type}.{self.name}"
+
 
 class PullConnectorBase(ConnectorBase):
+    TYPE = "connector"
+
     async def _subscribe_handler(self, msg):
         entities = json.loads(msg.data.decode("utf-8"))
         for item in await self.pull(entities):
@@ -27,10 +33,10 @@ class PullConnectorBase(ConnectorBase):
             if self.converter:
                 next_step = converter.pop(0)
                 item["_next"] = converter
-                topic = f"karez.converter.{next_step}"
-                reply = f"karez.telemetry.{self.name}"
+                topic = self.converter_topic(next_step)
+                reply = self.reply_topic("telemetry")
             else:
-                topic = f"karez.telemetry.{self.name}"
+                topic = self.reply_topic("telemetry")
                 reply = ""
             await self.nc.publish(topic, json.dumps(item).encode("utf-8"), reply=reply)
         await self.nc.flush()
@@ -38,7 +44,7 @@ class PullConnectorBase(ConnectorBase):
     async def run(self):
         while True:
             if not (self.nc and self.nc.is_connected and self.sub):
-                await self.subscribe(f"connector.{self.name}")
+                await self.subscribe()
             await asyncio.sleep(CHECKING_STATUS_INTERVAL)
 
     async def _try_fetch_data(self, client, entities):
@@ -54,7 +60,7 @@ class PullConnectorBase(ConnectorBase):
         pass
 
     @abstractmethod
-    async def fetch_data(self, client, entities):
+    async def fetch_data(self, client, entities: Iterable) -> Iterable:
         pass
 
     async def pull(self, entities):

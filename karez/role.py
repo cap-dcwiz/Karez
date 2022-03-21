@@ -1,34 +1,53 @@
 import logging
 from abc import abstractmethod
+from collections.abc import Iterable
 
 import nats
 
-from .config import ConfigurableBase, OptionalConfigEntity, ConfigEntity
+from .config import ConfigurableBase, OptionalConfigEntity, ConfigEntity, ConfigEntityBase
 
 CHECKING_STATUS_INTERVAL = 10
 CONNECTOR_MODE_WORKER = 0
 CONNECTOR_MODE_CONTROLLER = 1
 
 
-class KarezRoleBase(ConfigurableBase):
+class RoleBase(ConfigurableBase):
+    TYPE = NotImplemented
+
     def __init__(self, config, nats_addr="nats://localhost:4222"):
-        super(KarezRoleBase, self).__init__(config)
+        super(RoleBase, self).__init__(config)
         self.name = self.config.name
         self.nc_addr = nats_addr
         self.nc = None
         self.sub = None
 
     @classmethod
-    def config_entities(cls):
-        yield from super(KarezRoleBase, cls).config_entities()
+    def config_entities(cls) -> Iterable[ConfigEntityBase]:
+        yield from super(RoleBase, cls).config_entities()
         conf_type = ConfigEntity("type", "Type of the plugin.")
         yield OptionalConfigEntity("name", conf_type, "Name of the plugin.")
         yield conf_type
 
     @classmethod
     @abstractmethod
-    def role_description(cls):
+    def role_description(cls) -> str:
         pass
+
+    @property
+    def subscribe_topic(self):
+        return f"karez.{self.TYPE}.{self.name}"
+
+    @property
+    def subscribe_queue(self):
+        return f"{self.TYPE}.{self.name}"
+
+    @staticmethod
+    def connector_topic(name):
+        return f"karez.connector.{name}"
+
+    @staticmethod
+    def converter_topic(name):
+        return f"karez.converter.{name}"
 
     async def error_cb(self, e):
         logging.error(f'{self.name}: {str(e)}!')
@@ -60,12 +79,13 @@ class KarezRoleBase(ConfigurableBase):
     async def _subscribe_handler(self, msg):
         pass
 
-    async def subscribe(self, name):
+    async def subscribe(self):
         if await self.async_ensure_init():
             if self.sub:
                 await self.sub.unsubscribe()
                 self.sub = None
-            self.sub = await self.nc.subscribe(f"karez.{name}",
-                                               queue=name,
+            print(self.name, self.subscribe_topic, self.subscribe_queue)
+            self.sub = await self.nc.subscribe(self.subscribe_topic,
+                                               queue=self.subscribe_queue,
                                                cb=self._subscribe_handler)
 
