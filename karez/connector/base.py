@@ -27,8 +27,8 @@ class PullConnectorBase(ConnectorBase):
     TYPE = "connector"
 
     async def _subscribe_handler(self, msg):
-        entities = json.loads(msg.data.decode("utf-8"))
-        for item in await self.pull(entities):
+        payload = json.loads(msg.data.decode("utf-8"))
+        for item in await self.process(payload):
             converter = copy(self.converter)
             if self.converter:
                 next_step = converter.pop(0)
@@ -63,8 +63,8 @@ class PullConnectorBase(ConnectorBase):
     async def fetch_data(self, client, entities: Iterable) -> Iterable:
         pass
 
-    async def pull(self, entities):
+    async def process(self, payload: Iterable) -> Iterable[Iterable]:
         data = []
         async with self.create_client() as client:
-            data.extend(await self._try_fetch_data(client, entities))
+            data.extend(await self._try_fetch_data(client, payload))
         return data

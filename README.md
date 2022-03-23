@@ -51,15 +51,17 @@ KAREZ_CONFIG=virtgen.yaml
 
 ### Commands
 
-Two executives are provides:
+A commandline tool `karez` has been provided.
+Run `karez --help` for more information.
 
-1. `karez`: run dispatchers, connectors or converters. 
-   It will search the used dispatchers, connectors and converters in a given configuration file. 
-   If none of `-d`, `-n` or `-v` is provided. It will launch all types of roles. 
+1. `karez deploy`: deploy dispatchers, connectors or converters. 
+   
+   This tool automatically detect the dispatchers, connectors and converters from a given configuration file. 
+   If none of `-d`, `-n` or `-v` is provided, it will launch all types of roles. 
    Otherwise, only roles of the specified type(s) will be launched.
 
    ```shell
-   $ poetry run karez -c config/opcua.yaml -p ../plugins/ -l INFO
+   $ karez deploy -c config/opcua.yaml -p ../plugins/ -l INFO
    INFO:root:Configurations: [PosixPath('config/opcua.yaml')].
    INFO:root:NATS address: nats://localhost:4222.
    INFO:root:Launched 3 Converters.
@@ -71,29 +73,9 @@ Two executives are provides:
    INFO:asyncua.client.ua_client.UaClient:create_session
    ```   
 
-   Run `karez --help` for more information.
+1. `karez config`: list all configuration items for a particular plugin.
    ```shell
-   $ poetry run karez --help
-   Usage: karez [OPTIONS]
-
-   Options:
-     -c, --config PATH
-     -p, --plugin-directory PATH     [default: plugins]
-     -a, --nats-addr TEXT            [default: nats://localhost:4222]
-     -l, --logging-level TEXT        [default: WARNING]
-     -d, --dispatcher
-     -n, --connector
-     -v, --converter
-     --install-completion [bash|zsh|fish|powershell|pwsh]
-                                     Install completion for the specified shell.
-     --show-completion [bash|zsh|fish|powershell|pwsh]
-                                     Show completion for the specified shell, to
-                                     copy it or customize the installation.
-     --help                          Show this message and exit.
-   ```
-1. `karez-config-help`: list all configuration items for a particular plugin.
-   ```shell
-   $ poetry run karez-config-help connector eaton_telemetry -p ../plugins/
+   $ karez config connector eaton_telemetry -p ../plugins/
 
    [connector] eaton_telemetry: Connector for Eaton DCIM.
 
@@ -114,4 +96,20 @@ Two executives are provides:
 
         - connection_args: [Optional] Additional connection args to passed to httpx.AsyncClient.
            default: {}
+   ```
+   
+1. `karez test`: test plugins.
+   ```shell
+   $ karez test \
+       -c ./config/opcua.yaml -p ../plugins/ \
+       -d default \
+       -n opcua_conn \
+       -v update_info,fix_timestamp,fmt_ts_point \
+       -i ./config/opcua_points.json \
+       --verbose
+   ```
+
+1. `karez collect`: one-time data collection.
+   ```shell
+   $ karez collect -c config/opcua.yaml -p ../plugins/ -o result.json
    ```

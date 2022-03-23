@@ -18,7 +18,7 @@ class ConverterBase(RoleBase):
     async def _subscribe_handler(self, msg):
         reply = msg.reply
         data = json.loads(msg.data.decode("utf-8"))
-        result = self.convert(data)
+        result = await self.process(data)
         if result is None:
             return
         next_converters = data.get("_next", None)
@@ -37,3 +37,6 @@ class ConverterBase(RoleBase):
     @abstractmethod
     def convert(self, payload: dict) -> Union[None, dict]:
         pass
+
+    async def process(self, payload):
+        return self.convert(payload)

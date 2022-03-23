@@ -28,7 +28,7 @@ class DispatcherBase(RoleBase):
     def divide_tasks(self, entities: Iterable) -> Iterable[Iterable]:
         pass
 
-    def _read_entities(self):
+    async def process(self, _) -> Iterable:
         if self.is_configured("entities"):
             entities = self.config.entities
         elif self.is_configured("entity_file"):
@@ -36,13 +36,12 @@ class DispatcherBase(RoleBase):
                 entities = json.load(f)
         else:
             raise RuntimeError("Cannot load entities.")
-        return entities
+        return self.divide_tasks(entities)
 
     async def run(self):
         while True:
             if await self.async_ensure_init():
-                entities = self._read_entities()
-                for _e in self.divide_tasks(entities):
+                for _e in await self.process(None):
                     await self.nc.publish(self.connector_topic(self.target),
                                           json.dumps(_e).encode("utf-8"))
             await asyncio.sleep(self.interval)

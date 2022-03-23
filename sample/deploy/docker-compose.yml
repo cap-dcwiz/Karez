@@ -38,7 +38,7 @@ services:
     volumes:
       - ../config:/karez/config
       - ../../plugins:/karez/plugins
-    command: -c config/${KAREZ_CONFIG} -a nats://nats-server:4222 -d
+    command: deploy -c config/${KAREZ_CONFIG} -a nats://nats-server:4222 -d
 
   karze-connectors:
     build:
@@ -50,7 +50,7 @@ services:
     volumes:
       - ../config:/karez/config
       - ../../plugins:/karez/plugins
-    command: -c config/${KAREZ_CONFIG} -a nats://nats-server:4222 -n
+    command: deploy -c config/${KAREZ_CONFIG} -a nats://nats-server:4222 -n
 
   karze-converters:
     build:
@@ -62,4 +62,4 @@ services:
     volumes:
       - ../config:/karez/config
       - ../../plugins:/karez/plugins
-    command: -c config/${KAREZ_CONFIG} -a nats://nats-server:4222 -v
+    command: deploy -c config/${KAREZ_CONFIG} -a nats://nats-server:4222 -v

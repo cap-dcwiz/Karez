@@ -79,6 +79,10 @@ class RoleBase(ConfigurableBase):
     async def _subscribe_handler(self, msg):
         pass
 
+    @abstractmethod
+    async def process(self, payload):
+        pass
+
     async def subscribe(self):
         if await self.async_ensure_init():
             if self.sub:
