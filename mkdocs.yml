@@ -1,6 +1,7 @@
 site_name: Karez
 repo_url: https://github.com/cap-dcwiz/Karez
 repo_name: cap-dcwiz/Karez
+edit_uri: edit/main/docs/
 theme:
   name: material
   icon:
