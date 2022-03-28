@@ -10,6 +10,9 @@ from ..role import RoleBase, CHECKING_STATUS_INTERVAL
 
 
 class ConnectorBase(RoleBase, ABC):
+    """
+    Base class of connectors
+    """
     def __init__(self, *args, **kwargs):
         super(ConnectorBase, self).__init__(*args, **kwargs)
         self.converter = self.config.converter

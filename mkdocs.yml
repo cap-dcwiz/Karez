@@ -1,0 +1,55 @@
+site_name: Karez
+repo_url: https://github.com/cap-dcwiz/Karez
+repo_name: cap-dcwiz/Karez
+theme:
+  name: material
+  icon:
+    repo: fontawesome/brands/github
+  features:
+    - content.code.annotate
+    - navigation.tabs
+    - navigation.top
+    - navigation.instant
+
+nav:
+  - Home:
+    - Overview: index.md
+    - Get Started: get-started.md
+    - Howtos: howtos/
+    - CLI Reference: cli.md
+    - License: license.md
+  - Docs:
+    - Concepts: concepts.md
+    - Deployment: deployment.md
+    - Reference: reference/
+  - Plugins: plugins/
+
+plugins:
+  - search
+  - gen-files:
+      scripts:
+        - docs/gen_ref_pages.py
+  - literate-nav:
+      nav_file: SUMMARY.md
+  - section-index
+  - mkdocstrings:
+      watch:
+        - karez
+        - plugins
+
+markdown_extensions:
+  - admonition
+  - mkdocs-typer
+  - attr_list
+  - md_in_html
+  - pymdownx.betterem
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.keys
+  - pymdownx.superfences
+  - pymdownx.magiclink
+  - pymdownx.snippets:
+      check_paths: true
+  - toc:
+      permalink: true

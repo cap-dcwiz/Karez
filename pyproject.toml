@@ -13,6 +13,15 @@ dynaconf = "^3.1.7"
 typer = "^0.4.0"
 asyncua = "^0.9.92"
 colorama = "^0.4.4"
+mkdocs = "^1.3.0"
+mkdocstrings = "^0.18.1"
+mkdocs-material = "^8.2.8"
+mkdocs-typer = "^0.0.2"
+Markdown = "^3.3.6"
+pymdown-extensions = "^9.3"
+mkdocs-gen-files = "^0.3.4"
+mkdocs-literate-nav = "^0.4.1"
+mkdocs-section-index = "^0.3.3"
 
 [tool.poetry.dev-dependencies]
 

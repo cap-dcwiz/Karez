@@ -1,0 +1,1 @@
+::: plugins.connector.eaton_telemetry

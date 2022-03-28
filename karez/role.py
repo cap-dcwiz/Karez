@@ -12,6 +12,10 @@ CONNECTOR_MODE_CONTROLLER = 1
 
 
 class RoleBase(ConfigurableBase):
+    """
+    Base class for Roles (Dispatcher, Connector and Converter).
+    """
+
     TYPE = NotImplemented
 
     def __init__(self, config, nats_addr="nats://localhost:4222"):
