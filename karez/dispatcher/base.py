@@ -45,5 +45,3 @@ class DispatcherBase(RoleBase):
                     await self.nc.publish(self.connector_topic(self.target),
                                           json.dumps(_e).encode("utf-8"))
             await asyncio.sleep(self.interval)
-
-

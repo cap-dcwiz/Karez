@@ -2,8 +2,8 @@ from numbers import Number
 
 from asyncua import Client
 
-from ..config import ConfigEntity
 from .base import PullConnectorBase
+from ..config import ConfigEntity
 
 
 class OPCUAPullConnector(PullConnectorBase):

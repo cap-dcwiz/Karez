@@ -1,8 +1,9 @@
 import typer
+
+from . import collect
 from . import config
 from . import deploy
 from . import test
-from . import collect
 
 app = typer.Typer()
 app.command("deploy")(deploy.deploy_cmd)

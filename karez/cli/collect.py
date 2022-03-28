@@ -64,7 +64,7 @@ def collect_cmd(config_files: list[Path] = typer.Option(None, "--config", "-c"),
     disp_lib = search_plugins(plugin_path, "dispatcher")
 
     if len(config.dispatchers) > 1:
-        typer.secho(f"FAIL: Mulitple dispatcher found.", err=True)
+        typer.secho(f"FAIL: Multiple dispatcher found.", err=True)
         sys.exit(1)
     else:
         sub_config = config.dispatchers[0]

@@ -1,5 +1,5 @@
-from karez.utils import sub_dict
 from karez.connector import RestfulConnectorForTelemetries
+from karez.utils import sub_dict
 
 
 class Connector(RestfulConnectorForTelemetries):

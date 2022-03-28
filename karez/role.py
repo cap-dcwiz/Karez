@@ -92,4 +92,3 @@ class RoleBase(ConfigurableBase):
             self.sub = await self.nc.subscribe(self.subscribe_topic,
                                                queue=self.subscribe_queue,
                                                cb=self._subscribe_handler)
-

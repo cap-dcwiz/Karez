@@ -33,4 +33,3 @@ class RestfulConnectorForTelemetries(PullConnectorBase, ABC):
                              **self.config.connection_args,
                              )
         return client
-
