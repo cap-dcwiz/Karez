@@ -1,8 +1,8 @@
-from karez.connector import RestfulConnectorForTelemetries
+from karez.connector import RestfulConnectorBase
 from karez.utils import sub_dict
 
 
-class Connector(RestfulConnectorForTelemetries):
+class Connector(RestfulConnectorBase):
     @classmethod
     def role_description(cls):
         return "Connector for Eaton DCIM."

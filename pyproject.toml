@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "karez"
-version = "0.2.0"
+version = "0.2.7"
 description = ""
 authors = ["Zhu Zhaomeng <zhaomeng.zhu@gmail.com>"]
 
@@ -22,6 +22,7 @@ pymdown-extensions = "^9.3"
 mkdocs-gen-files = "^0.3.4"
 mkdocs-literate-nav = "^0.4.1"
 mkdocs-section-index = "^0.3.3"
+rich = "^12.2.0"
 
 [tool.poetry.dev-dependencies]
 

@@ -4,6 +4,7 @@ from pathlib import Path
 
 import typer
 from dynaconf import Dynaconf
+from rich import print
 
 from .common import search_plugins
 
@@ -18,7 +19,7 @@ def launch_role(role, plugin_path, config, event_loop, nats_addr):
         ins = cls(role_config, nats_addr=nats_addr)
         event_loop.create_task(ins.run())
         count += 1
-    logging.info(f"Launched {count} {role.capitalize()}s.")
+    print(f"[bold][KAREZ][/bold] Launched {count} {role.capitalize()}s.")
 
 
 def deploy_cmd(config_files: list[Path] = typer.Option(None, "--config", "-c"),
@@ -28,12 +29,13 @@ def deploy_cmd(config_files: list[Path] = typer.Option(None, "--config", "-c"),
                launch_dispatcher: bool = typer.Option(False, "--dispatcher", "-d"),
                launch_connector: bool = typer.Option(False, "--connector", "-n"),
                launch_converter: bool = typer.Option(False, "--converter", "-v"),
+               launch_aggregator: bool = typer.Option(False, "--aggregator", "-g"),
                ):
     logging.basicConfig()
     logging.getLogger().setLevel(getattr(logging, logging_level))
 
-    logging.info(f"Configurations: {config_files or './config/*'}.")
-    logging.info(f"NATS address: {nats_addr}.")
+    print(f"[bold][KAREZ][/bold] Configurations: {[str(p) for p in config_files] if config_files else './config/*'}.")
+    print(f"[bold][KAREZ][/bold] NATS address: {nats_addr}.")
 
     if config_files:
         config = Dynaconf(settings_files=config_files)
@@ -42,10 +44,11 @@ def deploy_cmd(config_files: list[Path] = typer.Option(None, "--config", "-c"),
     event_loop = asyncio.new_event_loop()
     args = plugin_path, config, event_loop, nats_addr
 
-    if not (launch_dispatcher or launch_connector or launch_converter):
+    if not (launch_dispatcher or launch_connector or launch_converter or launch_aggregator):
         launch_dispatcher = True
         launch_connector = True
         launch_converter = True
+        launch_aggregator = True
 
     if launch_converter:
         launch_role("converter", *args)
@@ -55,5 +58,8 @@ def deploy_cmd(config_files: list[Path] = typer.Option(None, "--config", "-c"),
 
     if launch_dispatcher:
         launch_role("dispatcher", *args)
+
+    if launch_aggregator:
+        launch_role("aggregator", *args)
 
     event_loop.run_forever()

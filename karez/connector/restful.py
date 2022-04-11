@@ -6,14 +6,14 @@ from .base import PullConnectorBase
 from ..config import ConfigEntity, OptionalConfigEntity
 
 
-class RestfulConnectorForTelemetries(PullConnectorBase, ABC):
+class RestfulConnectorBase(PullConnectorBase, ABC):
     def __init__(self, *args, **kwargs):
-        super(RestfulConnectorForTelemetries, self).__init__(*args, **kwargs)
+        super(RestfulConnectorBase, self).__init__(*args, **kwargs)
         self.base_url = self.config.base_url
 
     @classmethod
     def config_entities(cls):
-        yield from super(RestfulConnectorForTelemetries, cls).config_entities()
+        yield from super(RestfulConnectorBase, cls).config_entities()
         yield ConfigEntity("base_url", "Base URL of the RESTful server.")
         yield OptionalConfigEntity("security", None, "Security configuration.")
         yield OptionalConfigEntity("connection_args", {}, "Additional connection args to passed to httpx.AsyncClient.")

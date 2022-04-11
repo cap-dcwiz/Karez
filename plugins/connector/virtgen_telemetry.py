@@ -1,8 +1,8 @@
 from karez.config import ConfigEntity
-from karez.connector import RestfulConnectorForTelemetries
+from karez.connector import RestfulConnectorBase
 
 
-class Connector(RestfulConnectorForTelemetries):
+class Connector(RestfulConnectorBase):
     @classmethod
     def role_description(cls):
         return "Connector for DCWiz virtual generator."

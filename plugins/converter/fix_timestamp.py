@@ -25,4 +25,4 @@ class Converter(ConverterBase):
         else:
             timestamp = datetime.utcnow()
         payload["timestamp"] = datetime.timestamp(timestamp)
-        return payload
+        yield payload

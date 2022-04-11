@@ -9,12 +9,6 @@ from karez.role import RoleBase, CHECKING_STATUS_INTERVAL
 class ConverterBase(RoleBase):
     TYPE = "converter"
 
-    async def run(self):
-        while True:
-            if not (self.nc and self.nc.is_connected and self.sub):
-                await self.subscribe()
-            await asyncio.sleep(CHECKING_STATUS_INTERVAL)
-
     async def _subscribe_handler(self, msg):
         reply = msg.reply
         data = json.loads(msg.data.decode("utf-8"))
@@ -32,7 +26,8 @@ class ConverterBase(RoleBase):
                 del data["_next"]
             topic = reply
             reply = ""
-        await self.nc.publish(topic, json.dumps(result).encode("utf-8"), reply=reply)
+        for item in result:
+            await self.nc.publish(topic, json.dumps(item).encode("utf-8"), reply=reply)
 
     @abstractmethod
     def convert(self, payload: dict) -> Union[None, dict]:

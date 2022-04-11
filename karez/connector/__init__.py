@@ -1,2 +1,2 @@
 from .base import ConnectorBase
-from .restful import RestfulConnectorForTelemetries
+from .restful import RestfulConnectorBase

@@ -20,4 +20,4 @@ class Converter(ConverterBase):
             info = json.load(f)
         key = self.config.key
         payload.update(info[payload[key]])
-        return payload
+        yield payload

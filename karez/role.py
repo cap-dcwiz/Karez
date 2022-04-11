@@ -1,3 +1,4 @@
+import asyncio
 import logging
 from abc import abstractmethod
 from collections.abc import Iterable
@@ -92,7 +93,12 @@ class RoleBase(ConfigurableBase):
             if self.sub:
                 await self.sub.unsubscribe()
                 self.sub = None
-            print(self.name, self.subscribe_topic, self.subscribe_queue)
             self.sub = await self.nc.subscribe(self.subscribe_topic,
                                                queue=self.subscribe_queue,
                                                cb=self._subscribe_handler)
+
+    async def run(self):
+        while True:
+            if not (self.nc and self.nc.is_connected and self.sub):
+                await self.subscribe()
+            await asyncio.sleep(CHECKING_STATUS_INTERVAL)

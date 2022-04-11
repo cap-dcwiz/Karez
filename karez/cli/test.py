@@ -1,9 +1,9 @@
 import asyncio
 import json
 from pathlib import Path
-from pprint import pprint
 from types import GeneratorType
 from typing import Union
+from rich import print
 
 import typer
 from dynaconf import Dynaconf
@@ -35,7 +35,7 @@ async def _async_test_roles(roles, payload, verbose=False):
             payload = list(payload)[0]
         if verbose:
             typer.secho(f"After {role.TYPE.upper()} {role.name}:\n", bold=True)
-            pprint(payload)
+            print(payload)
             typer.echo("\n")
     return payload
 
@@ -73,4 +73,4 @@ def test_cmd(config_files: list[Path] = typer.Option(None, "--config", "-c"),
         with open(output_json, "w") as f:
             json.dump(payload, f, indent=2)
     else:
-        pprint(payload)
+        print(payload)

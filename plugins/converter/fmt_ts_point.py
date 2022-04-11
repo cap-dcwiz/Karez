@@ -22,4 +22,4 @@ class Converter(ConverterBase):
             payload[payload[field_name]] = payload[field_value]
             del payload[field_name]
             del payload[field_value]
-        return payload
+        yield payload

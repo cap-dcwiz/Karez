@@ -44,12 +44,6 @@ class PullConnectorBase(ConnectorBase):
             await self.nc.publish(topic, json.dumps(item).encode("utf-8"), reply=reply)
         await self.nc.flush()
 
-    async def run(self):
-        while True:
-            if not (self.nc and self.nc.is_connected and self.sub):
-                await self.subscribe()
-            await asyncio.sleep(CHECKING_STATUS_INTERVAL)
-
     async def _try_fetch_data(self, client, entities):
         try:
             res = await self.fetch_data(client, entities)

@@ -1,8 +1,8 @@
 import asyncio
 import json
 from pathlib import Path
-from pprint import pprint
 from typing import Union
+from rich import print
 
 import sys
 import typer
@@ -110,4 +110,4 @@ def collect_cmd(config_files: list[Path] = typer.Option(None, "--config", "-c"),
         with open(output_json, "w") as f:
             json.dump(payload, f, indent=2)
     else:
-        pprint(payload)
+        print(payload)

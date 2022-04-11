@@ -21,22 +21,18 @@ class DispatcherBase(RoleBase):
         yield ConfigEntity("interval", "Collection interval.")
         yield ConfigEntity("connector", "Connector to use.")
         yield OptionalConfigEntity("batch_size", 1, "Batch Size")
-        yield OptionalConfigEntity("entities", None, "Entities")
-        yield OptionalConfigEntity("entity_file", None, "Entity file")
+
+    def divide_tasks(self, entities: list) -> Iterable[Iterable]:
+        batch_size = self.config.batch_size
+        for i in range(0, len(entities), batch_size):
+            yield entities[i: i + batch_size]
 
     @abstractmethod
-    def divide_tasks(self, entities: Iterable) -> Iterable[Iterable]:
+    def load_entities(self) -> list:
         pass
 
     async def process(self, _) -> Iterable:
-        if self.is_configured("entities"):
-            entities = self.config.entities
-        elif self.is_configured("entity_file"):
-            with open(self.config.entity_file, "r") as f:
-                entities = json.load(f)
-        else:
-            raise RuntimeError("Cannot load entities.")
-        return self.divide_tasks(entities)
+        return self.divide_tasks(self.load_entities())
 
     async def run(self):
         while True:

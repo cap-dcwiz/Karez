@@ -20,6 +20,6 @@ class Converter(ConverterBase):
             payload["value"] = value
             del payload["value_type"]
 
-            return payload
+            yield payload
         except:
             pass
