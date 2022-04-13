@@ -11,9 +11,10 @@ class ConverterBase(RoleBase):
 
     @staticmethod
     def copy_meta(new, orig):
-        for meta_name in ("_next",):
-            if meta_name in orig:
-                new[meta_name] = orig[meta_name]
+        if isinstance(new, dict):
+            for meta_name in ("_next",):
+                if meta_name in orig:
+                    new[meta_name] = orig[meta_name]
         return new
 
     async def _subscribe_handler(self, msg):
@@ -35,7 +36,9 @@ class ConverterBase(RoleBase):
             reply = ""
         for item in result:
             item = self.copy_meta(item, data)
-            await self.nc.publish(topic, json.dumps(item).encode("utf-8"), reply=reply)
+            if isinstance(item, dict):
+                item = json.dumps(item)
+            await self.nc.publish(topic, item.encode("utf-8"), reply=reply)
 
     @abstractmethod
     def convert(self, payload: dict) -> Union[None, dict]:
