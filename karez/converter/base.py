@@ -9,6 +9,13 @@ from karez.role import RoleBase, CHECKING_STATUS_INTERVAL
 class ConverterBase(RoleBase):
     TYPE = "converter"
 
+    @staticmethod
+    def copy_meta(new, orig):
+        for meta_name in ("_next",):
+            if meta_name in orig:
+                new[meta_name] = orig[meta_name]
+        return new
+
     async def _subscribe_handler(self, msg):
         reply = msg.reply
         data = json.loads(msg.data.decode("utf-8"))
@@ -27,6 +34,7 @@ class ConverterBase(RoleBase):
             topic = reply
             reply = ""
         for item in result:
+            item = self.copy_meta(item, data)
             await self.nc.publish(topic, json.dumps(item).encode("utf-8"), reply=reply)
 
     @abstractmethod
