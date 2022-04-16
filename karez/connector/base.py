@@ -15,15 +15,11 @@ class ConnectorBase(RoleBase, ABC):
     """
     def __init__(self, *args, **kwargs):
         super(ConnectorBase, self).__init__(*args, **kwargs)
-        self.converter = self.config.converter
 
     @classmethod
     def config_entities(cls):
         yield from super(ConnectorBase, cls).config_entities()
-        yield OptionalConfigEntity("converter", None, "Converters to be used.")
-
-    def reply_topic(self, point_type="telemetry"):
-        return f"karez.{point_type}.{self.name}"
+        yield OptionalConfigEntity("converter", None, "First Converters to be used.")
 
 
 class PullConnectorBase(ConnectorBase):
@@ -31,18 +27,17 @@ class PullConnectorBase(ConnectorBase):
 
     async def _subscribe_handler(self, msg):
         payload = json.loads(msg.data.decode("utf-8"))
-        for item in await self.process(payload):
-            converter = copy(self.converter)
-            if self.converter:
-                next_step = converter.pop(0)
-                item["_next"] = converter
-                topic = self.converter_topic(next_step)
-                reply = self.reply_topic("telemetry")
+        for item in await self.process(payload["tasks"]):
+            self.update_meta(item, category=self.get_meta(item, "category", "telemetry"))
+            if self.config.converter:
+                for converter in self.config.converter:
+                    if converter:
+                        await self.publish(self.converter_topic(converter), item)
+                    else:
+                        await self.publish(self.aggregator_topic(item), item)
             else:
-                topic = self.reply_topic("telemetry")
-                reply = ""
-            await self.nc.publish(topic, json.dumps(item).encode("utf-8"), reply=reply)
-        await self.nc.flush()
+                await self.publish(self.aggregator_topic(item), item)
+        await self.flush()
 
     async def _try_fetch_data(self, client, entities):
         try:

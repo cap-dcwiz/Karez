@@ -1,5 +1,5 @@
-from karez.config import ConfigEntity
-from karez.connector import RestfulConnectorBase
+from ...config import ConfigEntity
+from ..restful import RestfulConnectorBase
 
 
 class Connector(RestfulConnectorBase):

@@ -1,15 +1,17 @@
-from .base import DispatcherBase
-from ..config import OptionalConfigEntity
+import json
+
+from ...config import OptionalConfigEntity
+from ..base import DispatcherBase
 
 
-class DefaultDispatcher(DispatcherBase):
+class Dispatcher(DispatcherBase):
     @classmethod
     def role_description(cls):
         return "Default dispatcher."
 
     @classmethod
     def config_entities(cls):
-        yield from super(DefaultDispatcher, cls).config_entities()
+        yield from super(Dispatcher, cls).config_entities()
         yield OptionalConfigEntity("entities", None, "Entities")
         yield OptionalConfigEntity("entity_file", None, "Entity file")
 

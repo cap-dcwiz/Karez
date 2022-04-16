@@ -1,4 +1,4 @@
-from karez.converter import ConverterBase
+from ..base import ConverterBase
 
 
 class Converter(ConverterBase):

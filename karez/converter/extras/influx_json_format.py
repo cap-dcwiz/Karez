@@ -1,5 +1,5 @@
-from karez.config import ConfigEntity, OptionalConfigEntity
-from karez.converter import ConverterBase
+from ...config import ConfigEntity, OptionalConfigEntity
+from ..base import ConverterBase
 
 
 class Converter(ConverterBase):

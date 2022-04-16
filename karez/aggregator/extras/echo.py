@@ -1,8 +1,8 @@
-from karez.aggregator.base import AggregatorBase
+from ..base import AggregatorBase
 from rich import print
 
 
-class EchoAggregator(AggregatorBase):
+class Aggregator(AggregatorBase):
     @classmethod
     def role_description(cls) -> str:
         return "Simple aggregator that echos all received data."

@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "karez"
-version = "0.2.9"
+version = "0.2.16"
 description = ""
 authors = ["Zhu Zhaomeng <zhaomeng.zhu@gmail.com>"]
 
@@ -23,6 +23,7 @@ mkdocs-gen-files = "^0.3.4"
 mkdocs-literate-nav = "^0.4.1"
 mkdocs-section-index = "^0.3.3"
 rich = "^12.2.0"
+influxdb-client = {version = "^1.27.0", optional = true}
 
 [tool.poetry.dev-dependencies]
 
@@ -32,3 +33,6 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
 karez = "karez.cli:app"
+
+[tool.poetry.extras]
+influxdb = ["influxdb-client"]

@@ -1,7 +1,9 @@
 import asyncio
+import json
 import logging
 from abc import abstractmethod
 from collections.abc import Iterable
+from copy import copy
 
 import nats
 
@@ -54,6 +56,13 @@ class RoleBase(ConfigurableBase):
     def converter_topic(name):
         return f"karez.converter.{name}"
 
+    def aggregator_topic(self, data, default_category="telemetry"):
+        # if isinstance(data, dict):
+        category = self.get_meta(data, "category", default_category)
+        # else:
+        #     category = default_category
+        return f"karez.{category}.{self.name}"
+
     async def error_cb(self, e):
         logging.error(f'{self.name}: {str(e)}!')
 
@@ -102,3 +111,45 @@ class RoleBase(ConfigurableBase):
             if not (self.nc and self.nc.is_connected and self.sub):
                 await self.subscribe()
             await asyncio.sleep(CHECKING_STATUS_INTERVAL)
+
+    @staticmethod
+    def get_meta(data, key, default=None):
+        return data.get("_karez", {}).get(key, default)
+
+    @staticmethod
+    def pop_meta(data, key, default=None):
+        if "_karez" in data:
+            res = data.pop(key, default)
+            if not data["_karez"]:
+                data.pop("_karez")
+            return res
+        else:
+            return default
+
+    @staticmethod
+    def update_meta(data, **kwargs):
+        for key, value in kwargs.items():
+            meta = data.get("_karez", {})
+            meta[key] = value
+            data["_karez"] = meta
+        return data
+
+    @staticmethod
+    def copy_meta(new_data, old_data):
+        new_data = copy(new_data)
+        # if isinstance(new_data, dict) and \
+        #         isinstance(old_data, dict) and \
+        #         "_karez" in old_data:
+        new_data["_karez"] = old_data["_karez"] | new_data.get("_karez", {})
+        return new_data
+
+    async def publish(self, topic, payload, **kwargs):
+        if "_as_is" in payload:
+            payload = payload["_as_is"]
+        if not isinstance(payload, str):
+            payload = json.dumps(payload)
+        payload = payload.encode("utf-8")
+        return await self.nc.publish(topic, payload, **kwargs)
+
+    async def flush(self):
+        return await self.nc.flush()

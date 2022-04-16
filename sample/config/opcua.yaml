@@ -11,21 +11,27 @@ connectors:
     url: opc.tcp://opcuaserver.com:48010
     converter:
       - update_info
-      - fix_timestamp
-      - fmt_ts_point
 
 converters:
-  - type: fix_timestamp
-    tz_infos:
-      SGT: Aisa/Singapore
-  - type: fmt_ts_point
-    measurement: opcua_ma
-    field_name: ma_name
-    field_value: value
   - type: update_info
     info_file: config/opcua_points_info.json
     key: ma_id
+    next:
+#      - fix_timestamp
+      - filter_and_update_meta
+#  - type: fix_timestamp
+#    tz_infos:
+#      SGT: Aisa/Singapore
+#    next: influx_json_format
+#  - type: influx_json_format
+#    measurement: opcua_ma
+#    field_name: ma_name
+#    field_value: value
+  - type: filter_and_update_meta
+    key: category
+    rename:
+      telemetry: telemetry2
 
 aggregators:
   - type: echo
-    categodiry: telemetry
+    category: telemetry

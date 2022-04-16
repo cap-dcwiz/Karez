@@ -1,5 +1,5 @@
-from karez.connector import RestfulConnectorBase
-from karez.utils import sub_dict
+from ..restful import RestfulConnectorBase
+from ...utils import sub_dict
 
 
 class Connector(RestfulConnectorBase):

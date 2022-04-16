@@ -1,7 +1,7 @@
 import json
 
-from karez.config import ConfigEntity
-from karez.converter import ConverterBase
+from ...config import ConfigEntity
+from ..base import ConverterBase
 
 
 class Converter(ConverterBase):

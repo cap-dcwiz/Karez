@@ -1,47 +1,43 @@
-import asyncio
 import json
 from abc import abstractmethod
 from typing import Union
+from rich import print
 
+from karez.config import OptionalConfigEntity
 from karez.role import RoleBase, CHECKING_STATUS_INTERVAL
 
 
 class ConverterBase(RoleBase):
     TYPE = "converter"
 
-    @staticmethod
-    def copy_meta(new, orig):
-        if isinstance(new, dict):
-            for meta_name in ("_next",):
-                if meta_name in orig:
-                    new[meta_name] = orig[meta_name]
-        return new
+    @classmethod
+    def config_entities(cls):
+        yield from super(ConverterBase, cls).config_entities()
+        yield OptionalConfigEntity("next", None, "Next Converters to be used.")
 
     async def _subscribe_handler(self, msg):
-        reply = msg.reply
         data = json.loads(msg.data.decode("utf-8"))
-        result = await self.process(data)
-        if result is None:
-            return
-        next_converters = data.get("_next", None)
+        result = list(await self.process(data))
+        next_converters = self.config.next
         if next_converters:
-            topic = self.converter_topic(next_converters.pop(0))
-            reply = reply
+            if isinstance(next_converters, str):
+                next_converters = [next_converters]
+            for converter in next_converters:
+                if converter:
+                    topic = self.converter_topic(converter)
+                    for item in result:
+                        await self.publish(topic, self.copy_meta(item, data))
+                else:
+                    for item in result:
+                        item = self.copy_meta(item, data)
+                        await self.publish(self.aggregator_topic(item), item)
         else:
-            if "_next" in data:
-                del data["_next"]
-            if next_converters is []:
-                del data["_next"]
-            topic = reply
-            reply = ""
-        for item in result:
-            item = self.copy_meta(item, data)
-            if isinstance(item, dict):
-                item = json.dumps(item)
-            await self.nc.publish(topic, item.encode("utf-8"), reply=reply)
+            for item in result:
+                item = self.copy_meta(item, data)
+                await self.publish(self.aggregator_topic(item), item)
 
     @abstractmethod
-    def convert(self, payload: dict) -> Union[None, dict]:
+    def convert(self, payload: dict) -> Union[None, dict[Union[dict, str]]]:
         pass
 
     async def process(self, payload):

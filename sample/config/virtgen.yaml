@@ -19,15 +19,17 @@ connectors:
       password:
     converter:
       - fix_timestamp
-      - fmt_ts_point
-      - update_info
 
 converters:
   - type: fix_timestamp
     tz_infos:
       SGT: Aisa/Singapore
-  - type: fmt_ts_point
+    next:
+      - influx_json_format
+  - type: influx_json_format
     measurement: virtgen_ma
+    next:
+      - update_info
   - type: update_info
     info_file: config/virtgen_device_types.json
     key: dev_id

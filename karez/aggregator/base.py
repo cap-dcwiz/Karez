@@ -2,7 +2,7 @@ import json
 from abc import ABC, abstractmethod
 from collections.abc import Iterable
 
-from karez.config import ConfigEntityBase, ConfigEntity
+from karez.config import ConfigEntityBase, ConfigEntity, OptionalConfigEntity
 from karez.role import RoleBase
 
 
@@ -13,6 +13,7 @@ class AggregatorBase(RoleBase, ABC):
     def config_entities(cls) -> Iterable[ConfigEntityBase]:
         yield from super(AggregatorBase, cls).config_entities()
         yield ConfigEntity("category", "Category of data points to be aggregated.")
+        yield OptionalConfigEntity("json", True, "Whether the received data is json serialized or not.")
 
     @property
     def subscribe_topic(self):
@@ -23,7 +24,9 @@ class AggregatorBase(RoleBase, ABC):
         return f"{self.config.category}"
 
     async def _subscribe_handler(self, msg):
-        payload = json.loads(msg.data.decode("utf-8"))
+        payload = msg.data.decode("utf-8")
+        if self.config.json:
+            payload = json.loads(payload)
         self.process(payload)
 
     @abstractmethod

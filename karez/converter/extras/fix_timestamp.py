@@ -3,8 +3,8 @@ from datetime import datetime
 from dateutil.parser import parse
 from dateutil.tz import gettz
 
-from karez.config import ConfigEntity
-from karez.converter import ConverterBase
+from ...config import ConfigEntity
+from ..base import ConverterBase
 
 
 class Converter(ConverterBase):

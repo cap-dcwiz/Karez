@@ -2,18 +2,18 @@ from numbers import Number
 
 from asyncua import Client
 
-from .base import PullConnectorBase
-from ..config import ConfigEntity
+from ...config import ConfigEntity
+from ..base import PullConnectorBase
 
 
-class OPCUAPullConnector(PullConnectorBase):
+class Connector(PullConnectorBase):
     def __init__(self, *args, **kwargs):
-        super(OPCUAPullConnector, self).__init__(*args, **kwargs)
+        super(Connector, self).__init__(*args, **kwargs)
         self.url = self.config.url
 
     @classmethod
     def config_entities(cls):
-        yield from super(OPCUAPullConnector, cls).config_entities()
+        yield from super(Connector, cls).config_entities()
         yield ConfigEntity("url", "OPC-UA server url.")
 
     @classmethod

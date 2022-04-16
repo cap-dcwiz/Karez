@@ -1,9 +1,11 @@
+from copy import copy
 from pathlib import Path
 from pkgutil import iter_modules
+from karez.plugins import BUILTIN_PLUGINS
 
 
 def search_plugins(plugin_path, name):
-    library = {}
+    library = copy(BUILTIN_PLUGINS.get(name))
     file_path = [str(Path(plugin_path, name))]
 
     for loader, module_name, is_pkg in iter_modules(file_path):
