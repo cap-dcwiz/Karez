@@ -1,4 +1,7 @@
-from influxdb_client import Point, WritePrecision
+try:
+    from influxdb_client import Point, WritePrecision
+except ImportError:
+    pass
 
 from ...config import ConfigEntity, OptionalConfigEntity
 from ..base import ConverterBase
