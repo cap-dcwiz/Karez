@@ -33,17 +33,17 @@ async def _async_collect(roles, payload, verbose):
     res = []
     for r1 in await dispatcher_process(payload):
         if verbose and dispatcher_process is not noop_d:
-            typer.echo(f"Dispatcher result received.")
-        for r2 in await connector_process(r1):
+            typer.echo(f"Dispatcher result received (result: {str(r1)[:32]}...).")
+        for r2 in await connector_process(r1["tasks"]):
             if verbose and connector_process is not noop_n:
-                typer.echo(f"Connector result received.")
+                typer.echo(f"Connector result received (result: {str(r2)[:32]}...).")
             r3 = r2
             for role in roles:
                 r3 = await role.process(r3)
                 if r3 is None:
                     break
                 if verbose:
-                    typer.echo(f"Applied converter: {role.name}")
+                    typer.echo(f"Applied converter: {role.name} (result: {str(r3)[:32]}...).")
             if r3 is not None:
                 res.append(r3)
     return res
@@ -53,8 +53,7 @@ def collect_cmd(config_files: list[Path] = typer.Option(None, "--config", "-c"),
                 plugin_path: Path = typer.Option("plugins", "--plugin-directory", "-p"),
                 input_json: Union[str, None] = typer.Option(None, "--input", "-i"),
                 output_json: Union[str, None] = typer.Option(None, "--output", "-o"),
-                verbose: bool =
-                False,
+                verbose: bool = False,
                 ):
     if config_files:
         config = Dynaconf(settings_files=config_files)
