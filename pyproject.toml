@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "karez"
-version = "0.2.29"
+version = "0.2.30"
 description = ""
 authors = ["Zhu Zhaomeng <zhaomeng.zhu@gmail.com>"]
 
@@ -24,6 +24,7 @@ mkdocs-literate-nav = "^0.4.1"
 mkdocs-section-index = "^0.3.3"
 rich = "^12.2.0"
 influxdb-client = {version = "^1.27.0", optional = true}
+pymodbus = "^2.5.3"
 
 [tool.poetry.dev-dependencies]
 

@@ -15,8 +15,8 @@ connectors:
       verify: false
     security:
       type: basic
-      username:
-      password:
+      username: dcwiz
+      password: dcwiz_api_password
     converter:
       - fix_timestamp
 
