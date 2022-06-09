@@ -32,7 +32,7 @@ class Connector(PullConnectorBase):
             if not isinstance(value, Number):
                 value = str(value)
             data.append(dict(
-                ma_id=node_id,
+                name=node_id,
                 value=value
             ))
         return data
