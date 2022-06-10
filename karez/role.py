@@ -135,13 +135,19 @@ class RoleBase(ConfigurableBase):
         return data
 
     @staticmethod
-    def copy_meta(new_data, old_data):
+    def copy_meta(new_data, old_data, clear_old=False):
         new_data = copy(new_data)
         # if isinstance(new_data, dict) and \
         #         isinstance(old_data, dict) and \
         #         "_karez" in old_data:
-        new_data["_karez"] = old_data["_karez"] | new_data.get("_karez", {})
+        new_data["_karez"] = old_data.get("_karez", {}) | new_data.get("_karez", {})
+        if clear_old:
+            RoleBase.clear_meta(old_data)
         return new_data
+
+    @staticmethod
+    def clear_meta(data):
+        data.pop("_karez", None)
 
     async def publish(self, topic, payload, **kwargs):
         if "_as_is" in payload:
