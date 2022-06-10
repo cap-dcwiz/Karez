@@ -74,4 +74,5 @@ def test_cmd(config_files: list[Path] = typer.Option(None, "--config", "-c"),
         with open(output_json, "w") as f:
             json.dump(payload, f, indent=2)
     else:
-        print(payload)
+        if not verbose:
+            print(payload)
