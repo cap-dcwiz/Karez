@@ -31,12 +31,11 @@ def get_test_roles(role, plugin_path, config, role_names):
 async def _async_test_roles(roles, payload, verbose=False):
     for role in roles:
         payload = await role.process(payload)
+        payload = list(payload)[0]
         if isinstance(role, DispatcherBase):
-            payload = list(payload)[0]["tasks"]
-        elif isinstance(role, ConnectorBase):
-            payload = list(payload)[0]
+            payload = payload["tasks"]
         if verbose:
-            typer.secho(f"After {role.TYPE.upper()} {role.name}:\n", bold=True)
+            typer.secho(f"[1] After {role.TYPE.upper()} {role.name}:\n", bold=True)
             print(payload)
             typer.echo("\n")
     return payload
