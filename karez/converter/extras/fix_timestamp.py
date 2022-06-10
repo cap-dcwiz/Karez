@@ -1,4 +1,4 @@
-from datetime import datetime
+import time
 
 from dateutil.parser import parse
 from dateutil.tz import gettz
@@ -21,8 +21,8 @@ class Converter(ConverterBase):
         tz_infos = {k: gettz(v) for k, v in self.config.tz_infos.items()}
         timestamp = payload.get("timestamp", None)
         if timestamp:
-            timestamp = parse(timestamp, tzinfos=tz_infos)
+            timestamp = parse(timestamp, tzinfos=tz_infos).timestamp()
         else:
-            timestamp = datetime.utcnow()
-        payload["timestamp"] = datetime.timestamp(timestamp)
+            timestamp = time.time()
+        payload["timestamp"] = timestamp
         yield payload
