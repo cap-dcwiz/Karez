@@ -1,6 +1,6 @@
 import json
 from abc import ABC, abstractmethod
-from collections.abc import Iterable
+from typing import Generator
 
 from karez.config import ConfigEntityBase, ConfigEntity, OptionalConfigEntity
 from karez.role import RoleBase
@@ -10,7 +10,7 @@ class AggregatorBase(RoleBase, ABC):
     TYPE = "aggregrator"
 
     @classmethod
-    def config_entities(cls) -> Iterable[ConfigEntityBase]:
+    def config_entities(cls) -> Generator[ConfigEntityBase]:
         yield from super(AggregatorBase, cls).config_entities()
         yield ConfigEntity("category", "Category of data points to be aggregated.")
         yield OptionalConfigEntity("json", True, "Whether the received data is json serialized or not.")

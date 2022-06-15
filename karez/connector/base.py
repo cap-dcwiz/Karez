@@ -1,18 +1,17 @@
-import asyncio
 import json
 import logging
 from abc import abstractmethod, ABC
 from collections.abc import Iterable
-from copy import copy
 
 from ..config import OptionalConfigEntity
-from ..role import RoleBase, CHECKING_STATUS_INTERVAL
+from ..role import RoleBase
 
 
 class ConnectorBase(RoleBase, ABC):
     """
     Base class of connectors
     """
+
     def __init__(self, *args, **kwargs):
         super(ConnectorBase, self).__init__(*args, **kwargs)
 

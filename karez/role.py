@@ -2,8 +2,8 @@ import asyncio
 import json
 import logging
 from abc import abstractmethod
-from collections.abc import Iterable
 from copy import copy
+from typing import Generator
 
 import nats
 
@@ -29,7 +29,7 @@ class RoleBase(ConfigurableBase):
         self.sub = None
 
     @classmethod
-    def config_entities(cls) -> Iterable[ConfigEntityBase]:
+    def config_entities(cls) -> Generator[ConfigEntityBase]:
         yield from super(RoleBase, cls).config_entities()
         conf_type = ConfigEntity("type", "Type of the plugin.")
         yield OptionalConfigEntity("name", conf_type, "Name of the plugin.")

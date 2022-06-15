@@ -71,7 +71,7 @@ class ConfigurableBase(ABC):
             if isinstance(e, ConfigEntity):
                 try:
                     return self._config[name]
-                except:
+                except KeyError:
                     raise RuntimeError(f"[{self.__class__.__name__}] Config entity {name} is required but not found.")
             elif isinstance(e, OptionalConfigEntity):
                 default = e.default

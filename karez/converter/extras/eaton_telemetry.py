@@ -21,5 +21,5 @@ class Converter(ConverterBase):
             del payload["value_type"]
 
             yield payload
-        except:
+        except KeyError:
             pass

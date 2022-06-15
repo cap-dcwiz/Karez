@@ -14,15 +14,15 @@ theme:
 
 nav:
   - Home:
-    - Overview: index.md
-    - Get Started: get-started.md
-    - Howtos: howtos/
-    - CLI Reference: cli.md
-    - License: license.md
+      - Overview: index.md
+      - Get Started: get-started.md
+      - Howtos: howtos/
+      - CLI Reference: cli.md
+      - License: license.md
   - Docs:
-    - Concepts: concepts.md
-    - Deployment: deployment.md
-    - Reference: reference/
+      - Concepts: concepts.md
+      - Deployment: deployment.md
+      - Reference: reference/
   - Plugins: plugins/
 
 plugins:

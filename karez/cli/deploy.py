@@ -31,7 +31,6 @@ def deploy_cmd(config_files: list[Path] = typer.Option(None, "--config", "-c"),
                launch_converter: bool = typer.Option(False, "--converter", "-v"),
                launch_aggregator: bool = typer.Option(False, "--aggregator", "-g"),
                ):
-    logging.basicConfig()
     logging.getLogger().setLevel(getattr(logging, logging_level))
 
     print(f"[bold][KAREZ][/bold] Configurations: {[str(p) for p in config_files] if config_files else './config/*'}.")
