@@ -29,7 +29,7 @@ class RoleBase(ConfigurableBase):
         self.sub = None
 
     @classmethod
-    def config_entities(cls) -> Generator[ConfigEntityBase]:
+    def config_entities(cls) -> Generator[ConfigEntityBase, None, None]:
         yield from super(RoleBase, cls).config_entities()
         conf_type = ConfigEntity("type", "Type of the plugin.")
         yield OptionalConfigEntity("name", conf_type, "Name of the plugin.")
