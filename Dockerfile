@@ -8,7 +8,6 @@ ENV PYTHONPATH="${PYTHONPATH}:/opt/" \
 
 COPY pyproject.toml /karez/
 COPY karez /karez/karez
-COPY plugins /karez/plugins
 RUN pip install poetry
 RUN poetry config virtualenvs.create false
 RUN poetry install --no-dev
