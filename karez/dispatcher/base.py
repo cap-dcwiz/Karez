@@ -1,6 +1,7 @@
 import asyncio
 from abc import abstractmethod
 from collections.abc import Iterable
+from typing import Generator
 
 from karez.config import ConfigEntity, OptionalConfigEntity
 from karez.role import RoleBase
@@ -21,7 +22,7 @@ class DispatcherBase(RoleBase):
         yield ConfigEntity("connector", "Connector to use.")
         yield OptionalConfigEntity("batch_size", 1, "Batch Size")
 
-    def divide_tasks(self, entities: list) -> Iterable:
+    def divide_tasks(self, entities: list) -> Generator[dict, None, None]:
         batch_size = self.config.batch_size
         for i in range(0, len(entities), batch_size):
             yield dict(tasks=entities[i: i + batch_size])

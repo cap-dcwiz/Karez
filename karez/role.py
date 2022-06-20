@@ -91,6 +91,7 @@ class RoleBase(ConfigurableBase):
         return self.nc and self.nc.is_connected
 
     async def _subscribe_handler(self, msg):
+        # Do stuff when received msg, can be empty (for most dispatchers).
         pass
 
     @abstractmethod
