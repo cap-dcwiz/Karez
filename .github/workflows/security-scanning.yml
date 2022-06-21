@@ -73,22 +73,59 @@ jobs:
         uses: andstor/file-existence-action@v1
         with:
           files: "Dockerfile"
+      - id: repo_name
+        uses: ASzc/change-string-case-action@v2
+        with:
+          string: ${{ github.event.repository.name }}
       - name: Build an image from Dockerfile
         if: steps.check_dockerfile.outputs.files_exists == 'true'
         run: |
-          docker build -t docker.io/my-organization/my-app:${{ github.sha }} .
-      - name: Run Trivy vulnerability scanner
-        if: steps.check_dockerfile.outputs.files_exists == 'true'
+          docker build -t ${{ steps.repo_name.outputs.lowercase }}:${{ github.sha }} .
+      - name: Run Trivy vulnerability scanner (Sarif)
+        if: steps.check_dockerfile.outputs.files_exists == 'true' && !github.event.repository.private
         uses: aquasecurity/trivy-action@2a2157eb22c08c9a1fac99263430307b8d1bc7a2
         with:
-          image-ref: 'docker.io/my-organization/my-app:${{ github.sha }}'
+          image-ref: '${{ steps.repo_name.outputs.lowercase }}:${{ github.sha }}'
           format: 'template'
           template: '@/contrib/sarif.tpl'
           output: 'trivy-results.sarif'
           severity: 'CRITICAL,HIGH'
           ignore-unfixed: true
       - name: Upload Trivy scan results to GitHub Security tab
-        if: steps.check_dockerfile.outputs.files_exists == 'true'
+        if: steps.check_dockerfile.outputs.files_exists == 'true' && !github.event.repository.private
         uses: github/codeql-action/upload-sarif@v2
         with:
           sarif_file: 'trivy-results.sarif'
+      - name: Run Trivy vulnerability scanner (Html)
+        if: steps.check_dockerfile.outputs.files_exists == 'true'
+        uses: aquasecurity/trivy-action@2a2157eb22c08c9a1fac99263430307b8d1bc7a2
+        with:
+          image-ref: '${{ steps.repo_name.outputs.lowercase }}:${{ github.sha }}'
+          format: 'template'
+          template: '@/contrib/html.tpl'
+          output: 'trivy-results.html'
+          severity: 'CRITICAL,HIGH'
+          ignore-unfixed: true
+          exit-code: 1
+      - name: Upload Test results
+        if: steps.check_dockerfile.outputs.files_exists == 'true' && (success() || failure())
+        uses: actions/upload-artifact@master
+        with:
+           name: Trivy report
+           path: trivy-results.html
+      - name: Run Trivy vulnerability scanner (Html Full)
+        if: steps.check_dockerfile.outputs.files_exists == 'true'
+        uses: aquasecurity/trivy-action@2a2157eb22c08c9a1fac99263430307b8d1bc7a2
+        with:
+          image-ref: '${{ steps.repo_name.outputs.lowercase }}:${{ github.sha }}'
+          format: 'template'
+          template: '@/contrib/html.tpl'
+          output: 'trivy-results-full.html'
+          severity: 'CRITICAL,HIGH'
+          ignore-unfixed: false
+      - name: Upload Test results
+        if: steps.check_dockerfile.outputs.files_exists == 'true' && (success() || failure())        
+        uses: actions/upload-artifact@master
+        with:
+           name: Trivy report
+           path: trivy-results-full.html
