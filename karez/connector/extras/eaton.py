@@ -32,5 +32,5 @@ class Connector(RestfulConnectorBase):
                                            last_time="timestamp"
                                            ) | dev_info
                     elif self.config.output_format == "simple":
-                        yield dict(name=f'{dev_info["dev_id"]}/{child["ma_id"]}',
+                        yield dict(name=f'{dev_info["dev_id"]}---{child["ma_id"]}',
                                    value=child["value"])

@@ -97,7 +97,7 @@ jobs:
         with:
           sarif_file: 'trivy-results.sarif'
       - name: Run Trivy vulnerability scanner (Html)
-        if: steps.check_dockerfile.outputs.files_exists == 'true'
+        if: steps.check_dockerfile.outputs.files_exists == 'true' && (success() || failure())
         uses: aquasecurity/trivy-action@2a2157eb22c08c9a1fac99263430307b8d1bc7a2
         with:
           image-ref: '${{ steps.repo_name.outputs.lowercase }}:${{ github.sha }}'
@@ -114,7 +114,7 @@ jobs:
            name: Trivy report
            path: trivy-results.html
       - name: Run Trivy vulnerability scanner (Html Full)
-        if: steps.check_dockerfile.outputs.files_exists == 'true'
+        if: steps.check_dockerfile.outputs.files_exists == 'true' && (success() || failure())
         uses: aquasecurity/trivy-action@2a2157eb22c08c9a1fac99263430307b8d1bc7a2
         with:
           image-ref: '${{ steps.repo_name.outputs.lowercase }}:${{ github.sha }}'
