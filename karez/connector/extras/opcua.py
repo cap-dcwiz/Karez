@@ -4,6 +4,7 @@ from asyncua import Client
 
 from ...config import ConfigEntity, OptionalConfigEntity
 from ..base import PullConnectorBase
+from ...utils import generator_to_list
 
 
 class Connector(PullConnectorBase):
@@ -24,15 +25,11 @@ class Connector(PullConnectorBase):
     def create_client(self):
         return Client(url=self.url, timeout=self.config.timeout)
 
+    @generator_to_list
     async def fetch_data(self, client: Client, entities):
         nodes = [client.get_node(node_id) for node_id in entities]
-        data = []
         values = await client.read_values(nodes)
         for node_id, value in zip(entities, values):
             if not isinstance(value, Number):
                 value = str(value)
-            data.append(dict(
-                name=node_id,
-                value=value
-            ))
-        return data
+            yield dict(name=node_id, value=value)

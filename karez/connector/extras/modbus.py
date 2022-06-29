@@ -4,10 +4,11 @@ from contextlib import asynccontextmanager
 from pymodbus.constants import Endian
 from pymodbus.exceptions import ConnectionException, ModbusIOException
 from pymodbus.payload import BinaryPayloadDecoder
+from pymodbus.client.sync import ModbusTcpClient
 
 from ...config import OptionalConfigEntity
 from ..base import PullConnectorBase
-from pymodbus.client.sync import ModbusTcpClient
+from ...utils import generator_to_list
 
 
 class Connector(PullConnectorBase):
@@ -93,8 +94,8 @@ class Connector(PullConnectorBase):
     def _endian_order(v):
         return Endian.Little if v == 0 else Endian.Big
 
+    @generator_to_list
     async def fetch_data(self, client_cache, entities):
-        result = []
         for entity in entities:
             name = entity["Name"]
             host = entity.get("Host", self.config.host)
@@ -113,19 +114,17 @@ class Connector(PullConnectorBase):
 
             func = self.read_data_point
             try:
-                result.append(func(client_cache=client_cache,
-                                   name=name,
-                                   host=host, port=port,
-                                   address=int(entity["Offset"]),
-                                   count=self.TYPE_SIZE[data_type],
-                                   unit=int(entity.get("Unit", self.config.unit)),
-                                   byte_order=self._endian_order(byte_order),
-                                   word_order=self._endian_order(word_order),
-                                   read_func=self.READING_FUNCTION[region],
-                                   decode_func=self.DECODE_FUNC[data_type]))
+                yield func(client_cache=client_cache,
+                           name=name,
+                           host=host, port=port,
+                           address=int(entity["Offset"]),
+                           count=self.TYPE_SIZE[data_type],
+                           unit=int(entity.get("Unit", self.config.unit)),
+                           byte_order=self._endian_order(byte_order),
+                           word_order=self._endian_order(word_order),
+                           read_func=self.READING_FUNCTION[region],
+                           decode_func=self.DECODE_FUNC[data_type])
             except ConnectionException:
                 logging.error(f"Unable to connect to {host}:{port}")
             except ModbusIOException:
                 logging.error(f"Unable to read {name}")
-
-        return result
