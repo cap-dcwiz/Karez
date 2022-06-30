@@ -1,4 +1,6 @@
-FROM python:3.10-slim
+FROM python:3.10
+
+RUN apt-get update && apt-get upgrade -y &&  rm -rf /var/lib/apt/lists/*
 
 WORKDIR /karez
 
@@ -8,8 +10,9 @@ ENV PYTHONPATH="${PYTHONPATH}:/karez/" \
 
 COPY pyproject.toml /karez/
 COPY karez /karez/karez
+
 RUN pip install poetry
 RUN poetry config virtualenvs.create false
-RUN poetry install --no-dev
+RUN poetry install -vvv --no-dev --no-interaction --no-ansi
 
 ENTRYPOINT ["karez"]
