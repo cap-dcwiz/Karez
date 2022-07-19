@@ -137,3 +137,4 @@ sample/deploy/data/
 .scannerwork/
 dependency-check-report.html
 reports/dependency-check-report.html
+requirements.txt

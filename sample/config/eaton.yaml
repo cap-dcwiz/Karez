@@ -1,8 +1,9 @@
 dispatchers:
   - type: default
     connector: eaton_conn_test
-    batch_size: 10
+    batch_size: 3
     interval: 10
+    mode: "even"
     entity_file: config/eaton_devices.json
 
 connectors:
