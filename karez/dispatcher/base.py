@@ -85,4 +85,4 @@ class DispatcherBase(RoleBase):
     async def wait_and_publish(self, topic, content, wait_time=0.0):
         await asyncio.sleep(wait_time)
         await self.publish(topic, content)
-        logging.info(datetime.now().isoformat(), f"{len(content)} tasks published: {str(content)[:36]}...")
+        logging.info(f"{len(content)} tasks published: {str(content)[:36]}...")
