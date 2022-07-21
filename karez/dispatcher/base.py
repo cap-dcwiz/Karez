@@ -2,7 +2,6 @@ import asyncio
 import logging
 from abc import abstractmethod
 from collections.abc import Iterable
-from datetime import datetime
 from random import uniform
 from typing import Generator
 
