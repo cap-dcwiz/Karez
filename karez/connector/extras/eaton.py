@@ -25,6 +25,7 @@ class Connector(RestfulConnectorBase):
             dev_info = extract_dict(item, id="dev_id", name="dev_name")
             for child in item["children"]:
                 if child["value"] is not None and child["ma_id"] in entities[dev_info["dev_id"]]:
+                    child["value"] = float(child["value"])
                     if self.config.output_format == "full":
                         yield extract_dict(child,
                                            "ma_id", "ma_name",
