@@ -15,4 +15,3 @@ class Dispatcher(DispatcherBase):
 
     def load_entities(self) -> list:
         return pd.read_csv(self.config.space_address_file)["NodeId"].tolist()
-

@@ -17,6 +17,7 @@ class Connector(PullConnectorBase):
         yield from super(Connector, cls).config_entities()
         yield ConfigEntity("url", "OPC-UA server url.")
         yield OptionalConfigEntity("timeout", 60, "Request timeout")
+        yield OptionalConfigEntity("num_only", True, "Only accept number values")
 
     @classmethod
     def role_description(cls):
@@ -31,5 +32,8 @@ class Connector(PullConnectorBase):
         values = await client.read_values(nodes)
         for node_id, value in zip(entities, values):
             if not isinstance(value, Number):
-                value = str(value)
+                if self.config.num_only:
+                    continue
+                else:
+                    value = str(value)
             yield dict(name=node_id, value=value)
