@@ -43,18 +43,21 @@ async def _async_collect(roles, payload, verbose):
                 if r3 is None:
                     break
                 if verbose:
-                    typer.echo(f"Applied converter: {role.name} (result: {str(r3)[:32]}...).")
+                    typer.echo(
+                        f"Applied converter: {role.name} (result: {str(r3)[:32]}...)."
+                    )
             if r3 is not None:
                 res.append(r3)
     return res
 
 
-def collect_cmd(config_files: list[Path] = typer.Option(None, "--config", "-c"),
-                plugin_path: Path = typer.Option("plugins", "--plugin-directory", "-p"),
-                input_json: Union[str, None] = typer.Option(None, "--input", "-i"),
-                output_json: Union[str, None] = typer.Option(None, "--output", "-o"),
-                verbose: bool = False,
-                ):
+def collect_cmd(
+    config_files: list[Path] = typer.Option(None, "--config", "-c"),
+    plugin_path: Path = typer.Option("plugins", "--plugin-directory", "-p"),
+    input_json: Union[str, None] = typer.Option(None, "--input", "-i"),
+    output_json: Union[str, None] = typer.Option(None, "--output", "-o"),
+    verbose: bool = False,
+):
     if config_files:
         config = Dynaconf(settings_files=config_files)
     else:
@@ -87,7 +90,7 @@ def collect_cmd(config_files: list[Path] = typer.Option(None, "--config", "-c"),
 
     roles = [dispatcher, connector]
     conv_lib = search_plugins(plugin_path, "converter")
-    for converter_name in (connector.config.converter or []):
+    for converter_name in connector.config.converter or []:
         for sub_config in config.converters:
             if sub_config.get("name", sub_config.type) == converter_name:
                 if sub_config.type in conv_lib:
@@ -95,7 +98,9 @@ def collect_cmd(config_files: list[Path] = typer.Option(None, "--config", "-c"),
                     roles.append(converter)
                     break
                 else:
-                    typer.secho(f"Cannot find Converter type {sub_config.type}.", err=True)
+                    typer.secho(
+                        f"Cannot find Converter type {sub_config.type}.", err=True
+                    )
                     sys.exit(1)
 
     if input_json:

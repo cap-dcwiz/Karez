@@ -70,18 +70,40 @@ class Connector(PullConnectorBase):
         yield OptionalConfigEntity("host", NotImplemented, "Host of modbus gateway")
         yield OptionalConfigEntity("port", NotImplemented, "Port of modbus gateway")
         yield OptionalConfigEntity("unit", NotImplemented, "Default device unit")
-        yield OptionalConfigEntity("region", "holding registers", "Default region of registers")
+        yield OptionalConfigEntity(
+            "region", "holding registers", "Default region of registers"
+        )
         yield OptionalConfigEntity("data_type", "32float", "Default data type")
-        yield OptionalConfigEntity("byte_order", 0, "Default byte order (0 for little endian and 1 for big endian)")
-        yield OptionalConfigEntity("word_order", 0, "Default word order (0 for little endian and 1 for big endian)")
+        yield OptionalConfigEntity(
+            "byte_order",
+            0,
+            "Default byte order (0 for little endian and 1 for big endian)",
+        )
+        yield OptionalConfigEntity(
+            "word_order",
+            0,
+            "Default word order (0 for little endian and 1 for big endian)",
+        )
 
-    def read_data_point(self, client_cache, name, host, port, address, count, unit, byte_order, word_order, read_func,
-                        decode_func):
+    def read_data_point(
+        self,
+        client_cache,
+        name,
+        host,
+        port,
+        address,
+        count,
+        unit,
+        byte_order,
+        word_order,
+        read_func,
+        decode_func,
+    ):
         client = self.get_client(client_cache, host, port)
         response = getattr(client, read_func)(address=address, count=count, unit=unit)
-        decoder = BinaryPayloadDecoder.fromRegisters(registers=response.registers,
-                                                     byteorder=byte_order,
-                                                     wordorder=word_order)
+        decoder = BinaryPayloadDecoder.fromRegisters(
+            registers=response.registers, byteorder=byte_order, wordorder=word_order
+        )
         return dict(name=name, value=getattr(decoder, decode_func)())
 
     @staticmethod
@@ -114,16 +136,19 @@ class Connector(PullConnectorBase):
 
             func = self.read_data_point
             try:
-                yield func(client_cache=client_cache,
-                           name=name,
-                           host=host, port=port,
-                           address=int(entity["Offset"]),
-                           count=self.TYPE_SIZE[data_type],
-                           unit=int(entity.get("Unit", self.config.unit)),
-                           byte_order=self._endian_order(byte_order),
-                           word_order=self._endian_order(word_order),
-                           read_func=self.READING_FUNCTION[region],
-                           decode_func=self.DECODE_FUNC[data_type])
+                yield func(
+                    client_cache=client_cache,
+                    name=name,
+                    host=host,
+                    port=port,
+                    address=int(entity["Offset"]),
+                    count=self.TYPE_SIZE[data_type],
+                    unit=int(entity.get("Unit", self.config.unit)),
+                    byte_order=self._endian_order(byte_order),
+                    word_order=self._endian_order(word_order),
+                    read_func=self.READING_FUNCTION[region],
+                    decode_func=self.DECODE_FUNC[data_type],
+                )
             except ConnectionException:
                 logging.error(f"Unable to connect to {host}:{port}")
             except ModbusIOException:

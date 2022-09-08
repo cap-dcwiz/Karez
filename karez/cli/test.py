@@ -41,22 +41,25 @@ async def _async_test_roles(roles, payload, verbose=False):
     return payload
 
 
-def test_cmd(config_files: list[Path] = typer.Option(None, "--config", "-c"),
-             plugin_path: Path = typer.Option("plugins", "--plugin-directory", "-p"),
-             dispatcher: str = typer.Option("", "--dispatcher", "-d"),
-             connector: str = typer.Option("", "--connector", "-n"),
-             converter: str = typer.Option("", "--converter", "-v"),
-             input_json: Union[str, None] = typer.Option(None, "--input", "-i"),
-             output_json: Union[str, None] = typer.Option(None, "--output", "-o"),
-             verbose: bool = False,
-             ):
+def test_cmd(
+    config_files: list[Path] = typer.Option(None, "--config", "-c"),
+    plugin_path: Path = typer.Option("plugins", "--plugin-directory", "-p"),
+    dispatcher: str = typer.Option("", "--dispatcher", "-d"),
+    connector: str = typer.Option("", "--connector", "-n"),
+    converter: str = typer.Option("", "--converter", "-v"),
+    input_json: Union[str, None] = typer.Option(None, "--input", "-i"),
+    output_json: Union[str, None] = typer.Option(None, "--output", "-o"),
+    verbose: bool = False,
+):
     if config_files:
         config = Dynaconf(settings_files=config_files)
     else:
         config = Dynaconf(includes=["./config/*"])
 
     roles = []
-    roles.extend(get_test_roles("dispatcher", plugin_path, config, dispatcher.split(",")))
+    roles.extend(
+        get_test_roles("dispatcher", plugin_path, config, dispatcher.split(","))
+    )
     roles.extend(get_test_roles("connector", plugin_path, config, connector.split(",")))
     roles.extend(get_test_roles("converter", plugin_path, config, converter.split(",")))
 

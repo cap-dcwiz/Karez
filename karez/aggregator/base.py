@@ -12,7 +12,9 @@ class AggregatorBase(RoleBase, ABC):
     def config_entities(cls):
         yield from super(AggregatorBase, cls).config_entities()
         yield ConfigEntity("category", "Category of data points to be aggregated.")
-        yield OptionalConfigEntity("json", True, "Whether the received data is json serialized or not.")
+        yield OptionalConfigEntity(
+            "json", True, "Whether the received data is json serialized or not."
+        )
 
     @property
     def subscribe_topic(self):

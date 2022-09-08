@@ -15,9 +15,17 @@ class Converter(ConverterBase):
     def config_entities(cls):
         yield from super(Converter, cls).config_entities()
         yield OptionalConfigEntity("key", None, "meta item name")
-        yield OptionalConfigEntity("default", None, "Default value if key is not in meta info")
-        yield OptionalConfigEntity("filter", None, "Category or list of categories that should be passed to next roles")
-        yield OptionalConfigEntity("rename", {}, "Maps of old category names to new category names")
+        yield OptionalConfigEntity(
+            "default", None, "Default value if key is not in meta info"
+        )
+        yield OptionalConfigEntity(
+            "filter",
+            None,
+            "Category or list of categories that should be passed to next roles",
+        )
+        yield OptionalConfigEntity(
+            "rename", {}, "Maps of old category names to new category names"
+        )
 
     @property
     def filters(self):

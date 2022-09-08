@@ -8,11 +8,14 @@ ENV PYTHONPATH="${PYTHONPATH}:/karez/" \
     PYTHONUNBUFFERED=1 \
     PIP_DISABLE_PIP_VERSION_CHECK=on
 
-COPY pyproject.toml /karez/
-COPY karez /karez/karez
-
 RUN pip install poetry
 RUN poetry config virtualenvs.create false
+
+COPY pyproject.toml /karez/
 RUN poetry install -vvv --no-dev --no-interaction --no-ansi
+
+COPY karez /karez/karez
+RUN poetry install -vvv --no-dev --no-interaction --no-ansi && \
+    rm /karez/poetry.lock /karez/pyproject.toml
 
 ENTRYPOINT ["karez"]

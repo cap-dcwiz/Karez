@@ -7,7 +7,12 @@ from typing import Generator
 
 import nats
 
-from .config import ConfigurableBase, OptionalConfigEntity, ConfigEntity, ConfigEntityBase
+from .config import (
+    ConfigurableBase,
+    OptionalConfigEntity,
+    ConfigEntity,
+    ConfigEntityBase,
+)
 
 CHECKING_STATUS_INTERVAL = 10
 CONNECTOR_MODE_WORKER = 0
@@ -64,14 +69,14 @@ class RoleBase(ConfigurableBase):
         return f"karez.{category}.{self.name}"
 
     async def error_cb(self, e):
-        logging.error(f'{self.name}: {str(e)}!')
+        logging.error(f"{self.name}: {str(e)}!")
 
     async def disconnected_cb(self):
-        logging.warning(f'{self.name}: Got disconnected!')
+        logging.warning(f"{self.name}: Got disconnected!")
         self.sub = None
 
     async def reconnected_cb(self):
-        logging.info(f'{self.name}: Got reconnected to {self.nc.connected_url.netloc}')
+        logging.info(f"{self.name}: Got reconnected to {self.nc.connected_url.netloc}")
 
     async def async_ensure_init(self):
         conn_options = dict(
@@ -79,7 +84,7 @@ class RoleBase(ConfigurableBase):
             name=self.name,
             error_cb=self.error_cb,
             disconnected_cb=self.disconnected_cb,
-            reconnected_cb=self.reconnected_cb
+            reconnected_cb=self.reconnected_cb,
         )
         try:
             if not self.nc:
@@ -103,9 +108,11 @@ class RoleBase(ConfigurableBase):
             if self.sub:
                 await self.sub.unsubscribe()
                 self.sub = None
-            self.sub = await self.nc.subscribe(self.subscribe_topic,
-                                               queue=self.subscribe_queue,
-                                               cb=self._subscribe_handler)
+            self.sub = await self.nc.subscribe(
+                self.subscribe_topic,
+                queue=self.subscribe_queue,
+                cb=self._subscribe_handler,
+            )
 
     async def run(self):
         while True:

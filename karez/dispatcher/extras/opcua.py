@@ -11,7 +11,9 @@ class Dispatcher(DispatcherBase):
     @classmethod
     def config_entities(cls):
         yield from super(Dispatcher, cls).config_entities()
-        yield ConfigEntity("space_address_file", "CSV file exported from Matrikon OPC UA Exporter.")
+        yield ConfigEntity(
+            "space_address_file", "CSV file exported from Matrikon OPC UA Exporter."
+        )
 
     def load_entities(self) -> list:
         return pd.read_csv(self.config.space_address_file)["NodeId"].tolist()

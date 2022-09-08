@@ -29,18 +29,21 @@ class DispatcherBase(RoleBase):
         yield ConfigEntity("interval", "Collection interval.")
         yield ConfigEntity("connector", "Connector to use.")
         yield OptionalConfigEntity("batch_size", 1, "Batch Size")
-        yield OptionalConfigEntity("mode", DISPATCH_MODE_BURST, "Task dispatching mode. "
-                                                                "1) burst: all at once"
-                                                                "2) rand: randomised time inside the interval"
-                                                                "3) even: evenly distributed inside the interval"
-                                                                "4) rand_mixes: first round burst, then rand"
-                                                                "5) even_mixed: first round burst, then even"
-                                   )
+        yield OptionalConfigEntity(
+            "mode",
+            DISPATCH_MODE_BURST,
+            "Task dispatching mode. "
+            "1) burst: all at once"
+            "2) rand: randomised time inside the interval"
+            "3) even: evenly distributed inside the interval"
+            "4) rand_mixes: first round burst, then rand"
+            "5) even_mixed: first round burst, then even",
+        )
 
     def divide_tasks(self, entities: list) -> Generator[dict, None, None]:
         batch_size = self.config.batch_size
         for i in range(0, len(entities), batch_size):
-            yield dict(tasks=entities[i: i + batch_size])
+            yield dict(tasks=entities[i : i + batch_size])
 
     @abstractmethod
     def load_entities(self) -> list:

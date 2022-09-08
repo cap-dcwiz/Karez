@@ -14,8 +14,8 @@ connectors:
       timeout: 600
     security:
       type: basic
-      username:
-      password:
+      username: calvin@eaton.com
+      password: Password01
     converter:
       - eaton_telemetry
 

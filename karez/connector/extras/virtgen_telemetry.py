@@ -16,10 +16,12 @@ class Connector(RestfulConnectorBase):
     @generator_to_list
     async def fetch_data(self, client, entities):
         gen_name = self.config.generator_name
-        r = await client.post("/measurements",
-                              json=entities,
-                              params=dict(generator_name=gen_name),
-                              timeout=120)
+        r = await client.post(
+            "/measurements",
+            json=entities,
+            params=dict(generator_name=gen_name),
+            timeout=120,
+        )
         for dev_id, dev in r.json()["result"].items():
             dev_name = dev["name"]
             for ma_name, ma in dev["metrics"].items():
@@ -28,6 +30,8 @@ class Connector(RestfulConnectorBase):
                     "dev_name": dev_name,
                     "ma_id": f"{dev_name}_{ma_name}",
                     "ma_unit": ma["unit"],
-                    ma_name: int(ma["value"]) if ma["type"] == "int" else float(ma["value"]),
-                    "timestamp": ma["timestamp"]
+                    ma_name: int(ma["value"])
+                    if ma["type"] == "int"
+                    else float(ma["value"]),
+                    "timestamp": ma["timestamp"],
                 }

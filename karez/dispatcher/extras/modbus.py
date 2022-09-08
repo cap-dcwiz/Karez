@@ -15,4 +15,6 @@ class Dispatcher(DispatcherBase):
         yield ConfigEntity("file", "CSV file containing modbus point information.")
 
     def load_entities(self) -> list:
-        return list([row.to_dict() for _, row in pd.read_csv(self.config.file).iterrows()])
+        return list(
+            [row.to_dict() for _, row in pd.read_csv(self.config.file).iterrows()]
+        )

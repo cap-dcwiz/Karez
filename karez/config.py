@@ -25,7 +25,9 @@ class ConfigEntity(ConfigEntityBase):
         return f"{' ' * indent} - {self.name}: {self.description}\n"
 
 
-DefaultType: TypeAlias = Union[Union[Number, str], ConfigEntityBase, dict, list, tuple, None]
+DefaultType: TypeAlias = Union[
+    Union[Number, str], ConfigEntityBase, dict, list, tuple, None
+]
 
 
 class OptionalConfigEntity(ConfigEntityBase):
@@ -39,8 +41,10 @@ class OptionalConfigEntity(ConfigEntityBase):
             default = f"Same as {self.default.name}"
         else:
             default = self.default
-        return f"{' ' * indent} - {self.name}: [Optional] {self.description}\n" \
-               f"{' ' * (indent * 2)}default: {default}\n"
+        return (
+            f"{' ' * indent} - {self.name}: [Optional] {self.description}\n"
+            f"{' ' * (indent * 2)}default: {default}\n"
+        )
 
 
 class ConfigGetter:
@@ -54,7 +58,9 @@ class ConfigGetter:
 class ConfigurableBase(ABC):
     def __init__(self, config: Dynaconf):
         self._config: Dynaconf = config
-        self._conf_entities: dict[str, ConfigEntityBase] = {e.name: e for e in self.config_entities()}
+        self._conf_entities: dict[str, ConfigEntityBase] = {
+            e.name: e for e in self.config_entities()
+        }
         self._conf_getter = ConfigGetter(self)
 
     @classmethod
@@ -72,7 +78,9 @@ class ConfigurableBase(ABC):
                 try:
                     return self._config[name]
                 except KeyError:
-                    raise RuntimeError(f"[{self.__class__.__name__}] Config entity {name} is required but not found.")
+                    raise RuntimeError(
+                        f"[{self.__class__.__name__}] Config entity {name} is required but not found."
+                    )
             elif isinstance(e, OptionalConfigEntity):
                 default = e.default
                 if isinstance(default, ConfigEntityBase):

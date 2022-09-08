@@ -19,13 +19,14 @@ def search_role_for_help(role: str, role_name, plugin_path) -> RoleBase:
     return role_lib.get(role_name)
 
 
-def config_cmd(plugin_type: PluginType,
-               plugin_name: str,
-               plugin_path: Path = typer.Option("plugins", "--plugin-directory", "-p"),
-               ):
-    role = search_role_for_help(role=plugin_type.value,
-                                role_name=plugin_name,
-                                plugin_path=plugin_path)
+def config_cmd(
+    plugin_type: PluginType,
+    plugin_name: str,
+    plugin_path: Path = typer.Option("plugins", "--plugin-directory", "-p"),
+):
+    role = search_role_for_help(
+        role=plugin_type.value, role_name=plugin_name, plugin_path=plugin_path
+    )
     if role is None:
         typer.echo(f"Cannot find {plugin_type} called {plugin_name}.", err=True)
         sys.exit(1)

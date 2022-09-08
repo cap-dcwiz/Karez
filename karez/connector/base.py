@@ -27,7 +27,9 @@ class PullConnectorBase(ConnectorBase):
     async def _subscribe_handler(self, msg):
         payload = json.loads(msg.data.decode("utf-8"))
         for item in await self.process(payload["tasks"]):
-            self.update_meta(item, category=self.get_meta(item, "category", "telemetry"))
+            self.update_meta(
+                item, category=self.get_meta(item, "category", "telemetry")
+            )
             if self.config.converter:
                 for converter in self.config.converter:
                     if converter:
