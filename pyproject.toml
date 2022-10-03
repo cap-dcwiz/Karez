@@ -11,7 +11,7 @@ httpx = "^0.23.0"
 dateutils = "^0.6.12"
 dynaconf = "^3.1.7"
 typer = "^0.4.0"
-asyncua = "^0.9.92"
+asyncua = "^0.9.96"
 colorama = "^0.4.4"
 mkdocs = {extras = ["python-legacy"], version = "^1.3.1"}
 mkdocstrings = "^0.18.1"

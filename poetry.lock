@@ -36,7 +36,7 @@ trio = ["trio (>=0.16)"]
 
 [[package]]
 name = "asyncua"
-version = "0.9.95"
+version = "0.9.96"
 description = "Pure Python OPC-UA client and server library"
 category = "main"
 optional = false
@@ -799,7 +799,7 @@ influxdb = ["influxdb-client"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "a8f491cfd30189cdc85dbc9ba1bf034d54870012fd172dc65d92ec52abaf0d3b"
+content-hash = "c0886dcfcd73dfd6d1bc4bd418026de2c938cad73fce90f9d8912e713dda85a2"
 
 [metadata.files]
 aiofiles = [
@@ -815,8 +815,8 @@ anyio = [
     {file = "anyio-3.6.1.tar.gz", hash = "sha256:413adf95f93886e442aea925f3ee43baa5a765a64a0f52c6081894f9992fdd0b"},
 ]
 asyncua = [
-    {file = "asyncua-0.9.95-py3-none-any.whl", hash = "sha256:303a3965128ceadc5ffe00a7e7a32a5e1904d448e87ecfeb4755b5d5f37804fd"},
-    {file = "asyncua-0.9.95.tar.gz", hash = "sha256:2e923aeb79a0d5111ec0b7e56b41d8a470cf0259547ba7742c2e30bd921532c1"},
+    {file = "asyncua-0.9.96-py3-none-any.whl", hash = "sha256:47d792dbb0d4df596ac220e9bf0d39e029850e984f419512c726d650ceedf60a"},
+    {file = "asyncua-0.9.96.tar.gz", hash = "sha256:8e48de30660d872ba55a6fba9c343fccdc7d6f11525195508c87df8c0578814e"},
 ]
 black = [
     {file = "black-22.8.0-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:ce957f1d6b78a8a231b18e0dd2d94a33d2ba738cd88a7fe64f53f659eea49fdd"},
@@ -1199,6 +1199,13 @@ PyYAML = [
     {file = "PyYAML-6.0-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:f84fbc98b019fef2ee9a1cb3ce93e3187a6df0b2538a651bfb890254ba9f90b5"},
     {file = "PyYAML-6.0-cp310-cp310-win32.whl", hash = "sha256:2cd5df3de48857ed0544b34e2d40e9fac445930039f3cfe4bcc592a1f836d513"},
     {file = "PyYAML-6.0-cp310-cp310-win_amd64.whl", hash = "sha256:daf496c58a8c52083df09b80c860005194014c3698698d1a57cbcfa182142a3a"},
+    {file = "PyYAML-6.0-cp311-cp311-macosx_10_9_x86_64.whl", hash = "sha256:d4b0ba9512519522b118090257be113b9468d804b19d63c71dbcf4a48fa32358"},
+    {file = "PyYAML-6.0-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:81957921f441d50af23654aa6c5e5eaf9b06aba7f0a19c18a538dc7ef291c5a1"},
+    {file = "PyYAML-6.0-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:afa17f5bc4d1b10afd4466fd3a44dc0e245382deca5b3c353d8b757f9e3ecb8d"},
+    {file = "PyYAML-6.0-cp311-cp311-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:dbad0e9d368bb989f4515da330b88a057617d16b6a8245084f1b05400f24609f"},
+    {file = "PyYAML-6.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:432557aa2c09802be39460360ddffd48156e30721f5e8d917f01d31694216782"},
+    {file = "PyYAML-6.0-cp311-cp311-win32.whl", hash = "sha256:bfaef573a63ba8923503d27530362590ff4f576c626d86a9fed95822a8255fd7"},
+    {file = "PyYAML-6.0-cp311-cp311-win_amd64.whl", hash = "sha256:01b45c0191e6d66c470b6cf1b9531a771a83c1c4208272ead47a3ae4f2f603bf"},
     {file = "PyYAML-6.0-cp36-cp36m-macosx_10_9_x86_64.whl", hash = "sha256:897b80890765f037df3403d22bab41627ca8811ae55e9a722fd0392850ec4d86"},
     {file = "PyYAML-6.0-cp36-cp36m-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:50602afada6d6cbfad699b0c7bb50d5ccffa7e46a3d738092afddc1f9758427f"},
     {file = "PyYAML-6.0-cp36-cp36m-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:48c346915c114f5fdb3ead70312bd042a953a8ce5c7106d5bfb1a5254e47da92"},
