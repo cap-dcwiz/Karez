@@ -1,1 +1,0 @@
-::: plugins.connector.virtgen_telemetry

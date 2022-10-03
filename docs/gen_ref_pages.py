@@ -6,7 +6,7 @@ import mkdocs_gen_files
 
 nav = mkdocs_gen_files.Nav()
 
-for package in ("karez", "plugins"):
+for package in ("karez",):
     for path in sorted(Path(package).rglob("*.py")):
         module_path = path.relative_to(".").with_suffix("")
         doc_path = path.relative_to(".").with_suffix(".md")

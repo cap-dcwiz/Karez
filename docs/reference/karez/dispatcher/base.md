@@ -1,1 +1,0 @@
-::: karez.dispatcher.base

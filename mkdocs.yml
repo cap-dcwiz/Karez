@@ -36,7 +36,6 @@ plugins:
   - mkdocstrings:
       watch:
         - karez
-        - plugins
 
 markdown_extensions:
   - admonition
