@@ -7,4 +7,11 @@
       <packageUrl regex="true">^pkg:pypi/pandas@.*$</packageUrl>
       <vulnerabilityName>CVE-2020-13091</vulnerabilityName>
    </suppress>
+   <suppress>
+   <notes><![CDATA[
+   file name: asyncua:0.9.98
+   ]]></notes>
+   <packageUrl regex="true">^pkg:pypi/asyncua@.*$</packageUrl>
+   <cve>CVE-2022-25304</cve>
+</suppress>
 </suppressions>
