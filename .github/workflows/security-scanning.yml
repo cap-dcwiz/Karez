@@ -16,7 +16,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - uses: snok/install-poetry@v1
-      - run: poetry export -f requirements.txt --output requirements.txt
+      - run: poetry export -f requirements.txt --output requirements.txt --without-hashes --without-urls
       - name: Depcheck
         uses: dependency-check/Dependency-Check_Action@main
         id: Depcheck
