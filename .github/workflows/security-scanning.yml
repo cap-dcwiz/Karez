@@ -16,7 +16,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - uses: snok/install-poetry@v1
-      - run: poetry export -f requirements.txt --output requirements.txt --without-hashes --without-urls
+      - run: poetry export -f requirements.txt --without-hashes --without-urls | sed 's/ ;.*//g' > requirements.txt
       - name: Depcheck
         uses: dependency-check/Dependency-Check_Action@main
         id: Depcheck
@@ -28,6 +28,7 @@ jobs:
             --failOnCVSS 7
             --enableRetired
             --enableExperimental
+            --suppression depcheck-suppression.xml
       - name: Upload Test results
         if: success() || failure()
         uses: actions/upload-artifact@master

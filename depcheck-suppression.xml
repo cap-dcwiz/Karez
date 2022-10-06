@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suppressions xmlns="https://jeremylong.github.io/DependencyCheck/dependency-suppression.1.3.xsd">
+   <suppress>
+      <notes><![CDATA[
+      file name: pandas:1.5.0
+      ]]></notes>
+      <packageUrl regex="true">^pkg:pypi/pandas@.*$</packageUrl>
+      <vulnerabilityName>CVE-2020-13091</vulnerabilityName>
+   </suppress>
+</suppressions>
