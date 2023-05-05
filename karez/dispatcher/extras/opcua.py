@@ -15,5 +15,5 @@ class Dispatcher(DispatcherBase):
             "space_address_file", "CSV file exported from Matrikon OPC UA Exporter."
         )
 
-    def load_entities(self) -> list:
+    async def load_entities(self) -> list:
         return pd.read_csv(self.config.space_address_file)["NodeId"].tolist()

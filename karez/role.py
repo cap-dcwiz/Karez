@@ -3,6 +3,8 @@ import json
 import logging
 from abc import abstractmethod
 from copy import copy
+
+from httpx import Limits, AsyncClient
 from typing import Generator
 
 import nats
@@ -167,3 +169,32 @@ class RoleBase(ConfigurableBase):
 
     async def flush(self):
         return await self.nc.flush()
+
+
+class RestfulRoleMixin(ConfigurableBase):
+    @classmethod
+    def config_entities(cls):
+        yield from super(RestfulRoleMixin, cls).config_entities()
+        yield ConfigEntity("base_url", "Base URL of the RESTful server.")
+        yield OptionalConfigEntity("security", None, "Security configuration.")
+        yield OptionalConfigEntity(
+            "connection_args",
+            {},
+            "Additional connection args to passed to httpx.AsyncClient.",
+        )
+
+    def create_client(self):
+        security_conf = self.config.security
+        auth = None
+        if security_conf:
+            if security_conf.type == "basic":
+                auth = security_conf.username, security_conf.password
+            else:
+                raise NotImplementedError
+        client = AsyncClient(
+            base_url=self.config.base_url,
+            auth=auth,
+            limits=Limits(max_keepalive_connections=10, max_connections=20),
+            **self.config.connection_args,
+        )
+        return client

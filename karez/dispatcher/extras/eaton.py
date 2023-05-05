@@ -16,7 +16,7 @@ class Dispatcher(DispatcherBase):
         yield ConfigEntity("file", "CSV file containing data point information.")
 
     @generator_to_list
-    def load_entities(self):
+    async def load_entities(self):
         df = pd.read_csv(self.config.file)
         for dev_id, group in df[~df.data_point.isna()].groupby("dev_id"):
             yield dict(device=dev_id, metrics=list(group.ma_id.unique()))

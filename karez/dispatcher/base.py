@@ -16,6 +16,9 @@ DISPATCH_MODE_EVEN_MIXED = "even_mixed"
 
 
 class DispatcherBase(RoleBase):
+    """
+    Base class of dispatchers. A dispatcher is a role that dispatches tasks to connectors.
+    """
     TYPE = "dispatcher"
 
     def __init__(self, *args, **kwargs):
@@ -46,11 +49,16 @@ class DispatcherBase(RoleBase):
             yield dict(tasks=entities[i : i + batch_size])
 
     @abstractmethod
-    def load_entities(self) -> list:
+    async def load_entities(self) -> list:
+        """
+        Load entities from somewhere. It can be a local file, a database, or a remote API.
+        Returns:
+            A list of entities. An entity can be anything that can be passed to a connector, for example, a device ID.
+        """
         pass
 
     async def process(self, _) -> Iterable:
-        return self.divide_tasks(self.load_entities())
+        return self.divide_tasks(await self.load_entities())
 
     async def run(self):
         topic = self.connector_topic(self.target)

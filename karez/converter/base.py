@@ -37,7 +37,7 @@ class ConverterBase(RoleBase):
                 await self.publish(self.aggregator_topic(item), item)
 
     @abstractmethod
-    def convert(self, payload: dict) -> Union[None, dict[Union[dict, str]]]:
+    def convert(self, payload: dict) -> None | dict[dict | str]:
         pass
 
     async def process(self, payload):

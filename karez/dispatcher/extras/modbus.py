@@ -2,6 +2,7 @@ import pandas as pd
 
 from karez.config import ConfigEntity
 from karez.dispatcher import DispatcherBase
+from karez.utils import generator_to_list
 
 
 class Dispatcher(DispatcherBase):
@@ -14,7 +15,7 @@ class Dispatcher(DispatcherBase):
         yield from super(Dispatcher, cls).config_entities()
         yield ConfigEntity("file", "CSV file containing modbus point information.")
 
-    def load_entities(self) -> list:
-        return list(
-            [row.to_dict() for _, row in pd.read_csv(self.config.file).iterrows()]
-        )
+    @generator_to_list
+    async def load_entities(self) -> list:
+        for _, row in pd.read_csv(self.config.file).iterrows():
+            yield row.to_dict()

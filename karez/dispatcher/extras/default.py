@@ -15,7 +15,7 @@ class Dispatcher(DispatcherBase):
         yield OptionalConfigEntity("entities", None, "Entities")
         yield OptionalConfigEntity("entity_file", None, "Entity file")
 
-    def load_entities(self):
+    async def load_entities(self):
         if self.is_configured("entities"):
             entities = self.config.entities
         elif self.is_configured("entity_file"):

@@ -22,6 +22,9 @@ class ConnectorBase(RoleBase, ABC):
 
 
 class PullConnectorBase(ConnectorBase):
+    """
+    Base class of connectors that pull data from external sources.
+    """
     TYPE = "connector"
 
     async def _subscribe_handler(self, msg):
@@ -54,6 +57,14 @@ class PullConnectorBase(ConnectorBase):
 
     @abstractmethod
     async def fetch_data(self, client, entities: Iterable) -> Iterable:
+        """
+        Fetch data from external sources.
+        Args:
+            client: a client object that can be used to fetch data, e.g. a https client. Can be None if not needed.
+            entities: a list of entities to be fetched. It can be in any format, e.g. a list of ids, a list of dicts, etc.
+        Returns:
+            a list of fetched data. Each item will be passed to the next converter or aggregator.
+        """
         pass
 
     async def process(self, payload: Iterable) -> Iterable[Iterable]:
