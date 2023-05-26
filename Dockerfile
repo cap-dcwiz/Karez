@@ -1,21 +1,32 @@
-FROM python:3.10
+FROM python:3.11 as build
 
-RUN apt-get update && apt-get upgrade -y &&  rm -rf /var/lib/apt/lists/*
-
-WORKDIR /karez
-
-ENV PYTHONPATH="${PYTHONPATH}:/karez/" \
+ENV PYTHONPATH="${PYTHONPATH}:/opt/" \
     PYTHONUNBUFFERED=1 \
     PIP_DISABLE_PIP_VERSION_CHECK=on
 
 RUN pip install poetry
 RUN poetry config virtualenvs.create false
 
-COPY pyproject.toml /karez/
-RUN poetry install -vvv --no-dev --no-interaction --no-ansi
+WORKDIR /opt
 
-COPY karez /karez/karez
-RUN poetry install -vvv --no-dev --no-interaction --no-ansi && \
-    rm /karez/poetry.lock /karez/pyproject.toml
+COPY ./ /opt/
 
-ENTRYPOINT ["karez"]
+RUN apt-get update && apt-get upgrade -y && \
+    apt-get install build-essential -y && \
+    poetry install && poetry build -f wheel
+
+FROM python:3.11
+
+ENV PYTHONPATH="${PYTHONPATH}:/opt/" \
+    PYTHONUNBUFFERED=1 \
+    PIP_DISABLE_PIP_VERSION_CHECK=on
+
+COPY --from=build /opt/dist/*.whl /opt/
+
+WORKDIR /opt
+
+RUN apt-get update && apt-get upgrade -y && \
+    apt-get install build-essential -y && \
+    pip install *.whl && \
+    apt-get purge build-essential -y && rm -rf /var/lib/apt/lists/* && \
+    rm /opt/*.whl
