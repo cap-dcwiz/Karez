@@ -21,20 +21,22 @@ class ConnectorBase(RoleBase, ABC):
         yield from super(ConnectorBase, cls).config_entities()
         yield OptionalConfigEntity("converter", None, "First Converters to be used.")
 
-    async def postprocess_item(self, item, flush=False):
+    async def postprocess_item(self, item, publish=True, flush=False):
         self.update_meta(
             item, category=self.get_meta(item, "category", "telemetry")
         )
-        if self.config.converter:
-            for converter in self.config.converter:
-                if converter:
-                    await self.publish(self.converter_topic(converter), item)
-                else:
-                    await self.publish(self.aggregator_topic(item), item)
-        else:
-            await self.publish(self.aggregator_topic(item), item)
-        if flush:
-            await self.flush()
+        if publish:
+            if self.config.converter:
+                for converter in self.config.converter:
+                    if converter:
+                        await self.publish(self.converter_topic(converter), item)
+                    else:
+                        await self.publish(self.aggregator_topic(item), item)
+            else:
+                await self.publish(self.aggregator_topic(item), item)
+            if flush:
+                await self.flush()
+        return item
 
 
 class PullConnectorBase(ConnectorBase):
@@ -44,8 +46,7 @@ class PullConnectorBase(ConnectorBase):
     async def _subscribe_handler(self, msg):
         payload = json.loads(msg.data.decode("utf-8"))
         for item in await self.process(payload["tasks"]):
-            for item in await self.process(payload["tasks"]):
-                await self.postprocess_item(item, flush=False)
+            await self.postprocess_item(item, publish=True, flush=False)
         await self.flush()
 
     async def _try_fetch_data(self, client, entities):
@@ -87,9 +88,14 @@ class ListenConnectorBase(ConnectorBase, ABC):
     def __init__(self, *args, **kwargs):
         super(ListenConnectorBase, self).__init__(*args, **kwargs)
         self.is_listening = False
+        self._testing_mode = False
+        self.testing_result = None
 
     async def run(self):
-        await self.process(None)
+        if not self.is_listening:
+            await self.register_listener()
+            self.is_listening = True
+        await self.wait_forever()
 
     async def register_listener(self):
         """
@@ -98,14 +104,25 @@ class ListenConnectorBase(ConnectorBase, ABC):
         pass
 
     @abstractmethod
-    def start(self):
+    def wait_forever(self):
         """
         Start listening.
         """
         pass
 
+    @property
+    def testing_mode(self):
+        return self._testing_mode
+
+    def finish_testing(self, result):
+        self.testing_result = result
+        self._testing_mode = False
+
     async def process(self, _):
-        if not self.is_listening:
-            await self.register_listener()
-            self.is_listening = True
-        self.start()
+        # For listen connectors, the process method for testing tool only.
+        # If possible, it should wait for the connector to receive any message and return the post-processed data.
+        self._testing_mode = True
+        await self.run()
+        return self.testing_result
+
+

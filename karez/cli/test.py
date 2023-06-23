@@ -8,7 +8,6 @@ from rich import print
 import typer
 from dynaconf import Dynaconf
 
-from karez.connector import ConnectorBase
 from karez.dispatcher import DispatcherBase
 from .common import search_plugins
 

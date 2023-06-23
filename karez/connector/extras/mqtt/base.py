@@ -3,6 +3,7 @@ from abc import ABC, abstractmethod
 from karez.config import ConfigEntity, OptionalConfigEntity
 from karez.connector import ListenConnectorBase
 import paho.mqtt.client as mqtt
+import asyncio
 
 
 class MQTTConnectorBase(ListenConnectorBase, ABC):
@@ -12,6 +13,9 @@ class MQTTConnectorBase(ListenConnectorBase, ABC):
     def __init__(self, *args, **kwargs):
         super(MQTTConnectorBase, self).__init__(*args, **kwargs)
         self.client = None
+        self.background_task = set()
+        self.loop = None
+        self.stop = False
 
     @classmethod
     def config_entities(cls):
@@ -32,21 +36,46 @@ class MQTTConnectorBase(ListenConnectorBase, ABC):
     def parse_payload(self, topic, payload) -> dict:
         return payload
 
+    def finish_testing(self, result):
+        super(MQTTConnectorBase, self).finish_testing(result)
+        self.stop = True
+
     def on_message(self, client, userdata, msg):
-        for item in self.parse_payload(msg.topic, msg.payload):
-            self.postprocess_item(item, flush=False)
-        self.flush()
+        task = asyncio.run_coroutine_threadsafe(self.async_on_message(client, userdata, msg), self.loop)
+        self.background_task.add(task)
+        task.add_done_callback(self.background_task.discard)
+
+    async def async_on_message(self, client, userdata, msg):
+        publish = not self.testing_mode
+        res = await asyncio.gather(
+                *[self.postprocess_item(item, publish=publish, flush=False)
+                  for item in self.parse_payload(msg.topic, msg.payload)]
+            )
+        if publish:
+            await self.flush()
+        else:
+            return self.finish_testing(res)
 
     async def register_listener(self):
         if not self.client:
             self.client = mqtt.Client()
         self.client.on_connect = self.on_connect
         self.client.on_message = self.on_message
-        self.client.connect(
+        self.client.connect_async(
             self.config.host,
             self.config.port,
             self.config.keep_alive
         )
 
-    async def start(self):
-        self.client.loop_forever()
+    async def wait_forever(self):
+        self.loop = asyncio.get_event_loop()
+        self.stop = False
+        # run asyncio loop forever
+        self.client.loop_start()
+        while True:
+            await asyncio.sleep(1)
+            if self.stop:
+                break
+        self.client.loop_stop()
+
+
