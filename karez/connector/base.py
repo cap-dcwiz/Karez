@@ -92,6 +92,7 @@ class ListenConnectorBase(ConnectorBase, ABC):
         self.testing_result = None
 
     async def run(self):
+        await self.async_ensure_init()
         if not self.is_listening:
             await self.register_listener()
             self.is_listening = True
@@ -116,7 +117,6 @@ class ListenConnectorBase(ConnectorBase, ABC):
 
     def finish_testing(self, result):
         self.testing_result = result
-        self._testing_mode = False
 
     async def process(self, _):
         # For listen connectors, the process method for testing tool only.

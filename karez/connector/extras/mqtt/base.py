@@ -76,6 +76,7 @@ class MQTTConnectorBase(ListenConnectorBase, ABC):
         # run asyncio loop forever
         self.client.loop_start()
         while True:
+            await self.async_ensure_init()
             await asyncio.sleep(1)
             if self.stop:
                 break
