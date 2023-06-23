@@ -1,4 +1,4 @@
-#/********************************************************************************
+# /********************************************************************************
 # * Copyright (c) 2014, 2018 Cirrus Link Solutions and others
 # *
 # * This program and the accompanying materials are made available under the
@@ -18,6 +18,7 @@ from .array_packer import *
 seqNum = 0
 bdSeq = 0
 
+
 class DataSetDataType:
     Unknown = 0
     Int8 = 1
@@ -34,6 +35,7 @@ class DataSetDataType:
     String = 12
     DateTime = 13
     Text = 14
+
 
 class MetricDataType:
     Unknown = 0
@@ -57,22 +59,6 @@ class MetricDataType:
     File = 18
     Template = 19
 
-class ParameterDataType:
-    Unknown = 0
-    Int8 = 1
-    Int16 = 2
-    Int32 = 3
-    Int64 = 4
-    UInt8 = 5
-    UInt16 = 6
-    UInt32 = 7
-    UInt64 = 8
-    Float = 9
-    Double = 10
-    Boolean = 11
-    String = 12
-    DateTime = 13
-    Text = 14
 
 class ParameterDataType:
     Unknown = 0
@@ -90,6 +76,25 @@ class ParameterDataType:
     String = 12
     DateTime = 13
     Text = 14
+
+
+class ParameterDataType:
+    Unknown = 0
+    Int8 = 1
+    Int16 = 2
+    Int32 = 3
+    Int64 = 4
+    UInt8 = 5
+    UInt16 = 6
+    UInt32 = 7
+    UInt64 = 8
+    Float = 9
+    Double = 10
+    Boolean = 11
+    String = 12
+    DateTime = 13
+    Text = 14
+
 
 ######################################################################
 # Always request this before requesting the Node Birth Payload
@@ -98,6 +103,8 @@ def getNodeDeathPayload():
     payload = sparkplug_b_pb2.Payload()
     addMetric(payload, "bdSeq", None, MetricDataType.Int64, getBdSeqNum())
     return payload
+
+
 ######################################################################
 
 ######################################################################
@@ -111,6 +118,8 @@ def getNodeBirthPayload():
     payload.seq = getSeqNum()
     addMetric(payload, "bdSeq", None, MetricDataType.Int64, bdSeq - 1)
     return payload
+
+
 ######################################################################
 
 ######################################################################
@@ -121,6 +130,8 @@ def getDeviceBirthPayload():
     payload.timestamp = int(round(time.time() * 1000))
     payload.seq = getSeqNum()
     return payload
+
+
 ######################################################################
 
 ######################################################################
@@ -128,6 +139,8 @@ def getDeviceBirthPayload():
 ######################################################################
 def getDdataPayload():
     return getDeviceBirthPayload()
+
+
 ######################################################################
 
 ######################################################################
@@ -147,6 +160,8 @@ def initDatasetMetric(payload, name, alias, columns, types):
     metric.dataset_value.columns.extend(columns)
     metric.dataset_value.types.extend(types)
     return metric.dataset_value
+
+
 ######################################################################
 
 ######################################################################
@@ -169,13 +184,15 @@ def initTemplateMetric(payload, name, alias, templateRef):
         metric.template_value.is_definition = True
 
     return metric.template_value
+
+
 ######################################################################
 
 ######################################################################
 # Helper method for adding metrics to a container which can be a
 # payload or a template with a timestamp
 ######################################################################
-#def addMetric(container, name, alias, type, value):
+# def addMetric(container, name, alias, type, value):
 #    metric.timestamp = int(round(time.time() * 1000))
 #    return addMetric(container, name, alias, type, value, timestamp)
 
@@ -183,7 +200,9 @@ def initTemplateMetric(payload, name, alias, templateRef):
 # Helper method for adding metrics to a container which can be a
 # payload or a template
 ######################################################################
-def addMetric(container, name, alias, type, value, timestamp=int(round(time.time() * 1000))):
+def addMetric(
+    container, name, alias, type, value, timestamp=int(round(time.time() * 1000))
+):
     metric = container.metrics.add()
     if name is not None:
         metric.name = name
@@ -295,10 +314,12 @@ def addMetric(container, name, alias, type, value, timestamp=int(round(time.time
         metric.datatype = MetricDataType.DateTimeArray
         metric.bytes_value = convert_to_packed_datetime_array(value)
     else:
-        print( "Invalid: " + str(type))
+        print("Invalid: " + str(type))
 
     # Return the metric
     return metric
+
+
 ######################################################################
 
 ######################################################################
@@ -311,6 +332,8 @@ def addHistoricalMetric(container, name, alias, type, value):
 
     # Return the metric
     return metric
+
+
 ######################################################################
 
 ######################################################################
@@ -391,10 +414,12 @@ def addNullMetric(container, name, alias, type):
     elif type == MetricDataType.DateTimeArray:
         metric.datatype = MetricDataType.DateTimeArray
     else:
-        print( "Invalid: " + str(type))
+        print("Invalid: " + str(type))
 
     # Return the metric
     return metric
+
+
 ######################################################################
 
 ######################################################################
@@ -408,6 +433,8 @@ def getSeqNum():
     if seqNum == 256:
         seqNum = 0
     return retVal
+
+
 ######################################################################
 
 ######################################################################
@@ -421,4 +448,6 @@ def getBdSeqNum():
     if bdSeq == 256:
         bdSeq = 0
     return retVal
+
+
 ######################################################################

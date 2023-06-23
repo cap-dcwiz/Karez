@@ -11,6 +11,7 @@ class ConnectorBase(RoleBase, ABC):
     """
     Base class of connectors
     """
+
     TYPE = "connector"
 
     def __init__(self, *args, **kwargs):
@@ -22,9 +23,7 @@ class ConnectorBase(RoleBase, ABC):
         yield OptionalConfigEntity("converter", None, "First Converters to be used.")
 
     async def postprocess_item(self, item, publish=True, flush=False):
-        self.update_meta(
-            item, category=self.get_meta(item, "category", "telemetry")
-        )
+        self.update_meta(item, category=self.get_meta(item, "category", "telemetry"))
         if publish:
             if self.config.converter:
                 for converter in self.config.converter:
@@ -43,6 +42,7 @@ class PullConnectorBase(ConnectorBase):
     """
     Base class of connectors that pull data from external sources.
     """
+
     async def _subscribe_handler(self, msg):
         payload = json.loads(msg.data.decode("utf-8"))
         for item in await self.process(payload["tasks"]):
@@ -124,5 +124,3 @@ class ListenConnectorBase(ConnectorBase, ABC):
         self._testing_mode = True
         await self.run()
         return self.testing_result
-
-

@@ -19,6 +19,7 @@ class DispatcherBase(RoleBase):
     """
     Base class of dispatchers. A dispatcher is a role that dispatches tasks to connectors.
     """
+
     TYPE = "dispatcher"
 
     def __init__(self, *args, **kwargs):

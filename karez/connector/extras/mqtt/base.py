@@ -10,6 +10,7 @@ class MQTTConnectorBase(ListenConnectorBase, ABC):
     """
     Connector for listening from a MQTT broker.
     """
+
     def __init__(self, *args, **kwargs):
         super(MQTTConnectorBase, self).__init__(*args, **kwargs)
         self.client = None
@@ -41,16 +42,20 @@ class MQTTConnectorBase(ListenConnectorBase, ABC):
         self.stop = True
 
     def on_message(self, client, userdata, msg):
-        task = asyncio.run_coroutine_threadsafe(self.async_on_message(client, userdata, msg), self.loop)
+        task = asyncio.run_coroutine_threadsafe(
+            self.async_on_message(client, userdata, msg), self.loop
+        )
         self.background_task.add(task)
         task.add_done_callback(self.background_task.discard)
 
     async def async_on_message(self, client, userdata, msg):
         publish = not self.testing_mode
         res = await asyncio.gather(
-                *[self.postprocess_item(item, publish=publish, flush=False)
-                  for item in self.parse_payload(msg.topic, msg.payload)]
-            )
+            *[
+                self.postprocess_item(item, publish=publish, flush=False)
+                for item in self.parse_payload(msg.topic, msg.payload)
+            ]
+        )
         if publish:
             await self.flush()
         else:
@@ -62,9 +67,7 @@ class MQTTConnectorBase(ListenConnectorBase, ABC):
         self.client.on_connect = self.on_connect
         self.client.on_message = self.on_message
         self.client.connect_async(
-            self.config.host,
-            self.config.port,
-            self.config.keep_alive
+            self.config.host, self.config.port, self.config.keep_alive
         )
 
     async def wait_forever(self):
@@ -77,5 +80,3 @@ class MQTTConnectorBase(ListenConnectorBase, ABC):
             if self.stop:
                 break
         self.client.loop_stop()
-
-
