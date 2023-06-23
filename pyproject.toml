@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "karez"
-version = "0.6.0"
+version = "0.7.0"
 description = ""
 authors = ["Zhu Zhaomeng <zhaomeng.zhu@gmail.com>"]
 
@@ -17,6 +17,8 @@ colorama = "^0.4.6"
 httpx = "^0.24.1"
 dateutils = "^0.6.12"
 asyncua = "^1.0.2"
+protobuf = "^4.23.2"
+paho-mqtt = "^1.6.1"
 
 [tool.poetry.dev-dependencies]
 
