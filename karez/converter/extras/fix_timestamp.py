@@ -21,7 +21,8 @@ class Converter(ConverterBase):
         tz_infos = {k: gettz(v) for k, v in self.config.tz_infos.items()}
         timestamp = payload.get("timestamp", None)
         if timestamp:
-            timestamp = parse(timestamp, tzinfos=tz_infos).timestamp()
+            if isinstance(timestamp, str):
+                timestamp = parse(timestamp, tzinfos=tz_infos).timestamp()
         else:
             timestamp = time.time()
         payload["timestamp"] = timestamp

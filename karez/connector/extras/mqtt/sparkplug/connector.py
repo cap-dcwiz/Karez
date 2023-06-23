@@ -20,7 +20,7 @@ class SparkplugConnector(MQTTConnectorBase):
             else:
                 continue
             yield dict(
-                name=f"{topic.split('/')[-1]}-{metric.name}",
+                name=f"{topic.split('/')[-1]}-{metric.name.removeprefix('Status/')}",
                 value=getattr(metric, value_field),
                 timestamp=metric.timestamp,
             )
