@@ -42,9 +42,9 @@ def deploy_cmd(
     print(f"[bold][KAREZ][/bold] NATS address: {nats_addr}.")
 
     if config_files:
-        config = Dynaconf(settings_files=config_files)
+        config = Dynaconf(settings_files=config_files, envvar_prefix="KAREZ")
     else:
-        config = Dynaconf(includes=["./config/*"])
+        config = Dynaconf(includes=["./config/*"], envvar_prefix="KAREZ")
     event_loop = asyncio.new_event_loop()
     args = plugin_path, config, event_loop, nats_addr
 
