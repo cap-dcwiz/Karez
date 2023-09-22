@@ -1,3 +1,5 @@
+import logging
+
 import json
 from abc import ABC, abstractmethod
 
@@ -28,7 +30,10 @@ class AggregatorBase(RoleBase, ABC):
         payload = msg.data.decode("utf-8")
         if self.config.json:
             payload = json.loads(payload)
-        self.process(payload)
+        try:
+            self.process(payload)
+        except Exception as e:
+            logging.error(f"Error in {self.name}: {e}")
 
     @abstractmethod
     def process(self, payload):

@@ -61,32 +61,44 @@ class DispatcherBase(RoleBase):
     async def process(self, _) -> Iterable:
         return self.divide_tasks(await self.load_entities())
 
+    def _decide_wait_time(self, entity_list, is_first_time):
+        if entity_list:
+            sub_interval = self.config.interval / len(entity_list)
+        else:
+            sub_interval = NotImplemented
+        for i, entities in enumerate(entity_list):
+            mode = self.config.mode.lower()
+            if mode == DISPATCH_MODE_BURST:
+                wait_time = 0
+            elif mode == DISPATCH_MODE_RAND:
+                wait_time = uniform(0, self.config.interval)
+            elif mode == DISPATCH_MODE_EVEN:
+                wait_time = sub_interval * i
+            elif mode in (DISPATCH_MODE_EVEN_MIXED, DISPATCH_MODE_RAND_MIXED):
+                if is_first_time:
+                    wait_time = 0
+                elif mode == DISPATCH_MODE_EVEN_MIXED:
+                    wait_time = sub_interval * i
+                elif mode == DISPATCH_MODE_RAND_MIXED:
+                    wait_time = uniform(0, self.config.interval)
+                else:
+                    raise NotImplementedError
+            else:
+                raise NotImplementedError
+            yield wait_time, entities
+
     async def run(self):
         topic = self.connector_topic(self.target)
+
         _is_first_time = True
         while True:
             if await self.async_ensure_init():
-                entity_list = list(await self.process(None))
-                sub_interval = self.config.interval / len(entity_list)
-                for i, entities in enumerate(entity_list):
-                    mode = self.config.mode.lower()
-                    if mode == DISPATCH_MODE_BURST:
-                        wait_time = 0
-                    elif mode == DISPATCH_MODE_RAND:
-                        wait_time = uniform(0, self.config.interval)
-                    elif mode == DISPATCH_MODE_EVEN:
-                        wait_time = sub_interval * i
-                    elif mode in (DISPATCH_MODE_EVEN_MIXED, DISPATCH_MODE_RAND_MIXED):
-                        if _is_first_time:
-                            wait_time = 0
-                        elif mode == DISPATCH_MODE_EVEN_MIXED:
-                            wait_time = sub_interval * i
-                        elif mode == DISPATCH_MODE_RAND_MIXED:
-                            wait_time = uniform(0, self.config.interval)
-                        else:
-                            raise NotImplementedError
-                    else:
-                        raise NotImplementedError
+                try:
+                    entity_list = list(await self.process(None))
+                except Exception as e:
+                    logging.error(f"Error in {self.name}: {e}")
+                    entity_list = []
+                for wait_time, entities in self._decide_wait_time(entity_list, _is_first_time):
                     asyncio.create_task(
                         self.wait_and_publish(topic, entities, wait_time=wait_time)
                     )

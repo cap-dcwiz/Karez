@@ -1,3 +1,5 @@
+import logging
+
 import json
 from abc import abstractmethod
 from typing import Union
@@ -41,4 +43,8 @@ class ConverterBase(RoleBase):
         pass
 
     async def process(self, payload):
-        return self.convert(payload)
+        try:
+            return self.convert(payload)
+        except Exception as e:
+            logging.error(f"Error in {self.name}: {e}")
+            return []
