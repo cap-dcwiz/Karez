@@ -54,7 +54,7 @@ class PullConnectorBase(ConnectorBase):
             res = await self.fetch_data(client, entities)
             return [r for r in res if r is not None]
         except Exception as e:
-            logging.error(str(e))
+            logging.error(f"Error in {self.name}: {e}")
             return []
 
     @abstractmethod
