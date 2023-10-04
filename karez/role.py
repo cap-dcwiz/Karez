@@ -1,6 +1,6 @@
 import asyncio
 import json
-import logging
+from loguru import logger as logging
 from abc import abstractmethod
 from copy import copy
 
@@ -71,14 +71,14 @@ class RoleBase(ConfigurableBase):
         return f"karez.{category}.{self.name}"
 
     async def error_cb(self, e):
-        logging.error(f"{self.name}: {str(e)}!")
+        logging.error(f"{self.name}:NATS:Connection error: {e}")
 
     async def disconnected_cb(self):
-        logging.warning(f"{self.name}: Got disconnected!")
+        logging.warning(f"{self.name}:NATS:Got disconnected!")
         self.sub = None
 
     async def reconnected_cb(self):
-        logging.info(f"{self.name}: Got reconnected to {self.nc.connected_url.netloc}")
+        logging.info(f"{self.name}:NATS:Got reconnected to {self.nc.connected_url.netloc}")
 
     async def async_ensure_init(self):
         conn_options = dict(
@@ -94,7 +94,7 @@ class RoleBase(ConfigurableBase):
             elif not self.nc.is_connected:
                 await self.nc.connect(**conn_options)
         except Exception as e:
-            logging.error(str(e))
+            logging.error(f"{self.name}:NATS:Error in connecting to NATS: {e}")
         return self.nc and self.nc.is_connected
 
     async def _subscribe_handler(self, msg):

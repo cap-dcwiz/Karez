@@ -1,5 +1,7 @@
 import asyncio
-import logging
+import sys
+
+from loguru import logger
 from pathlib import Path
 
 import typer
@@ -34,12 +36,15 @@ def deploy_cmd(
     launch_converter: bool = typer.Option(False, "--converter", "-v"),
     launch_aggregator: bool = typer.Option(False, "--aggregator", "-g"),
 ):
-    logging.getLogger().setLevel(getattr(logging, logging_level))
+    # logging.getLogger().setLevel(getattr(logging, logging_level))
+    logger.add(f"logs/{logging_level.lower()}.log", level=logging_level.upper())
+    logger.add(sys.stdout, level=logging_level.upper(), colorize=True)
+    logger.info(f"Logging to stdout and file {logging_level.lower()}.log.")
 
-    print(
+    logger.info(
         f"[bold][KAREZ][/bold] Configurations: {[str(p) for p in config_files] if config_files else './config/*'}."
     )
-    print(f"[bold][KAREZ][/bold] NATS address: {nats_addr}.")
+    logger.info(f"[bold][KAREZ][/bold] NATS address: {nats_addr}.")
 
     if config_files:
         config = Dynaconf(settings_files=config_files, envvar_prefix="KAREZ")

@@ -1,4 +1,4 @@
-import logging
+from loguru import logger as logging
 from abc import ABC, abstractmethod
 from collections.abc import Iterable
 from numbers import Number

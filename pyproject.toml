@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "karez"
-version = "0.8.2"
+version = "0.9.0"
 description = ""
 authors = ["Zhu Zhaomeng <zhaomeng.zhu@gmail.com>"]
 
@@ -19,6 +19,7 @@ protobuf = "^4.23.2"
 paho-mqtt = "^1.6.1"
 rich = "^13.6.0"
 pandas = "^2.1.1"
+loguru = "^0.7.2"
 
 [tool.poetry.dev-dependencies]
 

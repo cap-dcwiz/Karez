@@ -1,5 +1,5 @@
 import asyncio
-import logging
+from loguru import logger as logging
 from abc import abstractmethod
 from collections.abc import Iterable
 from random import uniform

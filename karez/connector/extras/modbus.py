@@ -1,4 +1,4 @@
-import logging
+from loguru import logger as logging
 from contextlib import asynccontextmanager
 
 from pymodbus.constants import Endian
