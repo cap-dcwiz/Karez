@@ -96,7 +96,7 @@ class DispatcherBase(RoleBase):
                 try:
                     entity_list = list(await self.process(None))
                 except Exception as e:
-                    logging.error(f"Error in {self.name}: {e}")
+                    logging.exception(f"Error in {self.name}: {e}")
                     entity_list = []
                 for wait_time, entities in self._decide_wait_time(entity_list, _is_first_time):
                     asyncio.create_task(

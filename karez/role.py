@@ -71,7 +71,7 @@ class RoleBase(ConfigurableBase):
         return f"karez.{category}.{self.name}"
 
     async def error_cb(self, e):
-        logging.error(f"{self.name}:NATS:Connection error: {e}")
+        logging.exception(f"{self.name}:NATS:Connection error: {e}")
 
     async def disconnected_cb(self):
         logging.warning(f"{self.name}:NATS:Got disconnected!")
@@ -94,7 +94,7 @@ class RoleBase(ConfigurableBase):
             elif not self.nc.is_connected:
                 await self.nc.connect(**conn_options)
         except Exception as e:
-            logging.error(f"{self.name}:NATS:Error in connecting to NATS: {e}")
+            logging.exception(f"{self.name}:NATS:Error in connecting to NATS: {e}")
         return self.nc and self.nc.is_connected
 
     async def _subscribe_handler(self, msg):
@@ -119,7 +119,10 @@ class RoleBase(ConfigurableBase):
     async def run(self):
         while True:
             if not (self.nc and self.nc.is_connected and self.sub):
-                await self.subscribe()
+                try:
+                    await self.subscribe()
+                except Exception as e:
+                    logging.exception(f"{self.name}:NATS:Error in subscribing: {e}")
             await asyncio.sleep(CHECKING_STATUS_INTERVAL)
 
     @staticmethod

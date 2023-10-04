@@ -46,5 +46,5 @@ class ConverterBase(RoleBase):
         try:
             return self.convert(payload)
         except Exception as e:
-            logging.error(f"Error in {self.name}: {e}")
+            logging.exception(f"Error in {self.name}: {e}")
             return []

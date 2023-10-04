@@ -33,7 +33,7 @@ class AggregatorBase(RoleBase, ABC):
         try:
             self.process(payload)
         except Exception as e:
-            logging.error(f"Error in {self.name}: {e}")
+            logging.exception(f"Error in {self.name}: {e}")
 
     @abstractmethod
     def process(self, payload):
