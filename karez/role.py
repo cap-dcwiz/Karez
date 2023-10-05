@@ -34,6 +34,7 @@ class RoleBase(ConfigurableBase):
         self.nc_addr = nats_addr
         self.nc = None
         self.sub = None
+        self._log_name = f"{self.__class__.__name__}[{self.name}]"
 
     @classmethod
     def config_entities(cls) -> Generator[ConfigEntityBase, None, None]:
@@ -175,7 +176,7 @@ class RoleBase(ConfigurableBase):
 
     def log(self, level, msg, retry_idx=None, *args, **kwargs):
         """Log with the class name and the name of the role."""
-        where = f"{self.__class__.__name__}[{self.name}]"
+        where = self._log_name
         if retry_idx is not None:
             where += f"(retrying {retry_idx})"
         if level.lower() == "exception":

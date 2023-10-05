@@ -1,12 +1,8 @@
-from loguru import logger as logging
-
 import json
 from abc import abstractmethod
-from typing import Union
-from rich import print
 
 from karez.config import OptionalConfigEntity
-from karez.role import RoleBase, CHECKING_STATUS_INTERVAL
+from karez.role import RoleBase
 
 
 class ConverterBase(RoleBase):

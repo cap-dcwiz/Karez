@@ -6,7 +6,6 @@ from pathlib import Path
 
 import typer
 from dynaconf import Dynaconf
-from rich import print
 
 from .common import search_plugins
 
@@ -23,7 +22,7 @@ def launch_role(role, plugin_path, config, event_loop, nats_addr):
         ins = cls(role_config, nats_addr=nats_addr)
         event_loop.create_task(ins.run())
         count += 1
-    print(f"[bold][KAREZ][/bold] Launched {count} {role.capitalize()}s.")
+    logger.info(f"Launched {count} {role.capitalize()}s.")
 
 
 def deploy_cmd(
