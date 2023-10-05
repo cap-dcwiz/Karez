@@ -265,7 +265,7 @@ class RestfulRoleMixin(ConfigurableBase):
 
     @property
     def max_connections(self):
-        return self.config.self.max_connections
+        return self.config.max_connections
 
     @property
     def semaphore(self):
