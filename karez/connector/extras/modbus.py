@@ -150,6 +150,6 @@ class Connector(PullConnectorBase):
                     decode_func=self.DECODE_FUNC[data_type],
                 )
             except ConnectionException:
-                logging.error(f"Unable to connect to {host}:{port}")
+                self.log("error", f"Unable to connect to {host}:{port}")
             except ModbusIOException:
-                logging.error(f"Unable to read {name}")
+                self.log("error", f"Unable to read {name}")

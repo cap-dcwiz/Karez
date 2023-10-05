@@ -4,7 +4,7 @@ from loguru import logger as logging
 from abc import abstractmethod
 from copy import copy
 
-from httpx import Limits, AsyncClient
+from httpx import Limits, AsyncClient, codes as httpx_codes
 from typing import Generator
 
 import nats
@@ -71,14 +71,14 @@ class RoleBase(ConfigurableBase):
         return f"karez.{category}.{self.name}"
 
     async def error_cb(self, e):
-        logging.exception(f"{self.name}:NATS:Connection error: {e}")
+        self.log_exception(e, "NATS:Error in connection!")
 
     async def disconnected_cb(self):
-        logging.warning(f"{self.name}:NATS:Got disconnected!")
+        self.log("warning", "NATS:Got disconnected!")
         self.sub = None
 
     async def reconnected_cb(self):
-        logging.info(f"{self.name}:NATS:Got reconnected to {self.nc.connected_url.netloc}")
+        self.log("info", "NATS:Got reconnected to {self.nc.connected_url.netloc}!")
 
     async def async_ensure_init(self):
         conn_options = dict(
@@ -94,7 +94,7 @@ class RoleBase(ConfigurableBase):
             elif not self.nc.is_connected:
                 await self.nc.connect(**conn_options)
         except Exception as e:
-            logging.exception(f"{self.name}:NATS:Error in connecting to NATS: {e}")
+            self.log_exception(e, "NATS:Error in connecting to NATS!")
         return self.nc and self.nc.is_connected
 
     async def _subscribe_handler(self, msg):
@@ -122,7 +122,7 @@ class RoleBase(ConfigurableBase):
                 try:
                     await self.subscribe()
                 except Exception as e:
-                    logging.exception(f"{self.name}:NATS:Error in subscribing: {e}")
+                    self.log_exception(e, "NATS:Error in subscribing!")
             await asyncio.sleep(CHECKING_STATUS_INTERVAL)
 
     @staticmethod
@@ -173,8 +173,29 @@ class RoleBase(ConfigurableBase):
     async def flush(self):
         return await self.nc.flush()
 
+    def log(self, level, msg, retry_idx=None, *args, **kwargs):
+        """Log with the class name and the name of the role."""
+        where = f"{self.__class__.__name__}[{self.name}]"
+        if retry_idx is not None:
+            where += f"(retrying {retry_idx})"
+        if level.lower() == "exception":
+            logging.exception(f"{where}:{msg}", *args, **kwargs)
+        else:
+            logging.log(level.upper(), f"{where}:{msg}", *args, **kwargs)
+
+    def log_exception(self, e, msg=None):
+        """Log an exception with the class name and the name of the role."""
+        if msg:
+            self.log("exception", f"{msg}:{type(e)}")
+        else:
+            self.log("exception", type(e))
+
 
 class RestfulRoleMixin(ConfigurableBase):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self._semaphore = None
+
     @classmethod
     def config_entities(cls):
         yield from super(RestfulRoleMixin, cls).config_entities()
@@ -184,6 +205,15 @@ class RestfulRoleMixin(ConfigurableBase):
             "connection_args",
             {},
             "Additional connection args to passed to httpx.AsyncClient.",
+        )
+        yield OptionalConfigEntity(
+            "retry", 3, "Number of retries when fetching data from the server."
+        )
+        yield OptionalConfigEntity(
+            "max_keepalive_connections", 10, "Max keepalive connections."
+        )
+        yield OptionalConfigEntity(
+            "max_connections", 100, "Max connections."
         )
 
     def create_client(self):
@@ -197,7 +227,47 @@ class RestfulRoleMixin(ConfigurableBase):
         client = AsyncClient(
             base_url=self.config.base_url,
             auth=auth,
-            limits=Limits(max_keepalive_connections=10, max_connections=20),
+            limits=Limits(
+                max_keepalive_connections=self.config.max_keepalive_connections,
+                max_connections=self.config.max_connections,
+            ),
             **self.config.connection_args,
         )
         return client
+
+    async def try_request(self, client: AsyncClient, url: str):
+        for i in range(self.config.retry):
+            if i == self.config.retry - 1:
+                is_last_attempt = True
+            else:
+                is_last_attempt = False
+            try:
+                r = await client.get(url)
+            except Exception as e:
+                self.log(
+                    "exception" if is_last_attempt else "warning",
+                    f"Getting {url}: {type(e).__name__} {e.args}",
+                    retry_idx=i,
+                )
+                continue
+            if r.status_code == httpx_codes.OK:
+                self.log("debug", f"Getting {r.url}: {r.status_code}", retry_idx=i)
+                return r.json()
+            else:
+                self.log(
+                    "error" if is_last_attempt else "warning",
+                    f"Getting {r.url}: {r.status_code}",
+                    retry_idx=i,
+                )
+            await asyncio.sleep(1)
+        return None
+
+    @property
+    def max_connections(self):
+        return self.config.self.max_connections
+
+    @property
+    def semaphore(self):
+        if not self._semaphore:
+            self._semaphore = asyncio.Semaphore(self.max_connections)
+        return self._semaphore

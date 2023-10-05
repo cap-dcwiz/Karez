@@ -2,7 +2,6 @@ import asyncio
 import sys
 
 from loguru import logger
-import logging
 from pathlib import Path
 
 import typer
@@ -38,12 +37,8 @@ def deploy_cmd(
     launch_converter: bool = typer.Option(False, "--converter", "-v"),
     launch_aggregator: bool = typer.Option(False, "--aggregator", "-g"),
 ):
-    logging_level = logging_level.upper()
-
-    # Set logging level for other libraries
-    logging.getLogger().setLevel(getattr(logging, logging_level))
-
     # Set logging level for loguru
+    logging_level = logging_level.upper()
     common_opts = dict(
         level=logging_level,
         backtrace=logging_level == "DEBUG",

@@ -2,7 +2,7 @@ import asyncio
 from loguru import logger as logging
 from abc import abstractmethod
 from collections.abc import Iterable
-from random import uniform
+from random import uniform, shuffle
 from typing import Generator
 
 from karez.config import ConfigEntity, OptionalConfigEntity
@@ -40,8 +40,11 @@ class DispatcherBase(RoleBase):
             "1) burst: all at once"
             "2) rand: randomised time inside the interval"
             "3) even: evenly distributed inside the interval"
-            "4) rand_mixes: first round burst, then rand"
+            "4) rand_mixed: first round burst, then rand"
             "5) even_mixed: first round burst, then even",
+        )
+        yield OptionalConfigEntity(
+            "shuffle", False, "Shuffle the list of batches before dispatching?"
         )
 
     def divide_tasks(self, entities: list) -> Generator[dict, None, None]:
@@ -95,8 +98,10 @@ class DispatcherBase(RoleBase):
             if await self.async_ensure_init():
                 try:
                     entity_list = list(await self.process(None))
+                    if self.config.shuffle:
+                        shuffle(entity_list)
                 except Exception as e:
-                    logging.exception(f"Error in {self.name}: {e}")
+                    self.log_exception(e)
                     entity_list = []
                 for wait_time, entities in self._decide_wait_time(entity_list, _is_first_time):
                     asyncio.create_task(
@@ -108,4 +113,4 @@ class DispatcherBase(RoleBase):
     async def wait_and_publish(self, topic, content, wait_time=0.0):
         await asyncio.sleep(wait_time)
         await self.publish(topic, content)
-        logging.info(f"{len(content)} tasks published: {str(content)[:36]}...")
+        self.log("info", f"{len(content)} tasks published: {str(content)[:36]}...")
