@@ -45,7 +45,7 @@ class PullConnectorBase(ConnectorBase):
 
     async def _subscribe_handler(self, msg):
         payload = msg.data.decode("utf-8")
-        self.log("debug", f"Received message: {payload[:36]}")
+        self.log("trace", f"Received message: {payload[:36]}")
         payload = json.loads(payload)
         for item in await self.process(payload["tasks"]):
             await self.postprocess_item(item, publish=True, flush=False)

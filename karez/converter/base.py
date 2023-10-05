@@ -19,7 +19,7 @@ class ConverterBase(RoleBase):
 
     async def _subscribe_handler(self, msg):
         payload = msg.data.decode("utf-8")
-        self.log("debug", f"Received message: {payload[:36]}")
+        self.log("trace", f"Received message: {payload[:36]}")
         data = json.loads(payload)
         result = list(await self.process(data))
         next_converters = self.config.next
