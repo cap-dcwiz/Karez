@@ -242,7 +242,8 @@ class RestfulRoleMixin(ConfigurableBase):
             else:
                 is_last_attempt = False
             try:
-                r = await client.get(url)
+                async with self.semaphore:
+                    r = await client.get(url)
             except Exception as e:
                 self.log(
                     "exception" if is_last_attempt else "warning",

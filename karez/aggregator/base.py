@@ -28,6 +28,7 @@ class AggregatorBase(RoleBase, ABC):
 
     async def _subscribe_handler(self, msg):
         payload = msg.data.decode("utf-8")
+        self.log("debug", f"Received message: {payload[:36]}")
         if self.config.json:
             payload = json.loads(payload)
         try:

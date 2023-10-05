@@ -18,7 +18,9 @@ class ConverterBase(RoleBase):
         yield OptionalConfigEntity("next", None, "Next Converters to be used.")
 
     async def _subscribe_handler(self, msg):
-        data = json.loads(msg.data.decode("utf-8"))
+        payload = msg.data.decode("utf-8")
+        self.log("debug", f"Received message: {payload[:36]}")
+        data = json.loads(payload)
         result = list(await self.process(data))
         next_converters = self.config.next
         if next_converters:
