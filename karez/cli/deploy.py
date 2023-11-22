@@ -1,4 +1,7 @@
 import asyncio
+from socket import gethostname
+import re
+
 import sys
 
 from loguru import logger
@@ -35,6 +38,13 @@ def deploy_cmd(
     launch_connector: bool = typer.Option(False, "--connector", "-n"),
     launch_converter: bool = typer.Option(False, "--converter", "-v"),
     launch_aggregator: bool = typer.Option(False, "--aggregator", "-g"),
+    loadbalance_mode: bool = typer.Option(
+        False,
+        "--loadbalance",
+        "-b",
+        help="Run in load balance mode. This only works when used with k8s StatefulSet. "
+             "In this mode, each deploy pod with use <config-files>/<pod-index>.yaml as configuration file.",
+    ),
 ):
     # Set logging level for loguru
     logging_level = logging_level.upper()
@@ -57,6 +67,15 @@ def deploy_cmd(
     logger.info(f"NATS address: {nats_addr}.")
 
     if config_files:
+        if loadbalance_mode:
+            logger.info("Running in load balance mode.")
+            hostname = gethostname()
+            match = re.search(r'-([0-9]+)$', hostname)
+            if match:
+                index = int(match.group(1))
+                config_files = [p / f"{index}.yaml" for p in config_files]
+            else:
+                raise RuntimeError(f"Cannot find pod index from hostname: {hostname}")
         config = Dynaconf(settings_files=config_files, envvar_prefix="KAREZ")
     else:
         config = Dynaconf(includes=["./config/*"], envvar_prefix="KAREZ")
