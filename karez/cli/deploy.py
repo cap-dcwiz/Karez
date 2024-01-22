@@ -1,6 +1,7 @@
 import asyncio
 from socket import gethostname
 import re
+from time import sleep
 
 import sys
 
@@ -90,16 +91,16 @@ def deploy_cmd(
         launch_converter = True
         launch_aggregator = True
 
-    if launch_converter:
-        launch_role("converter", *args)
-
-    if launch_connector:
-        launch_role("connector", *args)
-
-    if launch_dispatcher:
-        launch_role("dispatcher", *args)
-
-    if launch_aggregator:
-        launch_role("aggregator", *args)
+    for role, flag in [
+        ("aggregator", launch_aggregator),
+        ("converter", launch_converter),
+        ("connector", launch_connector),
+        ("dispatcher", launch_dispatcher),
+    ]:
+        if flag:
+            logger.info(f"Launching {role.capitalize()}...")
+            launch_role(role, *args)
+            # Sleep 5 seconds for the previous role to finish initialization
+            sleep(5)
 
     event_loop.run_forever()
