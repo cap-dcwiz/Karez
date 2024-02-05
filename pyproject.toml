@@ -1,14 +1,13 @@
 [tool.poetry]
 name = "karez"
-version = "0.10.3"
+version = "0.10.4"
 description = ""
 authors = ["Zhu Zhaomeng <zhaomeng.zhu@gmail.com>"]
 
 [tool.poetry.dependencies]
-python = ">=3.10,<3.12"
+python = ">=3.10,<3.13"
 nats-py = "^2.0.0"
 dynaconf = "^3.1.7"
-pymodbus = "^2.5.3"
 influxdb-client = "^1.33.0"
 typer = "^0.9.0"
 colorama = "^0.4.6"
@@ -19,7 +18,8 @@ paho-mqtt = "^1.6.1"
 rich = "^13.6.0"
 pandas = "^2.1.1"
 loguru = "^0.7.2"
-httpx = "^0.25.2"
+pymodbus = "^3.6.4"
+httpx = "^0.26.0"
 
 [tool.poetry.dev-dependencies]
 
