@@ -12,6 +12,7 @@ class PluginType(str, Enum):
     dispatcher = "dispatcher"
     connector = "connector"
     converter = "converter"
+    aggregator = "aggregator"
 
 
 def search_role_for_help(role: str, role_name, plugin_path) -> RoleBase:

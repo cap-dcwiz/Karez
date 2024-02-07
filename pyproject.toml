@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "karez"
-version = "0.10.4"
+version = "0.10.5"
 description = ""
 authors = ["Zhu Zhaomeng <zhaomeng.zhu@gmail.com>"]
 
@@ -18,8 +18,8 @@ paho-mqtt = "^1.6.1"
 rich = "^13.6.0"
 pandas = "^2.1.1"
 loguru = "^0.7.2"
-pymodbus = "^3.6.4"
 httpx = "^0.26.0"
+pymodbus = "<3"
 
 [tool.poetry.dev-dependencies]
 
