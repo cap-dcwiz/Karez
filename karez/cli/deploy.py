@@ -44,7 +44,7 @@ def deploy_cmd(
         "--loadbalance",
         "-b",
         help="Run in load balance mode. This only works when used with k8s StatefulSet. "
-             "In this mode, each deploy pod with use <config-files>/<pod-index>.yaml as configuration file.",
+        "In this mode, each deploy pod with use <config-files>/<pod-index>.yaml as configuration file.",
     ),
 ):
     # Set logging level for loguru
@@ -71,7 +71,7 @@ def deploy_cmd(
         if loadbalance_mode:
             logger.info("Running in load balance mode.")
             hostname = gethostname()
-            match = re.search(r'-([0-9]+)$', hostname)
+            match = re.search(r"-([0-9]+)$", hostname)
             if match:
                 index = int(match.group(1))
                 config_files = [p / f"{index}.yaml" for p in config_files]

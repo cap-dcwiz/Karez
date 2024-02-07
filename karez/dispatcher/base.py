@@ -36,11 +36,11 @@ class DispatcherBase(RoleBase):
             "mode",
             DISPATCH_MODE_BURST,
             "Task dispatching mode. "
-            "1) burst: all at once"
-            "2) rand: randomised time inside the interval"
-            "3) even: evenly distributed inside the interval"
-            "4) rand_mixed: first round burst, then rand"
-            "5) even_mixed: first round burst, then even",
+            "1) burst: all at once. "
+            "2) rand: randomised time inside the interval. "
+            "3) even: evenly distributed inside the interval. "
+            "4) rand_mixed: first round burst, then rand. "
+            "5) even_mixed: first round burst, then even. ",
         )
         yield OptionalConfigEntity(
             "shuffle", False, "Shuffle the list of batches before dispatching?"
@@ -102,7 +102,9 @@ class DispatcherBase(RoleBase):
                 except Exception as e:
                     self.log_exception(e)
                     entity_list = []
-                for wait_time, entities in self._decide_wait_time(entity_list, _is_first_time):
+                for wait_time, entities in self._decide_wait_time(
+                    entity_list, _is_first_time
+                ):
                     asyncio.create_task(
                         self.wait_and_publish(topic, entities, wait_time=wait_time)
                     )

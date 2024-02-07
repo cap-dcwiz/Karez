@@ -213,9 +213,7 @@ class RestfulRoleMixin(ConfigurableBase):
         yield OptionalConfigEntity(
             "max_keepalive_connections", 10, "Max keepalive connections."
         )
-        yield OptionalConfigEntity(
-            "max_connections", 100, "Max connections."
-        )
+        yield OptionalConfigEntity("max_connections", 100, "Max connections.")
 
     def create_client(self):
         security_conf = self.config.security

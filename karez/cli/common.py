@@ -1,7 +1,15 @@
 from copy import copy
+from enum import Enum
 from pathlib import Path
 from pkgutil import iter_modules
 from karez.plugins import BUILTIN_PLUGINS
+
+
+class PluginType(str, Enum):
+    dispatcher = "dispatcher"
+    connector = "connector"
+    converter = "converter"
+    aggregator = "aggregator"
 
 
 def search_plugins(plugin_path, name):

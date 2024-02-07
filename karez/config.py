@@ -3,6 +3,7 @@ from abc import ABC, abstractmethod
 from collections.abc import Iterable
 from numbers import Number
 from typing import Union, TypeAlias
+from rich import print
 
 from dynaconf import Dynaconf
 

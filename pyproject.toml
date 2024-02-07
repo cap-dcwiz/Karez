@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "karez"
-version = "0.10.5"
+version = "0.11.0"
 description = ""
 authors = ["Zhu Zhaomeng <zhaomeng.zhu@gmail.com>"]
 
