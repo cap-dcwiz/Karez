@@ -37,17 +37,19 @@ async def _async_collect(roles, payload, verbose):
         for r2 in await connector_process(r1["tasks"]):
             if verbose and connector_process is not noop_n:
                 typer.echo(f"Connector result received (result: {str(r2)[:32]}...).")
-            r3 = r2
-            for role in roles:
-                r3 = await role.process(r3)
-                if r3 is None:
-                    break
-                if verbose:
-                    typer.echo(
-                        f"Applied converter: {role.name} (result: {str(r3)[:32]}...)."
-                    )
-            if r3 is not None:
-                res.append(r3)
+            res.append(r2)
+
+            # r3 = r2
+            # for role in roles:
+            #     r3 = await role.process(r3)
+            #     if r3 is None:
+            #         break
+            #     if verbose:
+            #         typer.echo(
+            #             f"Applied converter: {role.name} (result: {str(r3)[:32]}...)."
+            #         )
+            # if r3 is not None:
+            #     res.append(r3)
     return res
 
 
@@ -92,19 +94,19 @@ def collect_cmd(
         sys.exit(1)
 
     roles = [dispatcher, connector]
-    conv_lib = search_plugins(plugin_path, "converter")
-    for converter_name in connector.config.converter or []:
-        for sub_config in config.converters:
-            if sub_config.get("name", sub_config.type) == converter_name:
-                if sub_config.type in conv_lib:
-                    converter = conv_lib[sub_config.type](sub_config, nats_addr=None)
-                    roles.append(converter)
-                    break
-                else:
-                    typer.secho(
-                        f"Cannot find Converter type {sub_config.type}.", err=True
-                    )
-                    sys.exit(1)
+    # conv_lib = search_plugins(plugin_path, "converter")
+    # for converter_name in connector.config.converter or []:
+    #     for sub_config in config.converters:
+    #         if sub_config.get("name", sub_config.type) == converter_name:
+    #             if sub_config.type in conv_lib:
+    #                 converter = conv_lib[sub_config.type](sub_config, nats_addr=None)
+    #                 roles.append(converter)
+    #                 break
+    #             else:
+    #                 typer.secho(
+    #                     f"Cannot find Converter type {sub_config.type}.", err=True
+    #                 )
+    #                 sys.exit(1)
 
     if input_json:
         with open(input_json, "r") as f:

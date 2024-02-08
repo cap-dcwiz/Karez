@@ -31,9 +31,9 @@ def search_plugins(plugin_path, name):
 
 
 def config_logger(
-        level: str,
-        folder: Optional[Path] = None,
-        rotation: str = "90 day",
+    level: str,
+    folder: Optional[Path] = None,
+    rotation: str = "90 day",
 ):
     logging_level = level.upper()
     common_opts = dict(
@@ -49,7 +49,6 @@ def config_logger(
         logger.add(
             str(folder / f"{logging_level.lower()}.log"),
             rotation=rotation,
-            **common_opts
-
+            **common_opts,
         )
     return logger
