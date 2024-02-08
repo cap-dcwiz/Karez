@@ -3,18 +3,15 @@ from socket import gethostname
 import re
 from time import sleep
 
-import sys
-
-from loguru import logger
 from pathlib import Path
 
 import typer
 from dynaconf import Dynaconf
 
-from .common import search_plugins
+from .common import search_plugins, config_logger
 
 
-def launch_role(role, plugin_path, config, event_loop, nats_addr):
+def launch_role(role, plugin_path, config, event_loop, nats_addr, logger):
     role_lib = search_plugins(plugin_path, role)
     count = 0
     for role_config in config.get(f"{role}s", []):
@@ -48,17 +45,10 @@ def deploy_cmd(
     ),
 ):
     # Set logging level for loguru
-    logging_level = logging_level.upper()
-    common_opts = dict(
+    logger = config_logger(
         level=logging_level,
-        backtrace=logging_level == "DEBUG",
-        diagnose=logging_level == "DEBUG",
-        enqueue=True,
-    )
-    logger.remove()
-    logger.add(sys.stderr, colorize=True, **common_opts)
-    logger.add(
-        f"logs/{logging_level.lower()}.log", rotation=logging_rotation, **common_opts
+        folder=Path("logs"),
+        rotation=logging_rotation,
     )
     logger.info(f"Logging to stderr and file {logging_level.lower()}.log.")
 
@@ -81,7 +71,7 @@ def deploy_cmd(
     else:
         config = Dynaconf(includes=["./config/*"], envvar_prefix="KAREZ")
     event_loop = asyncio.new_event_loop()
-    args = plugin_path, config, event_loop, nats_addr
+    args = plugin_path, config, event_loop, nats_addr, logger
 
     if not (
         launch_dispatcher or launch_connector or launch_converter or launch_aggregator

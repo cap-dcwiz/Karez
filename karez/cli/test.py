@@ -9,7 +9,7 @@ import typer
 from dynaconf import Dynaconf
 
 from karez.dispatcher import DispatcherBase
-from .common import search_plugins
+from .common import search_plugins, config_logger
 
 
 def get_test_roles(role, plugin_path, config, role_names):
@@ -48,8 +48,10 @@ def test_cmd(
     converter: str = typer.Option("", "--converter", "-v"),
     input_json: Union[str, None] = typer.Option(None, "--input", "-i"),
     output_json: Union[str, None] = typer.Option(None, "--output", "-o"),
+    logging_level: str = typer.Option("WARNING", "--logging-level", "-l"),
     verbose: bool = False,
 ):
+    config_logger(level=logging_level)
     if config_files:
         config = Dynaconf(settings_files=config_files)
     else:

@@ -1,7 +1,12 @@
+import sys
 from copy import copy
 from enum import Enum
 from pathlib import Path
 from pkgutil import iter_modules
+from typing import Optional
+
+from loguru import logger
+
 from karez.plugins import BUILTIN_PLUGINS
 
 
@@ -23,3 +28,28 @@ def search_plugins(plugin_path, name):
             library[module_name] = item
 
     return library
+
+
+def config_logger(
+        level: str,
+        folder: Optional[Path] = None,
+        rotation: str = "90 day",
+):
+    logging_level = level.upper()
+    common_opts = dict(
+        level=logging_level,
+        backtrace=logging_level == "DEBUG",
+        diagnose=logging_level == "DEBUG",
+        enqueue=True,
+    )
+    logger.remove()
+    logger.add(sys.stderr, colorize=True, **common_opts)
+    if folder:
+        folder.mkdir(parents=True, exist_ok=True)
+        logger.add(
+            str(folder / f"{logging_level.lower()}.log"),
+            rotation=rotation,
+            **common_opts
+
+        )
+    return logger

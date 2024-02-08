@@ -10,7 +10,7 @@ from dynaconf import Dynaconf
 
 from karez.connector import ConnectorBase
 from karez.dispatcher import DispatcherBase
-from .common import search_plugins
+from .common import search_plugins, config_logger
 
 
 async def _async_collect(roles, payload, verbose):
@@ -56,8 +56,11 @@ def collect_cmd(
     plugin_path: Path = typer.Option("plugins", "--plugin-directory", "-p"),
     input_json: Union[str, None] = typer.Option(None, "--input", "-i"),
     output_json: Union[str, None] = typer.Option(None, "--output", "-o"),
+    logging_level: str = typer.Option("WARNING", "--logging-level", "-l"),
     verbose: bool = False,
 ):
+    config_logger(level=logging_level)
+
     if config_files:
         config = Dynaconf(settings_files=config_files)
     else:
