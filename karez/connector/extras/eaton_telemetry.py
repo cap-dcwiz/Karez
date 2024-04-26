@@ -20,12 +20,15 @@ class Connector(RestfulConnectorBase):
             dev_info = extract_dict(item, id="dev_id", name="dev_name")
             for child in item["children"]:
                 if child["value"] is not None:
-                    yield extract_dict(
-                        child,
-                        "ma_id",
-                        "ma_name",
-                        "unit",
-                        "value",
-                        "value_type",
-                        last_time="timestamp",
-                    ) | dev_info
+                    yield (
+                        extract_dict(
+                            child,
+                            "ma_id",
+                            "ma_name",
+                            "unit",
+                            "value",
+                            "value_type",
+                            last_time="timestamp",
+                        )
+                        | dev_info
+                    )

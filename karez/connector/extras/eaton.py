@@ -34,15 +34,18 @@ class Connector(RestfulConnectorBase):
                 ):
                     child["value"] = float(child["value"])
                     if self.config.output_format == "full":
-                        yield extract_dict(
-                            child,
-                            "ma_id",
-                            "ma_name",
-                            "unit",
-                            "value",
-                            "value_type",
-                            last_time="timestamp",
-                        ) | dev_info
+                        yield (
+                            extract_dict(
+                                child,
+                                "ma_id",
+                                "ma_name",
+                                "unit",
+                                "value",
+                                "value_type",
+                                last_time="timestamp",
+                            )
+                            | dev_info
+                        )
                     elif self.config.output_format == "simple":
                         yield dict(
                             name=f'{dev_info["dev_id"]}---{child["ma_id"]}',

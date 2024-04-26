@@ -107,6 +107,7 @@ def getNodeDeathPayload():
 
 ######################################################################
 
+
 ######################################################################
 # Always request this after requesting the Node Death Payload
 ######################################################################
@@ -122,6 +123,7 @@ def getNodeBirthPayload():
 
 ######################################################################
 
+
 ######################################################################
 # Get the DBIRTH payload
 ######################################################################
@@ -134,6 +136,7 @@ def getDeviceBirthPayload():
 
 ######################################################################
 
+
 ######################################################################
 # Get a DDATA payload
 ######################################################################
@@ -142,6 +145,7 @@ def getDdataPayload():
 
 
 ######################################################################
+
 
 ######################################################################
 # Helper method for adding dataset metrics to a payload
@@ -163,6 +167,7 @@ def initDatasetMetric(payload, name, alias, columns, types):
 
 
 ######################################################################
+
 
 ######################################################################
 # Helper method for adding dataset metrics to a payload
@@ -195,6 +200,7 @@ def initTemplateMetric(payload, name, alias, templateRef):
 # def addMetric(container, name, alias, type, value):
 #    metric.timestamp = int(round(time.time() * 1000))
 #    return addMetric(container, name, alias, type, value, timestamp)
+
 
 ######################################################################
 # Helper method for adding metrics to a container which can be a
@@ -322,6 +328,7 @@ def addMetric(
 
 ######################################################################
 
+
 ######################################################################
 # Helper method for adding metrics to a container which can be a
 # payload or a template
@@ -335,6 +342,7 @@ def addHistoricalMetric(container, name, alias, type, value):
 
 
 ######################################################################
+
 
 ######################################################################
 # Helper method for adding metrics to a container which can be a
@@ -422,6 +430,7 @@ def addNullMetric(container, name, alias, type):
 
 ######################################################################
 
+
 ######################################################################
 # Helper method for getting the next sequence number
 ######################################################################
@@ -436,6 +445,7 @@ def getSeqNum():
 
 
 ######################################################################
+
 
 ######################################################################
 # Helper method for getting the next birth/death sequence number
