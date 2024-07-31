@@ -140,7 +140,7 @@ class Connector(PullConnectorBase):
                     name=name,
                     host=host,
                     port=port,
-                    address=int(entity["Offset"]),
+                    address=int(entity["Offset"], 0),
                     count=self.TYPE_SIZE[data_type],
                     unit=int(entity.get("Unit", self.config.unit)),
                     byte_order=self._endian_order(byte_order),
