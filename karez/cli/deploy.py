@@ -5,13 +5,17 @@ from time import sleep
 
 from pathlib import Path
 
+import signal
 import typer
 from dynaconf import Dynaconf
 
 from .common import search_plugins, config_logger
 
+async def delayed_run(ins, delay):
+    await asyncio.sleep(delay)
+    await ins.run()
 
-def launch_role(role, plugin_path, config, event_loop, nats_addr, logger):
+def launch_role(role, plugin_path, config, event_loop, nats_addr, logger, delay=5):
     role_lib = search_plugins(plugin_path, role)
     count = 0
     for role_config in config.get(f"{role}s", []):
@@ -21,7 +25,8 @@ def launch_role(role, plugin_path, config, event_loop, nats_addr, logger):
                 f"Cannot find {role.capitalize()} plugin: {role_config.type}"
             )
         ins = cls(role_config, nats_addr=nats_addr)
-        event_loop.create_task(ins.run())
+
+        event_loop.create_task(delayed_run(ins, delay))
         count += 1
     logger.info(f"Launched {count} {role.capitalize()}s.")
 
@@ -80,7 +85,7 @@ def deploy_cmd(
         launch_connector = True
         launch_converter = True
         launch_aggregator = True
-
+    delay = 0
     for role, flag in [
         ("aggregator", launch_aggregator),
         ("converter", launch_converter),
@@ -89,8 +94,18 @@ def deploy_cmd(
     ]:
         if flag:
             logger.info(f"Launching {role.capitalize()}...")
-            launch_role(role, *args)
-            # Sleep 5 seconds for the previous role to finish initialization
-            sleep(5)
+            launch_role(role, *args, delay=delay)
+            delay += 3
 
-    event_loop.run_forever()
+    def stop_loop(loop):
+        print("Stopping loop.")
+        loop.stop()
+
+    try:
+        event_loop.add_signal_handler(signal.SIGINT, stop_loop, event_loop)
+        event_loop.add_signal_handler(signal.SIGTERM, stop_loop, event_loop)
+        event_loop.run_forever()
+    except KeyboardInterrupt:
+        print("Stopping loop.")
+    finally:
+        event_loop.close()

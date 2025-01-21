@@ -138,3 +138,4 @@ sample/deploy/data/
 dependency-check-report.html
 reports/dependency-check-report.html
 requirements.txt
+local-development
