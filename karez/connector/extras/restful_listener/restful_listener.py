@@ -27,7 +27,7 @@ class RestfulListenerConnector(ListenConnectorBase, ABC):
     def config_entities(cls):
         yield from super(RestfulListenerConnector, cls).config_entities()
         yield ConfigEntity("host", "Host of the fastapi.")
-        yield OptionalConfigEntity("port", 1883, "Port of the MQTT broker.")
+        yield OptionalConfigEntity("port", 8000, "Port of the fastapi.")
         # reference
         yield ConfigEntity("reference", "Reference file path")
         yield ConfigEntity("tz_infos", "time zone infos")
@@ -54,7 +54,7 @@ class RestfulListenerConnector(ListenConnectorBase, ABC):
         loop.stop()
 
     async def register_listener(self):
-        config = Config(app=self.app, host="127.0.0.1", port=8000, log_level="info")
+        config = Config(app=self.app, host=self.config.host, port=self.config.port, log_level="info")
         self.server = Server(config)
 
     async def wait_forever(self):
