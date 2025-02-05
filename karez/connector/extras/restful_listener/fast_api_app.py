@@ -92,12 +92,10 @@ class FastAPIApp:
 
         @self.app.middleware("http")
         async def log_requests(request: Request, call_next):
-            print("hello")
-            logger.info(f"Request: {request.method} {request.url}")
+            body = await request.body()
+            logger.info(f"Request: {request.method} {request.url} Body: {body.decode('utf-8')}")
             response = await call_next(request)
             logger.info(f"Response status: {response.status_code}")
-            print(request.method)
-            print(response.status_code)
             return response
 
         @self.app.post("/token")
