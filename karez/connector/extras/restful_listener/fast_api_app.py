@@ -2,11 +2,12 @@ from datetime import timedelta
 from typing import Annotated, List
 
 import jwt
-from fastapi import Depends, FastAPI, HTTPException, status
+from fastapi import Depends, FastAPI, HTTPException, status, Request
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from jwt.exceptions import InvalidTokenError
 from dateutil.parser import parse
 from dateutil.tz import gettz
+from loguru import logger
 
 from .models import Token, TokenData, User, Point
 from .utils import get_user, authenticate_user, create_access_token
@@ -54,6 +55,7 @@ class FastAPIApp:
         secret_key = self.config.secret_key
         algorithm = self.config.algorithm
         fake_users_db = self.get_fake_users_db()
+        logger.add("restful_listener.log", rotation="200 MB")
 
     @property
     def uuids(self):
@@ -87,6 +89,17 @@ class FastAPIApp:
 
 
     def setup_routes(self):
+
+        @self.app.middleware("http")
+        async def log_requests(request: Request, call_next):
+            print("hello")
+            logger.info(f"Request: {request.method} {request.url}")
+            response = await call_next(request)
+            logger.info(f"Response status: {response.status_code}")
+            print(request.method)
+            print(response.status_code)
+            return response
+
         @self.app.post("/token")
         async def login_for_access_token(
             form_data: Annotated[OAuth2PasswordRequestForm, Depends()],
